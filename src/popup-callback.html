@@ -1,0 +1,121 @@
+<!-- <div id="callback-modal" aria-hidden="true" class="popup">
+  <div class="popup__wrapper">
+    <div class="popup__content">
+      <button data-close type="button" class="popup__close"></button>
+      <div class="popup__text">Заполните форму</div>
+    </div>
+  </div>
+</div> -->
+
+
+<div id="callback-modal" aria-hidden="true" class="popup">
+  <div class="popup__wrapper">
+    <div class="popup__content">
+      <button data-close type="button" class="popup__close" style='--icon:url("../img/icons/14.png")'></button>
+      <form action="./response/popup-response.html" data-ajax data-popup-message="#success-modal" method="GET"
+        class="popup__form form form--two ">
+        <h1 class="form__title _title">Записаться на прием</h1>
+        <div class="form__inner">
+          <fieldset class="form__fieldset">
+            <div class="form__items form__items--one">
+              <div class="form__item">
+                <div class="form__item-label">Кого запишем?</div>
+                <div class="form__item-checkboxs">
+                  <div class="form__item-checkbox checkbox">
+                    <input id="c_1" data-error="Ошибка" class="checkbox__input" type="radio" value="1" name="form[]"
+                      data-validate>
+                    <label for="c_1" class="checkbox__label"><span class="checkbox__text">Ребенок</span></label>
+                  </div>
+                  <div class="form__item-checkbox checkbox">
+                    <input id="c_2" data-error="Ошибка" class="checkbox__input" checked type="radio" value="1"
+                      name="form[]" data-validate>
+                    <label for="c_2" class="checkbox__label"><span class="checkbox__text">Взрослый</span></label>
+                  </div>
+                </div>
+              </div>
+              <div class="form__item">
+                <div class="form__item-label">Выберите направление:</div>
+                <div class="form__item-inner">
+                  <div class="form__item-select">
+                    <select name="form[]" class="form">
+                      <option value="1" selected>Онкологическая помощь</option>
+                      <option value="2">Амбулаторная помощь</option>
+                      <option value="3">Диагностика</option>
+                      <option value="4">Хирургия</option>
+                      <option value="5">Взрослый стационар</option>
+                      <option value="6">Детский стационар</option>
+                      <option value="7">Реабилитация</option>
+                      <option value="8">Скорая помощь</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form__items">
+              <div class="form__item">
+                <div class="form__item-label">Фамилия*</div>
+                <div class="form__item-input">
+                  <input autocomplete="off" type="text" name="form[]" data-error="Поле обязательное для заполнения!"
+                    placeholder="" class="input" data-validate data-required>
+                </div>
+              </div>
+              <div class="form__item">
+                <div class="form__item-label">Имя*</div>
+                <div class="form__item-input">
+                  <input autocomplete="off" type="text" name="form[]" data-error="Поле обязательное для заполнения!"
+                    placeholder="" class="input" data-validate data-required>
+                </div>
+              </div>
+              <div class="form__item">
+                <div class="form__item-label">Отчество</div>
+                <div class="form__item-input">
+                  <input autocomplete="off" type="text" name="form[]" data-error="Поле обязательное для заполнения!"
+                    placeholder="" class="input" data-validate>
+                </div>
+              </div>
+
+            </div>
+          </fieldset>
+          <fieldset class="form__fieldset">
+            <div class="form__items">
+              <div class="form__item">
+                <div class="form__item-label">Телефон*</div>
+                <div class="form__item-input">
+                  <input autocomplete="off" type="tel" name="form[]" data-error="Поле обязательное для заполнения!"
+                    placeholder="" class="input" data-validate data-required="tel" data-errortwo="неправильный формат!">
+                </div>
+              </div>
+              <div class="form__item">
+                <div class="form__item-label">E-mail</div>
+                <div class="form__item-input">
+                  <input autocomplete="off" type="text" name="form[]" data-error="Поле обязательное для заполнения!"
+                    placeholder="" class="input" data-validate data-email="email" data-errortwo="неправильный формат!">
+                </div>
+              </div>
+              <div class="form__item">
+                <div class="form__item-label">Комментарий</div>
+                <div class="form__item-textarea">
+                  <textarea class="input" data-validate></textarea>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="form__constructor">
+              <div class="form__constructor-inner">
+                <div class="form__constructor-checkbox checkbox">
+                  <input id="c_4" class="checkbox__input" type="checkbox" value="1" name="form[]" data-validate
+                    data-required>
+                  <label for="c_4" class="checkbox__label"><span class="checkbox__text">Согласен(на) с <a
+                        href="javascript:void(0);">Политикой
+                        обработки персональных данных</a> </span></label>
+                </div>
+                <button type="submit" class=" form__constructor-btn">Записаться</button>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,251 @@
+//========================================================================================================================================================
+.contacts {
+  padding-bottom: rem(153);
+
+  @media (max-width: $tablet) {
+    padding-bottom: rem(84);
+  }
+
+  @media (max-width: $mobile) {
+    padding-bottom: rem(129);
+  }
+  // .contacts__container
+
+  &__container {
+  }
+
+  // .contacts__title
+
+  &__title {
+    margin-bottom: rem(105);
+
+    @media (max-width: $tablet) {
+      margin-bottom: rem(48);
+    }
+
+    @media (max-width: $mobile) {
+      margin-bottom: rem(20);
+    }
+  }
+
+  // .contacts__row
+
+  &__row {
+    max-width: rem(1237);
+
+    display: flex;
+    flex-direction: column;
+    gap: rem(45);
+
+    @media (max-width: $mobile) {
+      gap: rem(28);
+    }
+  }
+
+  // .contacts__column
+
+  &__column {
+    padding-left: rem(55);
+
+    position: relative;
+
+    @media (max-width: $mobile) {
+      padding-left: rem(25);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: rem(11);
+      left: rem(8);
+
+      --size: 20px;
+
+      width: var(--size);
+      height: var(--size);
+      flex: 0 0 var(--size);
+
+      border-radius: 50%;
+      background: cl(ble);
+
+      @media (max-width: $mobile) {
+        --size: 13px;
+        top: rem(4);
+        left: rem(0);
+      }
+    }
+  }
+
+  // .contacts__column-subtitle
+
+  &__column-subtitle {
+    font-size: rem(35);
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    color: cl(gry);
+    margin-bottom: rem(22);
+
+    @media (max-width: $mobile) {
+      font-size: rem(16);
+    }
+  }
+
+  // .contacts__column-info
+
+  &__column-info {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+
+    @media (max-width: $mobile) {
+      gap: rem(21);
+    }
+  }
+
+  // .contacts__column-item
+
+  &__column-item {
+    padding-left: rem(30);
+
+    position: relative;
+
+    @media (max-width: $mobile) {
+      padding-left: rem(28);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      mask: var(--icon) center center/contain no-repeat;
+      -webkit-mask: var(--icon) center center/contain no-repeat;
+      background: cl(ble);
+      --size: 20px;
+
+      width: var(--size);
+      height: var(--size);
+    }
+  }
+
+  // .contacts__column-title
+
+  &__column-title {
+    line-height: normal;
+    margin-bottom: rem(8);
+
+    @media (max-width: $mobile) {
+      font-size: rem(12);
+      margin-bottom: rem(13);
+    }
+  }
+
+  // .contacts__column-content
+
+  &__column-content {
+    font-size: rem(16);
+    font-weight: 600;
+    line-height: normal;
+
+    @media (max-width: $mobile) {
+      font-size: rem(14);
+    }
+  }
+
+  // .contacts__column-social
+
+  &__column-social {
+    display: flex;
+    align-items: center;
+    gap: rem(12);
+    font-size: rem(16);
+    font-weight: 600;
+    line-height: normal;
+    &::before {
+      content: "";
+      mask: var(--icon) center center/contain no-repeat;
+      -webkit-mask: var(--icon) center center/contain no-repeat;
+      background: cl(ble);
+
+      width: rem(18);
+      height: rem(10);
+    }
+  }
+
+  // .contacts__column-address
+
+  &__column-address {
+    font-size: rem(16);
+    font-weight: 600;
+    line-height: normal;
+
+    @media (max-width: $mobile) {
+      font-size: rem(14);
+    }
+  }
+
+  // .contacts__column-link
+
+  &__column-link {
+    font-size: rem(16);
+    font-weight: 600;
+    line-height: normal;
+
+    transition: all $time $tr 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: cl(ble);
+      }
+    }
+
+    @media (max-width: $mobile) {
+      font-size: rem(14);
+    }
+  }
+
+  // .contacts__column-time
+
+  &__column-time {
+    font-size: rem(16);
+    font-weight: 600;
+    line-height: normal;
+
+    @media (max-width: $mobile) {
+      font-size: rem(14);
+    }
+  }
+
+  // .contacts__column-user
+
+  &__column-user {
+    font-size: rem(16);
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: underline;
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    @media (max-width: $mobile) {
+      font-size: rem(14);
+    }
+  }
+
+  // .contacts__column-map
+
+  &__column-map {
+    @media (max-width: $mobile) {
+      // padding-top: rem(76);
+      padding-top: rem(0);
+      margin-left: rem(-25);
+    }
+  }
+}
+
+//========================================================================================================================================================

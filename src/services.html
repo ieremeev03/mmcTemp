@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ru">
+@@include('html/_head.htm',{ "title":"HomePage" })
+
+<body>
+  <div class="preloaded" style='--icon:url("../img/header/01.png")'>
+  </div>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="page">
+
+      <section class="catalog">
+        <div class='catalog__container'>
+          <div class="catalog__inner">
+            <nav class="catalog__nav">
+              <div class="catalog__items">
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title js-catalog"
+                    style='--icon:url("../img/icons/12.png")'>О клинике</a>
+                  <ul class="catalog__list">
+                    <li><a href="javascript:void(0);" class="catalog__link">Информация</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Документы</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Руководство</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">ГК “ММЦ”</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Вакансии</a></li>
+                  </ul>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title js-catalog"
+                    style='--icon:url("../img/icons/12.png")'>Направления</a>
+                  <ul class="catalog__list">
+                    <li><a href="javascript:void(0);" class="catalog__link">Информация</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Документы</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Руководство</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">ГК “ММЦ”</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Вакансии</a></li>
+                  </ul>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title">Услуги</a>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title">Специалисты</a>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title">Новости</a>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title">Акции</a>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title">Отзывы</a>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title js-catalog"
+                    style='--icon:url("../img/icons/12.png")'>Пациентам</a>
+                  <ul class="catalog__list">
+                    <li><a href="javascript:void(0);" class="catalog__link">Информация</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Документы</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Руководство</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">ГК “ММЦ”</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Вакансии</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+            <div class="catalog__info">
+              <button type="button" class="catalog__info-search js-search"
+                style='--icon:url("../img/icons/13.png")'></button>
+              <a href="javascript:void(0);" class="catalog__info-link" style='--icon:url("../img/icons/15.png")'></a>
+              <div class="catalog__info-languages" data-da=".catalog__inner, 1420, last">
+                <a href="javascript:void(0);" class="catalog__info-languag _active">Ru</a>
+                <a href="javascript:void(0);" class="catalog__info-languag">En</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="search search-catalog">
+        <div class="search-catalog__container">
+          <div class="search-catalog__inner">
+            <div class="search-catalog__title">ПОИСК ПО САЙТУ</div>
+            <form action="#" class="search-catalog__form form">
+              <div class="form__items">
+                <div class="form__item">
+                  <div class="form__item-input">
+                    <input autocomplete="off" type="text" name="form[]" data-error="Ошибка"
+                      placeholder="Введите поисковый запрос..." class="input">
+                    <button type="button" class="form__item-icon" style='--icon:url("../img/icons/13.png")'></button>
+                  </div>
+                </div>
+                <div class="form__item">
+                  <button type="submit" class="form__item-btn">Найти<span
+                      style='--icon:url("../img/icons/13.png")'></span></button>
+                </div>
+              </div>
+              <button type="reset" class="form__close" style='--icon:url("../img/icons/14.png")'></button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <div class="breadcrumb">
+        <ul class="breadcrumb__list breadcrumb__container">
+          <li class="breadcrumb__item">
+            <span><a href="javascript:void(0);"><span>
+                  Главная
+                </span></a></span>
+          </li>
+          <li class="breadcrumb__item breadcrumb__item-link">
+            <span>
+              <span>Услуги клиники</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <section class="direction direction--services animate-block">
+        <div class='direction__container'>
+          <div class="direction__top fade-up" data-watch data-watch-once>
+            <h1 class="direction__title _title ">Услуги</h1>
+            <form action="#" class="direction__form form">
+              <div class="form__items">
+                <div class="form__item">
+                  <div class="form__item-input">
+                    <input autocomplete="off" type="text" name="form[]" data-error="Ошибка"
+                      placeholder="Поиск среди услуг" class="input">
+                    <button type="button" class="form__item-icon" style='--icon:url("../img/icons/13.png")'></button>
+                  </div>
+                </div>
+                <div class="form__item">
+                  <button type="submit" class="form__item-btn">Найти<span
+                      style='--icon:url("../img/icons/13.png")'></span></button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="direction__items fade-up" data-watch data-watch-once>
+            <a href="javascript:void(0);" class="direction__item  ">Все услуги</a>
+            <a href="javascript:void(0);" class="direction__item _active">Взрослые</a>
+            <a href="javascript:void(0);" class="direction__item ">Детские</a>
+            <a href="javascript:void(0);" class="direction__item ">Полисы ОМС</a>
+            <a href="javascript:void(0);" class="direction__item ">Полисы ДМС</a>
+            <a href="javascript:void(0);" class="direction__item ">Акции</a>
+          </div>
+          <ul class="direction__sort fade-up" data-watch data-watch-once>
+            <li><a href="javascript:void(0);" class="direction__sort-link">А</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Б</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">В</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Г</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Д</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Е</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Ж</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">З</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">И</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link _active">К</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Л</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">М</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Н</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">О</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">П</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Р</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">С</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Т</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">У</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Ф</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Х</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Ц</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Ч</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Ш</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Щ</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Э</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Ю</a></li>
+            <li><a href="javascript:void(0);" class="direction__sort-link">Я</a></li>
+          </ul>
+          <div class="direction__consultation consultation-direction fade-up" data-watch data-watch-once>
+            <div class="consultation-direction__content">
+              <div class="consultation-direction__items">
+                <div class="consultation-direction__item">
+                  <div class="consultation-direction__banner" style='--icon:url("../img/icons/03.svg")'>АКЦИЯ</div>
+                  <div class="consultation-direction__inner">
+                    <div class="consultation-direction__title">Консультация гастроэнтэролога</div>
+                    <div class="consultation-direction__text">
+                      Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить
+                      макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла,
+                      лишь
+                      показать наличие самого текста или продемонстрировать типографику в деле.
+                    </div>
+                    <div class="consultation-direction__bottom">
+                      <del class="consultation-direction__price consultation-direction__price--old">14 870₽</del>
+                      <div class="consultation-direction__price">5 890₽</div>
+                      <a href="javascript:void(0);" class="consultation-direction__link">Записаться</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="consultation-direction__item">
+                  <div class="consultation-direction__inner">
+                    <div class="consultation-direction__title">Консультация стоматолога или другой сууууууупер длинный
+                      заголовок <br>
+                      в две <br>
+                      или даже три строки</div>
+                    <div class="consultation-direction__text">
+                      Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить
+                      макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла,
+                      лишь
+                      показать наличие самого текста или продемонстрировать типографику в деле.
+                    </div>
+                    <div class="consultation-direction__bottom">
+                      <div class="consultation-direction__price">890₽</div>
+                      <a href="javascript:void(0);" class="consultation-direction__link">Записаться</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="consultation-direction__item">
+                  <div class="consultation-direction__banner" style='--icon:url("../img/icons/03.svg")'>АКЦИЯ</div>
+                  <div class="consultation-direction__inner">
+                    <div class="consultation-direction__title">Консультация гастроэнтэролога</div>
+                    <div class="consultation-direction__bottom">
+                      <del class="consultation-direction__price consultation-direction__price--old">4 870₽</del>
+                      <div class="consultation-direction__price">3 890₽</div>
+                      <a href="javascript:void(0);" class="consultation-direction__link">Записаться</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="consultation-direction__item">
+                  <div class="consultation-direction__inner">
+                    <div class="consultation-direction__title">Консультация профессора <br>
+                      гастроэнтэролога</div>
+                    <div class="consultation-direction__bottom">
+                      <div class="consultation-direction__price">Бесплатно</div>
+                      <a href="javascript:void(0);" class="consultation-direction__link">Записаться</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a href="javascript:void(0);" class="consultation-direction__showmore fade-up" data-watch
+                data-watch-once>Показать
+                еще</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="record animate-block">
+        <div class='record__container'>
+          <div class="record__inner">
+            <div class="record__content">
+              <h2 class="record__title _title fade-up" data-watch data-watch-once>Записаться на прием</h2>
+              <form action="#" class="record__form form fade-up" data-watch data-watch-once>
+                <div class="form__items">
+                  <div class="form__item">
+                    <div class="form__item-label">Кого запишем?</div>
+                    <div class="form__item-checkboxs">
+                      <div class="form__item-checkbox checkbox">
+                        <input id="c_1" data-error="Ошибка" class="checkbox__input" type="radio" value="1" name="form[]"
+                          data-validate>
+                        <label for="c_1" class="checkbox__label"><span class="checkbox__text">Ребенок</span></label>
+                      </div>
+                      <div class="form__item-checkbox checkbox">
+                        <input id="c_2" data-error="Ошибка" class="checkbox__input" checked type="radio" value="1"
+                          name="form[]" data-validate>
+                        <label for="c_2" class="checkbox__label"><span class="checkbox__text">Взрослый</span></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__item">
+                    <div class="form__item-label">Выберите направление:</div>
+                    <div class="form__item-inner">
+                      <div class="form__item-select">
+                        <select name="form[]" class="form">
+                          <option value="1" selected>Онкологическая помощь</option>
+                          <option value="2">Амбулаторная помощь</option>
+                          <option value="3">Диагностика</option>
+                          <option value="4">Хирургия</option>
+                          <option value="5">Взрослый стационар</option>
+                          <option value="6">Детский стационар</option>
+                          <option value="7">Реабилитация</option>
+                          <option value="8">Скорая помощь</option>
+                        </select>
+                      </div>
+                      <button type="button" class="form__item-btn">Записаться</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="record__img fade-up" data-watch data-watch-once>
+              <img data-src="./img/record/01.png" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    @@include('html/_popup.htm',{}) @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+//========================================================================================================================================================
+.mistake {
+  // .mistake__container
+
+  &__container {
+  }
+
+  // .mistake__content
+
+  &__content {
+    @media (max-width: rem(930)) {
+      text-align: center;
+    }
+  }
+
+  // .mistake__inner
+
+  &__inner {
+    position: relative;
+    min-height: rem(1273);
+    padding: rem(453) rem(145) rem(100);
+
+    @media (max-width: rem(1500)) {
+      padding: rem(453) rem(0) rem(100);
+    }
+
+    @media (max-width: $tablet) {
+      min-height: rem(1193);
+      padding: rem(162) rem(0) rem(100);
+    }
+
+    @media (max-width: rem(930)) {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: flex-end;
+      align-items: center;
+      gap: rem(33);
+
+      padding: rem(87) rem(0) rem(100);
+      min-height: rem(720);
+    }
+  }
+
+  // .mistake__title
+
+  &__title {
+    font-size: rem(35);
+    font-weight: 300;
+    line-height: normal;
+    margin-bottom: rem(43);
+
+    @media (max-width: $mobileSmall) {
+      font-size: rem(16);
+      margin-bottom: rem(13);
+    }
+  }
+
+  // .mistake__link
+
+  &__link {
+    font-size: rem(25);
+    font-weight: 700;
+    line-height: normal;
+    padding: rem(27) rem(26) rem(28);
+    background: cl(ble);
+    color: cl(whte);
+    max-width: max-content;
+
+    transition: all $time $tr 0s;
+
+    @media (max-width: $mobileSmall) {
+      font-size: rem(14);
+      padding: rem(16) rem(15) rem(17);
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        background: cl(primary);
+      }
+    }
+  }
+
+  // .mistake__img
+
+  &__img {
+    // bottom: rem(155);
+    // right: rem(131);
+
+    bottom: rem(350);
+    right: rem(131);
+    @media (min-width: em(930)) {
+      position: absolute;
+      z-index: -1;
+    }
+
+    @media (max-width: rem(1300)) {
+      right: rem(-50);
+      bottom: rem(150);
+    }
+
+    @media (max-width: $tablet) {
+      bottom: rem(83);
+      right: rem(84);
+    }
+
+    img,
+    picture {
+      width: rem(870);
+      // height: rem(943);
+      height: rem(643);
+
+      // object-fit: cover;
+      object-fit: contain;
+
+      @media (max-width: rem(1300)) {
+        width: rem(765);
+        height: rem(829);
+        object-fit: cover;
+      }
+
+      @media (max-width: rem(930)) {
+        max-width: 100%;
+        max-height: 100%;
+
+        height: rem(391);
+        width: rem(361);
+      }
+    }
+  }
+}
+
+//========================================================================================================================================================

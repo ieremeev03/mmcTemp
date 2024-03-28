@@ -1,0 +1,26 @@
+// ===============
+// colors palette
+// ===============
+
+$colors: (
+  "whte": #fff,
+  "blck": #000,
+  "primary": #15396b,
+  "ble": #2ad4fc,
+  "rd": #f00,
+  "gry": #4c4c4c,
+  "grn": #04993c,
+);
+
+//========================================================================================================================================================
+
+:root {
+  @if $colors {
+    @each $key, $value in $colors {
+      --color-#{$key}: #{$value};
+      --color-#{$key}--rgb: #{hextorgb($value)};
+    }
+  }
+
+  --font-primary: #{$fontFamily};
+}

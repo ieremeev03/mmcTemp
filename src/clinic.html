@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="ru">
+@@include('html/_head.htm',{ "title":"HomePage" })
+
+<body>
+  <div class="preloaded" style='--icon:url("../img/header/01.png")'>
+  </div>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="page">
+
+      <section class="catalog">
+        <div class='catalog__container'>
+          <div class="catalog__inner">
+            <nav class="catalog__nav">
+              <div class="catalog__items">
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title js-catalog"
+                    style='--icon:url("../img/icons/12.png")'>О клинике</a>
+                  <ul class="catalog__list">
+                    <li><a href="javascript:void(0);" class="catalog__link">Информация</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Документы</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Руководство</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">ГК “ММЦ”</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Вакансии</a></li>
+                  </ul>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title js-catalog"
+                    style='--icon:url("../img/icons/12.png")'>Направления</a>
+                  <ul class="catalog__list">
+                    <li><a href="javascript:void(0);" class="catalog__link">Информация</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Документы</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Руководство</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">ГК “ММЦ”</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Вакансии</a></li>
+                  </ul>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title">Услуги</a>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title">Специалисты</a>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title">Новости</a>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title">Акции</a>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title">Отзывы</a>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title js-catalog"
+                    style='--icon:url("../img/icons/12.png")'>Пациентам</a>
+                  <ul class="catalog__list">
+                    <li><a href="javascript:void(0);" class="catalog__link">Информация</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Документы</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Руководство</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">ГК “ММЦ”</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Вакансии</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+            <div class="catalog__info">
+              <button type="button" class="catalog__info-search js-search"
+                style='--icon:url("../img/icons/13.png")'></button>
+              <a href="javascript:void(0);" class="catalog__info-link" style='--icon:url("../img/icons/15.png")'></a>
+              <div class="catalog__info-languages" data-da=".catalog__inner, 1420, last">
+                <a href="javascript:void(0);" class="catalog__info-languag _active">Ru</a>
+                <a href="javascript:void(0);" class="catalog__info-languag">En</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="search search-catalog">
+        <div class="search-catalog__container">
+          <div class="search-catalog__inner">
+            <div class="search-catalog__title">ПОИСК ПО САЙТУ</div>
+            <form action="#" class="search-catalog__form form">
+              <div class="form__items">
+                <div class="form__item">
+                  <div class="form__item-input">
+                    <input autocomplete="off" type="text" name="form[]" data-error="Ошибка"
+                      placeholder="Введите поисковый запрос..." class="input">
+                    <button type="button" class="form__item-icon" style='--icon:url("../img/icons/13.png")'></button>
+                  </div>
+                </div>
+                <div class="form__item">
+                  <button type="submit" class="form__item-btn">Найти<span
+                      style='--icon:url("../img/icons/13.png")'></span></button>
+                </div>
+              </div>
+              <button type="reset" class="form__close" style='--icon:url("../img/icons/14.png")'></button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="clinic animate-block">
+        <div class='clinic__container'>
+          <div class="clinic__inner">
+            <div class="clinic__content fade-up" data-watch data-watch-once>
+              <h1 class="clinic__title ">«Мой Медицинский Центр» <br>
+                в Геленджике</h1>
+            </div>
+            <div class="clinic__img">
+              <img data-src="./img/clinic/01.png" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <div class="breadcrumb breadcrumb--two">
+        <ul class="breadcrumb__list breadcrumb__container">
+          <li class="breadcrumb__item">
+            <span><a href="javascript:void(0);"><span>
+                  Главная
+                </span></a></span>
+          </li>
+          <li class="breadcrumb__item breadcrumb__item-link">
+            <span>
+              <span>О клинике </span>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <section class="action action--three animate-block">
+        <div class='action__container'>
+          <div class="action__inner">
+            <div class="action__content fade-up" data-watch data-watch-once>
+
+              <h2>«Мой медицинский центр» в Геленджике
+                (ранее — ММЦ «СОГАЗ»)</h2>
+
+
+              <p>
+                <b>
+                  2 февраля 2018 г. в Геленджике открылся медицинский центр ООО «РН-Современные <br> технологии»,
+                  входящий в
+                  Группу компаний «Мой медицинский центр» (ранее — <br> Группа клиник «СОГАЗ МЕДИЦИНА»).
+                </b>
+              </p>
+
+              <ul>
+                <li>
+                  Высококвалифицированный медицинский персонал, в том числе <br> привлекаемые из «ММЦ» на Малой
+                  Конюшенной
+                  улице в Санкт- <br> Петербурге профессора и доктора медицинских наук
+                </li>
+                <li>
+                  Современное лицензированное медицинское оборудование <br> экспертного уровня
+                </li>
+                <li>
+                  Цифровые и телемедицинские технологии
+                </li>
+                <li>
+                  Высокий сервис обслуживания, который обеспечивает комфорт посетителей <br> центра
+                </li>
+                <li>
+                  Широкий спектр оказываемых услуг
+                </li>
+                <li>
+                  Соблюдение мировых стандартов в области медицины
+                </li>
+                <li>
+                  Уважение и доброжелательное отношение к каждому посетителю, которое <br> поддерживается взаимным
+                  доверием
+                  между сотрудниками и пациентами
+                </li>
+                <li>
+                  Ответственность и выполнение своих обязательств перед пациентами
+                </li>
+                <li>
+                  Обеспечение конфиденциальности информации о предоставляемом <br> медицинском обслуживании
+                </li>
+              </ul>
+
+
+
+              <img data-src="./img/action/14.png" alt="">
+              <div class="action__recording">
+                <p>
+                  Проект реализован совместно с ПАО <br> «НК «Роснефть» в рамках программы <br> развития инфраструктуры
+                  курорта <br>
+                  Геленджик.
+                </p>
+              </div>
+
+              <h2>
+                Клиника оказывает широкий спектр <br>
+                медицинских услуг по следующим <br>
+                направлениям:
+              </h2>
+
+
+              <ul>
+                <li>
+                  Диагностика организма ( <a href="javascript:void(0);">лабораторные исследования</a> , <a
+                    href="javascript:void(0);">лучевая
+                    диагностика</a> , <a href="javascript:void(0);">функциональная диагностика</a> , <a
+                    href="javascript:void(0);">эндоскопия</a>
+                  ), в том числе <a href="javascript:void(0);">комплексные программы обследования чекап</a>
+                </li>
+                <li>
+                  Плановые и экстренные <a href="javascript:void(0);">хирургические вмешательства</a> с приоритетом
+                  применения современных
+                  малотравматичных и малоинвазивных методов лечения, а также методик <a
+                    href="javascript:void(0);">рентгенэндоваскулярной хирургии</a>
+                </li>
+                <li>
+                  Анестезиология, реанимация, интенсивная терапия
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Терапия</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">
+                    Педиатрия
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Нейрохирургия</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Эндокринология</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Лечение ожирения</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Лечение боли</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Кардиология</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Неврология</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Гастроэнтерология</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">
+                    Оториноларингология
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Офтальмология</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Урология</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Амбулаторная онкологическая помощь</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">
+                    Стоматология
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Лечение бесплодия</a>
+                  и
+                  <a href="javascript:void(0);">планирование беременности</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Физиотерапия</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Флебология</a>
+                </li>
+              </ul>
+
+
+              <img data-src="./img/action/15.png" alt="">
+              <h2>
+                Миссия и ценности
+              </h2>
+
+
+              <p>
+                <b>
+                  Нашими главными принципами работы являются индивидуальный подход, безопасность пациентов и
+                  эффективность лечения. Мы заботимся о Вашем здоровье, создавая комфортные условия пребывания и
+                  используя самые современные достижения медицины, для того, чтобы Вы были здоровы и ничего не мешало
+                  Вам наслаждаться жизнью.
+                </b>
+              </p>
+
+
+              <h2>
+                Страховые медицинские организации, <br>
+                с которыми заключены договоры <br>
+                на оказание и оплату медицинской <br>
+                помощи по обязательному медицинскому <br>
+                страхованию:
+              </h2>
+
+
+              <ul>
+                <li>АО «Страховая компания «СОГАЗ-Мед» Краснодарский филиал</li>
+                <li>Краснодарский филиал ООО «АльфаСтрахование-ОМС»</li>
+                <li>Филиал ООО «Капитал-МС» в Краснодарском крае</li>
+                <li>ТФОМС Краснодарского края</li>
+              </ul>
+
+              <img data-src="./img/action/16.png" alt="">
+
+              <h2>
+                Юридическая информация
+              </h2>
+
+
+              <p><b>
+                  Дата государственной регистрации: 14.09.2017, учредитель ООО «РН-Актив» ИНН <br> 7706584449, ОГРН
+                  1057747399533
+                </b></p>
+
+              <p><b>
+                  Органами управления Общества являются Общее собрание участников <br>
+                  и единоличный исполнительный орган – генеральный директор.
+                </b></p>
+              <p><b>
+                  Единственным участником Общества (сокращенно ЕУО) является ООО «РН-Актив».
+                </b></p>
+              <p><b>
+                  В соответствии с Решением ЕУО от 21.03.2021г. полномочия генерального директора <br> (единоличного
+                  исполнительного органа) переданы управляющей организации ООО <br> «ММЦ Юг» на срок до 31.12.2023г.
+                  Генеральный
+                  директор ООО «ММЦ Юг» - Гераськина <br> Наталия Борисовна.
+                </b></p>
+
+
+              <img data-src="./img/action/17.png" alt="">
+
+            </div>
+            <div class="action__info fade-up" data-watch data-watch-once>
+              <div class="action__gallery">
+                <div class="action__info-img">
+                  <img data-src="./img/action/14.png" alt="">
+                </div>
+                <div class="action__info-img">
+                  <img data-src="./img/action/15.png" alt="">
+                </div>
+                <div class="action__info-img">
+                  <img data-src="./img/action/16.png" alt="">
+                </div>
+                <div class="action__info-img">
+                  <img data-src="./img/action/17.png" alt="">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <section class="direction direction--specialist direction--clinic animate-block">
+        <div class='direction__container'>
+          <h2 class="direction__title _title ">Руководство</h2>
+          <div class="direction__row">
+            <a href="javascript:void(0);" class="direction__column fade-up" data-watch data-watch-once>
+              <div class="direction__column-img">
+                <img data-src="./img/direction/27.png" alt="">
+              </div>
+              <div class="direction__column-content">
+                <h3 class="direction__column-title">Гераськина <br>
+                  Наталия <br>
+                  Борисовна</h3>
+                <div class="direction__column-link">Генеральный директор ООО «ММЦ- <br> ЮГ»— управляющей организации ООО
+                  «РН-Современные технологии»</div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="direction__column fade-up" data-watch data-watch-once>
+              <div class="direction__column-img">
+                <img data-src="./img/direction/28.png" alt="">
+              </div>
+              <div class="direction__column-content">
+                <h3 class="direction__column-title">Москалёва <br>
+                  Марина <br>
+                  Александровна</h3>
+                <div class="direction__column-link">Заместитель главного врача по клинико-экспертной работе</div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="direction__column fade-up" data-watch data-watch-once>
+              <div class="direction__column-img">
+                <img data-src="./img/direction/29.png" alt="">
+              </div>
+              <div class="direction__column-content">
+                <h3 class="direction__column-title">Токаренко <br>
+                  Евгений <br>
+                  Владимирович</h3>
+                <div class="direction__column-link">Главный врач <br>
+                  Врач-хирург, онколог <br>
+                  Руководитель Центра лечения <br> ожирения</div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="direction__column fade-up" data-watch data-watch-once>
+              <div class="direction__column-img">
+                <img data-src="./img/direction/30.png" alt="">
+              </div>
+              <div class="direction__column-content">
+                <h3 class="direction__column-title">Щербинина <br>
+                  Ольга <br>
+                  Сергеевна
+                </h3>
+                <div class="direction__column-link">Заместитель главного врача по <br> медицинской части <br>
+                  Врач-оториноларинголог</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="reception animate-block">
+        <div class='reception__container'>
+          <div class="reception__row">
+            <div class="reception__column fade-up" data-watch data-watch-once>
+              <h2 class="reception__title _title">Прием граждан</h2>
+              <div class="reception__items">
+                <div class="reception__item">
+                  <div class="reception__item-title">Генеральный директор</div>
+                  <a href="javascript:void(0);" class="reception__item-person">Гераськина Наталия Борисовна </a>
+                  <address class="reception__item-address">вторник с 9:00 до 10:00 ч., пер. Больничный, 6</address>
+                </div>
+                <div class="reception__item">
+                  <div class="reception__item-title">Главный врач</div>
+                  <a href="javascript:void(0);" class="reception__item-person">Токаренко Евгений Владимирович</a>
+                  <address class="reception__item-address">четверг с 12:00 до 13:00 ч., просп. Геленджикский, 178б
+                  </address>
+                </div>
+                <div class="reception__item">
+                  <div class="reception__item-title">Заместитель главного врача по медицинской части</div>
+                  <a href="javascript:void(0);" class="reception__item-person">Щербинина Ольга Сергеевна</a>
+                  <address class="reception__item-address">ежедневно с 14:00 до 15:00 ч., просп. Геленджикский, 178б
+                  </address>
+                </div>
+                <div class="reception__item">
+                  <div class="reception__item-title">Заместитель главного врача по КЭР</div>
+                  <a href="javascript:void(0);" class="reception__item-person">Москалева Марина Александровна</a>
+                  <address class="reception__item-address">ежедневно с 10:00 до 11:00 ч., просп. Геленджикский, 178б
+                  </address>
+                </div>
+                <div class="reception__item">
+                  <div class="reception__item-title">Прием генерального директора и главного врача осуществляется <br>
+                    по предварительной записи.</div>
+                  <br>
+                  <div class="reception__item-title">
+                    <b>
+                      Записаться на прием можно на ресепшн, по тел. <a href="tel:8614133322">(86141) 333-22</a> , по эл.
+                      почте: <a href="mailto:info23@groupmmc.ru">info23@groupmmc.ru</a>.
+                    </b>
+
+                  </div>
+                  <div class="reception__item-title">
+                    <b>
+                      При себе иметь документ, удостоверяющий личность.
+                    </b>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="reception__column fade-up" data-watch data-watch-once>
+              <h2 class="reception__title _title">Адреса и телефоны контролирующих <br> и надзорных органов</h2>
+              <div class="reception__items">
+                <div class="reception__item">
+                  <div class="reception__item-title">Территориальный орган Федеральной службы по надзору <br>
+                    в сфере здравоохранения по Краснодарскому краю:</div>
+                  <address class="reception__item-address">г. Краснодар, ул. Северная, 315</address>
+                  <div class="reception__item-info">
+                    Тел.: <a href="tel:88005509903">8 (800) 550-99-03</a> , <a href="tel:8612011384">+7 (861)
+                      201-13-84</a> , <a href="tel:8612011387">+7 (861) 201-13-87</a> , <a href="tel:8612011390">+7
+                      (861) 201-13-90</a>
+                    E-mail: <a href="mailto:info@reg23.roszdravnadzor.gov.ru">info@reg23.roszdravnadzor.gov.ru</a>
+                  </div>
+                </div>
+                <div class="reception__item">
+                  <div class="reception__item-title">Территориальный отдел Управления Роспотребнадзора
+                    по Краснодарскому краю города-курорта Геленджик</div>
+                  <address class="reception__item-address">г. Геленджик, ул. Мичурина, 16</address>
+                  <div class="reception__item-info">
+                    Тел.: <a href="tel:8614157740">+7 (86141) 5‑77-40</a> , <a href="tel:8800554943">8 (800)
+                      555-49-43</a> <br>
+                    e-mail: <a href="mailto:gelendgik@kubanrpnl.ru">gelendgik@kubanrpnl.ru</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="reception__column fade-up" data-watch data-watch-once>
+              <h2 class="reception__title _title">Реквизиты</h2>
+              <div class="reception__items">
+                <div class="reception__item">
+                  <div class="reception__item-title">ООО «РН-Современные технологии»</div>
+                  <div class="reception__item-info">
+                    ИНН 2304072191 <br>
+                    КПП 230401001 <br>
+                    ОГРН 1172375074585
+                  </div>
+
+                  <br>
+                  <address class="reception__item-address">Юридический и фактический адрес: <br>
+                    353465, Краснодарский край, г. Геленджик, пер. Больничный, 6
+                  </address>
+
+                  <br>
+                  <div class="reception__item-info">
+                    Банковские реквизиты:р/с 40702810901030000261 <br>
+                    Филиал банка «ВБРР» (АО) в городе Краснодаре <br>
+                    к/с 30101810100000000521 <br>
+                    БИК 044525880
+                  </div>
+
+                  <br>
+                  <div class="reception__item-info">
+                    Управляющая компания: ООО «ММЦ ЮГ»
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="record animate-block">
+        <div class='record__container'>
+          <div class="record__inner">
+            <div class="record__content">
+              <h2 class="record__title _title fade-up" data-watch data-watch-once>Записаться на прием</h2>
+              <form action="#" class="record__form form fade-up" data-watch data-watch-once>
+                <div class="form__items">
+                  <div class="form__item">
+                    <div class="form__item-label">Кого запишем?</div>
+                    <div class="form__item-checkboxs">
+                      <div class="form__item-checkbox checkbox">
+                        <input id="c_1" data-error="Ошибка" class="checkbox__input" type="radio" value="1" name="form[]"
+                          data-validate>
+                        <label for="c_1" class="checkbox__label"><span class="checkbox__text">Ребенок</span></label>
+                      </div>
+                      <div class="form__item-checkbox checkbox">
+                        <input id="c_2" data-error="Ошибка" class="checkbox__input" checked type="radio" value="1"
+                          name="form[]" data-validate>
+                        <label for="c_2" class="checkbox__label"><span class="checkbox__text">Взрослый</span></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__item">
+                    <div class="form__item-label">Выберите направление:</div>
+                    <div class="form__item-inner">
+                      <div class="form__item-select">
+                        <select name="form[]" class="form">
+                          <option value="1" selected>Онкологическая помощь</option>
+                          <option value="2">Амбулаторная помощь</option>
+                          <option value="3">Диагностика</option>
+                          <option value="4">Хирургия</option>
+                          <option value="5">Взрослый стационар</option>
+                          <option value="6">Детский стационар</option>
+                          <option value="7">Реабилитация</option>
+                          <option value="8">Скорая помощь</option>
+                        </select>
+                      </div>
+                      <button type="button" class="form__item-btn">Записаться</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="record__img fade-up" data-watch data-watch-once>
+              <img data-src="./img/record/01.png" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    @@include('html/_popup.htm',{}) @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

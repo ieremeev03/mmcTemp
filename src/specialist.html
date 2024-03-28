@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="ru">
+@@include('html/_head.htm',{ "title":"HomePage" })
+
+<body>
+  <div class="preloaded" style='--icon:url("../img/header/01.png")'>
+  </div>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="page">
+
+      <section class="catalog">
+        <div class='catalog__container'>
+          <div class="catalog__inner">
+            <nav class="catalog__nav">
+              <div class="catalog__items">
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title js-catalog"
+                    style='--icon:url("../img/icons/12.png")'>О клинике</a>
+                  <ul class="catalog__list">
+                    <li><a href="javascript:void(0);" class="catalog__link">Информация</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Документы</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Руководство</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">ГК “ММЦ”</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Вакансии</a></li>
+                  </ul>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title js-catalog"
+                    style='--icon:url("../img/icons/12.png")'>Направления</a>
+                  <ul class="catalog__list">
+                    <li><a href="javascript:void(0);" class="catalog__link">Информация</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Документы</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Руководство</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">ГК “ММЦ”</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Вакансии</a></li>
+                  </ul>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title">Услуги</a>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title">Специалисты</a>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title">Новости</a>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title">Акции</a>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title">Отзывы</a>
+                </div>
+                <div class="catalog__item">
+                  <a href="javascript:void(0);" class="catalog__item-title js-catalog"
+                    style='--icon:url("../img/icons/12.png")'>Пациентам</a>
+                  <ul class="catalog__list">
+                    <li><a href="javascript:void(0);" class="catalog__link">Информация</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Документы</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Руководство</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">ГК “ММЦ”</a></li>
+                    <li><a href="javascript:void(0);" class="catalog__link">Вакансии</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+            <div class="catalog__info">
+              <button type="button" class="catalog__info-search js-search"
+                style='--icon:url("../img/icons/13.png")'></button>
+              <a href="javascript:void(0);" class="catalog__info-link" style='--icon:url("../img/icons/15.png")'></a>
+              <div class="catalog__info-languages" data-da=".catalog__inner, 1420, last">
+                <a href="javascript:void(0);" class="catalog__info-languag _active">Ru</a>
+                <a href="javascript:void(0);" class="catalog__info-languag">En</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="search search-catalog">
+        <div class="search-catalog__container">
+          <div class="search-catalog__inner">
+            <div class="search-catalog__title">ПОИСК ПО САЙТУ</div>
+            <form action="#" class="search-catalog__form form">
+              <div class="form__items">
+                <div class="form__item">
+                  <div class="form__item-input">
+                    <input autocomplete="off" type="text" name="form[]" data-error="Ошибка"
+                      placeholder="Введите поисковый запрос..." class="input">
+                    <button type="button" class="form__item-icon" style='--icon:url("../img/icons/13.png")'></button>
+                  </div>
+                </div>
+                <div class="form__item">
+                  <button type="submit" class="form__item-btn">Найти<span
+                      style='--icon:url("../img/icons/13.png")'></span></button>
+                </div>
+              </div>
+              <button type="reset" class="form__close" style='--icon:url("../img/icons/14.png")'></button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <div class="breadcrumb">
+        <ul class="breadcrumb__list breadcrumb__container">
+          <li class="breadcrumb__item">
+            <span><a href="javascript:void(0);"><span>
+                  Главная
+                </span></a></span>
+          </li>
+          <li class="breadcrumb__item breadcrumb__item-link">
+            <span>
+              <span>Специалисты</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <section class="direction direction--specialist animate-block">
+        <div class='direction__container'>
+          <div class="direction__top fade-up" data-watch data-watch-once>
+            <h1 class="direction__title _title ">Специалисты</h1>
+            <form action="#" class="direction__form form">
+              <div class="form__items">
+                <div class="form__item">
+                  <div class="form__item-input">
+                    <input autocomplete="off" type="text" name="form[]" data-error="Ошибка"
+                      placeholder="Поиск по фамилии, имени, отчеству, должности.." class="input">
+                    <button type="button" class="form__item-icon" style='--icon:url("../img/icons/13.png")'></button>
+                  </div>
+                </div>
+                <div class="form__item">
+                  <button type="submit" class="form__item-btn">Найти<span
+                      style='--icon:url("../img/icons/13.png")'></span></button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="direction__items fade-up" data-watch data-watch-once>
+            <a href="javascript:void(0);" class="direction__item _active ">Все
+              специалисты</a>
+            <a href="javascript:void(0);" class="direction__item ">Лор</a>
+            <a href="javascript:void(0);" class="direction__item ">Хирургия</a>
+            <a href="javascript:void(0);" class="direction__item ">Дерматология</a>
+            <a href="javascript:void(0);" class="direction__item ">Пластическая
+              хирургия</a>
+            <a href="javascript:void(0);" class="direction__item ">Педиатрия</a>
+            <a href="javascript:void(0);" class="direction__item ">Терапия</a>
+            <a href="javascript:void(0);" class="direction__item ">Спортивная
+              медицина</a>
+            <a href="javascript:void(0);" class="direction__item ">Лечение
+              позвоночника</a>
+            <a href="javascript:void(0);" class="direction__item ">Акушерство и
+              гинекология</a>
+          </div>
+          <div class="direction__row direction__row--two">
+            <a href="javascript:void(0);" class="direction__column fade-up" data-watch data-watch-once>
+              <div class="direction__column-img">
+                <img data-src="./img/direction/10.png" alt="">
+              </div>
+              <div class="direction__column-content">
+                <h3 class="direction__column-title">Константинопольский <br>
+                  Константин <br>
+                  Константинович</h3>
+                <div class="direction__column-link">Заведующий офтальмологическим <br> отделением, врач-офтальмолог,
+                  врач
+                  ультразвуковой диагностики</div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="direction__column fade-up" data-watch data-watch-once>
+              <div class="direction__column-img">
+                <img data-src="./img/direction/11.png" alt="">
+              </div>
+              <div class="direction__column-content">
+                <h3 class="direction__column-title">Завражнов <br>
+                  Анатолий <br>
+                  Анатольевич</h3>
+                <div class="direction__column-link">Главный врач, врач-хирург, сердечно-сосудистый хирург</div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="direction__column fade-up" data-watch data-watch-once>
+              <div class="direction__column-img">
+                <img data-src="./img/direction/12.png" alt="">
+              </div>
+              <div class="direction__column-content">
+                <h3 class="direction__column-title">Козырицкая <br>
+                  Вера <br>
+                  Павловна</h3>
+                <div class="direction__column-link">Врач-анастезиолог <br>
+                  Специалист широкого профиля</div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="direction__column fade-up" data-watch data-watch-once>
+              <div class="direction__column-img">
+                <img data-src="./img/direction/13.png" alt="">
+              </div>
+              <div class="direction__column-content">
+                <h3 class="direction__column-title">Ян <br>
+                  Петр <br>
+                  Рудольфович</h3>
+                <div class="direction__column-link">Заведующий офтальмологическим отделением, врач-офтальмолог, врач
+                  ультразвуковой диагностики</div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="direction__column fade-up" data-watch data-watch-once>
+              <div class="direction__column-img">
+                <img data-src="./img/direction/14.png" alt="">
+              </div>
+              <div class="direction__column-content">
+                <h3 class="direction__column-title">Еремеев <br>
+                  Игорь <br>
+                  Михайлович</h3>
+                <div class="direction__column-link">Главный врач, <br>
+                  доктор математических наук</div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="direction__column fade-up" data-watch data-watch-once>
+              <div class="direction__column-img">
+                <img data-src="./img/direction/15.png" alt="">
+              </div>
+              <div class="direction__column-content">
+                <h3 class="direction__column-title">Бабушкина <br>
+                  Ксения <br>
+                  Владимировна</h3>
+                <div class="direction__column-link">Терапевт</div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="direction__column fade-up" data-watch data-watch-once>
+              <div class="direction__column-img">
+                <img data-src="./img/direction/16.png" alt="">
+              </div>
+              <div class="direction__column-content">
+                <h3 class="direction__column-title">Буслаевва <br>
+                  Валентина <br>
+                  Викторовна</h3>
+                <div class="direction__column-link">Заведующий офтальмологическим отделением, врач-офтальмолог, врач
+                  ультразвуковой диагностики</div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="direction__column fade-up" data-watch data-watch-once>
+              <div class="direction__column-img">
+                <img data-src="./img/direction/17.png" alt="">
+              </div>
+              <div class="direction__column-content">
+                <h3 class="direction__column-title">Шапоров <br>
+                  Александр <br>
+                  Анатольевич</h3>
+                <div class="direction__column-link">Пластический хирург</div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="direction__column fade-up" data-watch data-watch-once>
+              <div class="direction__column-img">
+                <img data-src="./img/direction/18.png" alt="">
+              </div>
+              <div class="direction__column-content">
+                <h3 class="direction__column-title">Шинкаренко <br>
+                  Елена <br>
+                  Александровна</h3>
+                <div class="direction__column-link">Офтальмолог</div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="direction__column fade-up" data-watch data-watch-once>
+              <div class="direction__column-img">
+                <img data-src="./img/direction/17.png" alt="">
+              </div>
+              <div class="direction__column-content">
+                <h3 class="direction__column-title">Константинопольский <br>
+                  Константин <br>
+                  Константинович</h3>
+                <div class="direction__column-link">Заведующий офтальмологическим отделением, врач-офтальмолог, врач
+                  ультразвуковой диагностики</div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="direction__column fade-up" data-watch data-watch-once>
+              <div class="direction__column-img">
+                <img data-src="./img/direction/19.png" alt="">
+              </div>
+              <div class="direction__column-content">
+                <h3 class="direction__column-title">Мишкин <br>
+                  Сергей <br>
+                  Венедиктович</h3>
+                <div class="direction__column-link">Главный врач, <br>
+                  доктор математических наук</div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="direction__column fade-up" data-watch data-watch-once>
+              <div class="direction__column-img">
+                <img data-src="./img/direction/20.png" alt="">
+              </div>
+              <div class="direction__column-content">
+                <h3 class="direction__column-title">Шапоров <br>
+                  Александр <br>
+                  Анатольевич</h3>
+                <div class="direction__column-link">Терапевт</div>
+              </div>
+            </a>
+          </div>
+          <a href="javascript:void(0);" class="direction__showmore" data-watch data-watch-once>
+            Показать еще
+          </a>
+        </div>
+      </section>
+
+      <section class="record animate-block">
+        <div class='record__container'>
+          <div class="record__inner">
+            <div class="record__content">
+              <h2 class="record__title _title fade-up" data-watch data-watch-once>Записаться на прием</h2>
+              <form action="#" class="record__form form fade-up" data-watch data-watch-once>
+                <div class="form__items">
+                  <div class="form__item">
+                    <div class="form__item-label">Кого запишем?</div>
+                    <div class="form__item-checkboxs">
+                      <div class="form__item-checkbox checkbox">
+                        <input id="c_1" data-error="Ошибка" class="checkbox__input" type="radio" value="1" name="form[]"
+                          data-validate>
+                        <label for="c_1" class="checkbox__label"><span class="checkbox__text">Ребенок</span></label>
+                      </div>
+                      <div class="form__item-checkbox checkbox">
+                        <input id="c_2" data-error="Ошибка" class="checkbox__input" checked type="radio" value="1"
+                          name="form[]" data-validate>
+                        <label for="c_2" class="checkbox__label"><span class="checkbox__text">Взрослый</span></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__item">
+                    <div class="form__item-label">Выберите направление:</div>
+                    <div class="form__item-inner">
+                      <div class="form__item-select">
+                        <select name="form[]" class="form">
+                          <option value="1" selected>Онкологическая помощь</option>
+                          <option value="2">Амбулаторная помощь</option>
+                          <option value="3">Диагностика</option>
+                          <option value="4">Хирургия</option>
+                          <option value="5">Взрослый стационар</option>
+                          <option value="6">Детский стационар</option>
+                          <option value="7">Реабилитация</option>
+                          <option value="8">Скорая помощь</option>
+                        </select>
+                      </div>
+                      <button type="button" class="form__item-btn">Записаться</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="record__img fade-up" data-watch data-watch-once>
+              <img data-src="./img/record/01.png" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    @@include('html/_popup.htm',{}) @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

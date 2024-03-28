@@ -3252,12 +3252,12 @@
                     return n = Object.assign || function(n) {
                         for (var t = 1; t < arguments.length; t++) {
                             var e = arguments[t];
-                            for (var i in e) Object.prototype.hasOwnProperty.call(e, i) && (n[i] = e[i]);
+                            for (var o in e) Object.prototype.hasOwnProperty.call(e, o) && (n[o] = e[o]);
                         }
                         return n;
                     }, n.apply(this, arguments);
                 }
-                var t = "undefined" != typeof window, e = t && !("onscroll" in window) || "undefined" != typeof navigator && /(gle|ing|ro)bot|crawl|spider/i.test(navigator.userAgent), i = t && "IntersectionObserver" in window, o = t && "classList" in document.createElement("p"), a = t && window.devicePixelRatio > 1, r = {
+                var t = "undefined" != typeof window, e = t && !("onscroll" in window) || "undefined" != typeof navigator && /(gle|ing|ro)bot|crawl|spider/i.test(navigator.userAgent), o = t && window.devicePixelRatio > 1, i = {
                     elements_selector: ".lazy",
                     container: e || t ? document : null,
                     threshold: 300,
@@ -3290,262 +3290,262 @@
                     callback_cancel: null,
                     use_native: !1,
                     restore_on_error: !1
-                }, c = function(t) {
-                    return n({}, r, t);
-                }, l = function(n, t) {
-                    var e, i = "LazyLoad::Initialized", o = new n(t);
+                }, a = function(t) {
+                    return n({}, i, t);
+                }, r = function(n, t) {
+                    var e, o = "LazyLoad::Initialized", i = new n(t);
                     try {
-                        e = new CustomEvent(i, {
+                        e = new CustomEvent(o, {
                             detail: {
-                                instance: o
+                                instance: i
                             }
                         });
                     } catch (n) {
-                        (e = document.createEvent("CustomEvent")).initCustomEvent(i, !1, !1, {
-                            instance: o
+                        (e = document.createEvent("CustomEvent")).initCustomEvent(o, !1, !1, {
+                            instance: i
                         });
                     }
                     window.dispatchEvent(e);
-                }, u = "src", s = "srcset", d = "sizes", f = "poster", _ = "llOriginalAttrs", g = "data", v = "loading", b = "loaded", p = "applied", m = "error", h = "native", E = "data-", I = "ll-status", y = function(n, t) {
-                    return n.getAttribute(E + t);
-                }, k = function(n) {
-                    return y(n, I);
-                }, w = function(n, t) {
+                }, c = "src", u = "srcset", l = "sizes", s = "poster", d = "llOriginalAttrs", f = "data", _ = "loading", g = "loaded", v = "applied", b = "error", p = "native", h = "data-", m = "ll-status", E = function(n, t) {
+                    return n.getAttribute(h + t);
+                }, I = function(n) {
+                    return E(n, m);
+                }, y = function(n, t) {
                     return function(n, t, e) {
-                        var i = "data-ll-status";
-                        null !== e ? n.setAttribute(i, e) : n.removeAttribute(i);
+                        var o = "data-ll-status";
+                        null !== e ? n.setAttribute(o, e) : n.removeAttribute(o);
                     }(n, 0, t);
+                }, k = function(n) {
+                    return y(n, null);
                 }, A = function(n) {
-                    return w(n, null);
+                    return null === I(n);
                 }, L = function(n) {
-                    return null === k(n);
-                }, O = function(n) {
-                    return k(n) === h;
-                }, x = [ v, b, p, m ], C = function(n, t, e, i) {
-                    n && "function" == typeof n && (void 0 === i ? void 0 === e ? n(t) : n(t, e) : n(t, e, i));
-                }, N = function(n, t) {
-                    o ? n.classList.add(t) : n.className += (n.className ? " " : "") + t;
-                }, M = function(n, t) {
-                    o ? n.classList.remove(t) : n.className = n.className.replace(new RegExp("(^|\\s+)" + t + "(\\s+|$)"), " ").replace(/^\s+/, "").replace(/\s+$/, "");
-                }, z = function(n) {
+                    return I(n) === p;
+                }, w = [ _, g, v, b ], O = function(n, t, e, o) {
+                    n && "function" == typeof n && (void 0 === o ? void 0 === e ? n(t) : n(t, e) : n(t, e, o));
+                }, x = function(n, e) {
+                    t && "" !== e && n.classList.add(e);
+                }, C = function(n, e) {
+                    t && "" !== e && n.classList.remove(e);
+                }, M = function(n) {
                     return n.llTempImage;
-                }, T = function(n, t) {
+                }, z = function(n, t) {
                     if (t) {
                         var e = t._observer;
                         e && e.unobserve(n);
                     }
-                }, R = function(n, t) {
+                }, N = function(n, t) {
                     n && (n.loadingCount += t);
-                }, G = function(n, t) {
+                }, T = function(n, t) {
                     n && (n.toLoadCount = t);
-                }, j = function(n) {
-                    for (var t, e = [], i = 0; t = n.children[i]; i += 1) "SOURCE" === t.tagName && e.push(t);
+                }, R = function(n) {
+                    for (var t, e = [], o = 0; t = n.children[o]; o += 1) "SOURCE" === t.tagName && e.push(t);
                     return e;
-                }, D = function(n, t) {
+                }, G = function(n, t) {
                     var e = n.parentNode;
-                    e && "PICTURE" === e.tagName && j(e).forEach(t);
-                }, H = function(n, t) {
-                    j(n).forEach(t);
-                }, V = [ u ], F = [ u, f ], B = [ u, s, d ], J = [ g ], P = function(n) {
-                    return !!n[_];
-                }, S = function(n) {
-                    return n[_];
-                }, U = function(n) {
-                    return delete n[_];
-                }, $ = function(n, t) {
-                    if (!P(n)) {
+                    e && "PICTURE" === e.tagName && R(e).forEach(t);
+                }, j = function(n, t) {
+                    R(n).forEach(t);
+                }, D = [ c ], H = [ c, s ], V = [ c, u, l ], F = [ f ], B = function(n) {
+                    return !!n[d];
+                }, J = function(n) {
+                    return n[d];
+                }, P = function(n) {
+                    return delete n[d];
+                }, S = function(n, t) {
+                    if (!B(n)) {
                         var e = {};
                         t.forEach((function(t) {
                             e[t] = n.getAttribute(t);
-                        })), n[_] = e;
+                        })), n[d] = e;
                     }
-                }, q = function(n, t) {
-                    if (P(n)) {
-                        var e = S(n);
+                }, U = function(n, t) {
+                    if (B(n)) {
+                        var e = J(n);
                         t.forEach((function(t) {
                             !function(n, t, e) {
                                 e ? n.setAttribute(t, e) : n.removeAttribute(t);
                             }(n, t, e[t]);
                         }));
                     }
+                }, q = function(n, t, e) {
+                    x(n, t.class_applied), y(n, v), e && (t.unobserve_completed && z(n, t), O(t.callback_applied, n, e));
                 }, K = function(n, t, e) {
-                    N(n, t.class_applied), w(n, p), e && (t.unobserve_completed && T(n, t), C(t.callback_applied, n, e));
+                    x(n, t.class_loading), y(n, _), e && (N(e, 1), O(t.callback_loading, n, e));
                 }, Q = function(n, t, e) {
-                    N(n, t.class_loading), w(n, v), e && (R(e, 1), C(t.callback_loading, n, e));
-                }, W = function(n, t, e) {
                     e && n.setAttribute(t, e);
-                }, X = function(n, t) {
-                    W(n, d, y(n, t.data_sizes)), W(n, s, y(n, t.data_srcset)), W(n, u, y(n, t.data_src));
-                }, Y = {
+                }, W = function(n, t) {
+                    Q(n, l, E(n, t.data_sizes)), Q(n, u, E(n, t.data_srcset)), Q(n, c, E(n, t.data_src));
+                }, X = {
                     IMG: function(n, t) {
-                        D(n, (function(n) {
-                            $(n, B), X(n, t);
-                        })), $(n, B), X(n, t);
+                        G(n, (function(n) {
+                            S(n, V), W(n, t);
+                        })), S(n, V), W(n, t);
                     },
                     IFRAME: function(n, t) {
-                        $(n, V), W(n, u, y(n, t.data_src));
+                        S(n, D), Q(n, c, E(n, t.data_src));
                     },
                     VIDEO: function(n, t) {
-                        H(n, (function(n) {
-                            $(n, V), W(n, u, y(n, t.data_src));
-                        })), $(n, F), W(n, f, y(n, t.data_poster)), W(n, u, y(n, t.data_src)), n.load();
+                        j(n, (function(n) {
+                            S(n, D), Q(n, c, E(n, t.data_src));
+                        })), S(n, H), Q(n, s, E(n, t.data_poster)), Q(n, c, E(n, t.data_src)), n.load();
                     },
                     OBJECT: function(n, t) {
-                        $(n, J), W(n, g, y(n, t.data_src));
+                        S(n, F), Q(n, f, E(n, t.data_src));
                     }
-                }, Z = [ "IMG", "IFRAME", "VIDEO", "OBJECT" ], nn = function(n, t) {
+                }, Y = [ "IMG", "IFRAME", "VIDEO", "OBJECT" ], Z = function(n, t) {
                     !t || function(n) {
                         return n.loadingCount > 0;
                     }(t) || function(n) {
                         return n.toLoadCount > 0;
-                    }(t) || C(n.callback_finish, t);
-                }, tn = function(n, t, e) {
+                    }(t) || O(n.callback_finish, t);
+                }, $ = function(n, t, e) {
                     n.addEventListener(t, e), n.llEvLisnrs[t] = e;
-                }, en = function(n, t, e) {
+                }, nn = function(n, t, e) {
                     n.removeEventListener(t, e);
-                }, on = function(n) {
+                }, tn = function(n) {
                     return !!n.llEvLisnrs;
-                }, an = function(n) {
-                    if (on(n)) {
+                }, en = function(n) {
+                    if (tn(n)) {
                         var t = n.llEvLisnrs;
                         for (var e in t) {
-                            var i = t[e];
-                            en(n, e, i);
+                            var o = t[e];
+                            nn(n, e, o);
                         }
                         delete n.llEvLisnrs;
                     }
-                }, rn = function(n, t, e) {
+                }, on = function(n, t, e) {
                     !function(n) {
                         delete n.llTempImage;
-                    }(n), R(e, -1), function(n) {
+                    }(n), N(e, -1), function(n) {
                         n && (n.toLoadCount -= 1);
-                    }(e), M(n, t.class_loading), t.unobserve_completed && T(n, e);
-                }, cn = function(n, t, e) {
-                    var i = z(n) || n;
-                    on(i) || function(n, t, e) {
-                        on(n) || (n.llEvLisnrs = {});
-                        var i = "VIDEO" === n.tagName ? "loadeddata" : "load";
-                        tn(n, i, t), tn(n, "error", e);
-                    }(i, (function(o) {
-                        !function(n, t, e, i) {
-                            var o = O(t);
-                            rn(t, e, i), N(t, e.class_loaded), w(t, b), C(e.callback_loaded, t, i), o || nn(e, i);
-                        }(0, n, t, e), an(i);
-                    }), (function(o) {
-                        !function(n, t, e, i) {
-                            var o = O(t);
-                            rn(t, e, i), N(t, e.class_error), w(t, m), C(e.callback_error, t, i), e.restore_on_error && q(t, B), 
-                            o || nn(e, i);
-                        }(0, n, t, e), an(i);
+                    }(e), C(n, t.class_loading), t.unobserve_completed && z(n, e);
+                }, an = function(n, t, e) {
+                    var o = M(n) || n;
+                    tn(o) || function(n, t, e) {
+                        tn(n) || (n.llEvLisnrs = {});
+                        var o = "VIDEO" === n.tagName ? "loadeddata" : "load";
+                        $(n, o, t), $(n, "error", e);
+                    }(o, (function(i) {
+                        !function(n, t, e, o) {
+                            var i = L(t);
+                            on(t, e, o), x(t, e.class_loaded), y(t, g), O(e.callback_loaded, t, o), i || Z(e, o);
+                        }(0, n, t, e), en(o);
+                    }), (function(i) {
+                        !function(n, t, e, o) {
+                            var i = L(t);
+                            on(t, e, o), x(t, e.class_error), y(t, b), O(e.callback_error, t, o), e.restore_on_error && U(t, V), 
+                            i || Z(e, o);
+                        }(0, n, t, e), en(o);
                     }));
-                }, ln = function(n, t, e) {
+                }, rn = function(n, t, e) {
                     !function(n) {
-                        return Z.indexOf(n.tagName) > -1;
+                        return Y.indexOf(n.tagName) > -1;
                     }(n) ? function(n, t, e) {
                         !function(n) {
                             n.llTempImage = document.createElement("IMG");
-                        }(n), cn(n, t, e), function(n) {
-                            P(n) || (n[_] = {
+                        }(n), an(n, t, e), function(n) {
+                            B(n) || (n[d] = {
                                 backgroundImage: n.style.backgroundImage
                             });
                         }(n), function(n, t, e) {
-                            var i = y(n, t.data_bg), o = y(n, t.data_bg_hidpi), r = a && o ? o : i;
-                            r && (n.style.backgroundImage = 'url("'.concat(r, '")'), z(n).setAttribute(u, r), 
-                            Q(n, t, e));
+                            var i = E(n, t.data_bg), a = E(n, t.data_bg_hidpi), r = o && a ? a : i;
+                            r && (n.style.backgroundImage = 'url("'.concat(r, '")'), M(n).setAttribute(c, r), 
+                            K(n, t, e));
                         }(n, t, e), function(n, t, e) {
-                            var i = y(n, t.data_bg_multi), o = y(n, t.data_bg_multi_hidpi), r = a && o ? o : i;
-                            r && (n.style.backgroundImage = r, K(n, t, e));
+                            var i = E(n, t.data_bg_multi), a = E(n, t.data_bg_multi_hidpi), r = o && a ? a : i;
+                            r && (n.style.backgroundImage = r, q(n, t, e));
                         }(n, t, e), function(n, t, e) {
-                            var i = y(n, t.data_bg_set);
-                            if (i) {
-                                var o = i.split("|"), a = o.map((function(n) {
+                            var o = E(n, t.data_bg_set);
+                            if (o) {
+                                var i = o.split("|"), a = i.map((function(n) {
                                     return "image-set(".concat(n, ")");
                                 }));
-                                n.style.backgroundImage = a.join(), "" === n.style.backgroundImage && (a = o.map((function(n) {
+                                n.style.backgroundImage = a.join(), "" === n.style.backgroundImage && (a = i.map((function(n) {
                                     return "-webkit-image-set(".concat(n, ")");
-                                })), n.style.backgroundImage = a.join()), K(n, t, e);
+                                })), n.style.backgroundImage = a.join()), q(n, t, e);
                             }
                         }(n, t, e);
                     }(n, t, e) : function(n, t, e) {
-                        cn(n, t, e), function(n, t, e) {
-                            var i = Y[n.tagName];
-                            i && (i(n, t), Q(n, t, e));
+                        an(n, t, e), function(n, t, e) {
+                            var o = X[n.tagName];
+                            o && (o(n, t), K(n, t, e));
                         }(n, t, e);
                     }(n, t, e);
+                }, cn = function(n) {
+                    n.removeAttribute(c), n.removeAttribute(u), n.removeAttribute(l);
                 }, un = function(n) {
-                    n.removeAttribute(u), n.removeAttribute(s), n.removeAttribute(d);
-                }, sn = function(n) {
-                    D(n, (function(n) {
-                        q(n, B);
-                    })), q(n, B);
-                }, dn = {
-                    IMG: sn,
+                    G(n, (function(n) {
+                        U(n, V);
+                    })), U(n, V);
+                }, ln = {
+                    IMG: un,
                     IFRAME: function(n) {
-                        q(n, V);
+                        U(n, D);
                     },
                     VIDEO: function(n) {
-                        H(n, (function(n) {
-                            q(n, V);
-                        })), q(n, F), n.load();
+                        j(n, (function(n) {
+                            U(n, D);
+                        })), U(n, H), n.load();
                     },
                     OBJECT: function(n) {
-                        q(n, J);
+                        U(n, F);
                     }
-                }, fn = function(n, t) {
+                }, sn = function(n, t) {
                     (function(n) {
-                        var t = dn[n.tagName];
+                        var t = ln[n.tagName];
                         t ? t(n) : function(n) {
-                            if (P(n)) {
-                                var t = S(n);
+                            if (B(n)) {
+                                var t = J(n);
                                 n.style.backgroundImage = t.backgroundImage;
                             }
                         }(n);
                     })(n), function(n, t) {
-                        L(n) || O(n) || (M(n, t.class_entered), M(n, t.class_exited), M(n, t.class_applied), 
-                        M(n, t.class_loading), M(n, t.class_loaded), M(n, t.class_error));
-                    }(n, t), A(n), U(n);
-                }, _n = [ "IMG", "IFRAME", "VIDEO" ], gn = function(n) {
+                        A(n) || L(n) || (C(n, t.class_entered), C(n, t.class_exited), C(n, t.class_applied), 
+                        C(n, t.class_loading), C(n, t.class_loaded), C(n, t.class_error));
+                    }(n, t), k(n), P(n);
+                }, dn = [ "IMG", "IFRAME", "VIDEO" ], fn = function(n) {
                     return n.use_native && "loading" in HTMLImageElement.prototype;
-                }, vn = function(n, t, e) {
+                }, _n = function(n, t, e) {
                     n.forEach((function(n) {
                         return function(n) {
                             return n.isIntersecting || n.intersectionRatio > 0;
-                        }(n) ? function(n, t, e, i) {
-                            var o = function(n) {
-                                return x.indexOf(k(n)) >= 0;
+                        }(n) ? function(n, t, e, o) {
+                            var i = function(n) {
+                                return w.indexOf(I(n)) >= 0;
                             }(n);
-                            w(n, "entered"), N(n, e.class_entered), M(n, e.class_exited), function(n, t, e) {
-                                t.unobserve_entered && T(n, e);
-                            }(n, e, i), C(e.callback_enter, n, t, i), o || ln(n, e, i);
-                        }(n.target, n, t, e) : function(n, t, e, i) {
-                            L(n) || (N(n, e.class_exited), function(n, t, e, i) {
+                            y(n, "entered"), x(n, e.class_entered), C(n, e.class_exited), function(n, t, e) {
+                                t.unobserve_entered && z(n, e);
+                            }(n, e, o), O(e.callback_enter, n, t, o), i || rn(n, e, o);
+                        }(n.target, n, t, e) : function(n, t, e, o) {
+                            A(n) || (x(n, e.class_exited), function(n, t, e, o) {
                                 e.cancel_on_exit && function(n) {
-                                    return k(n) === v;
-                                }(n) && "IMG" === n.tagName && (an(n), function(n) {
-                                    D(n, (function(n) {
-                                        un(n);
-                                    })), un(n);
-                                }(n), sn(n), M(n, e.class_loading), R(i, -1), A(n), C(e.callback_cancel, n, t, i));
-                            }(n, t, e, i), C(e.callback_exit, n, t, i));
+                                    return I(n) === _;
+                                }(n) && "IMG" === n.tagName && (en(n), function(n) {
+                                    G(n, (function(n) {
+                                        cn(n);
+                                    })), cn(n);
+                                }(n), un(n), C(n, e.class_loading), N(o, -1), k(n), O(e.callback_cancel, n, t, o));
+                            }(n, t, e, o), O(e.callback_exit, n, t, o));
                         }(n.target, n, t, e);
                     }));
-                }, bn = function(n) {
+                }, gn = function(n) {
                     return Array.prototype.slice.call(n);
-                }, pn = function(n) {
+                }, vn = function(n) {
                     return n.container.querySelectorAll(n.elements_selector);
-                }, mn = function(n) {
+                }, bn = function(n) {
                     return function(n) {
-                        return k(n) === m;
+                        return I(n) === b;
                     }(n);
-                }, hn = function(n, t) {
+                }, pn = function(n, t) {
                     return function(n) {
-                        return bn(n).filter(L);
-                    }(n || pn(t));
-                }, En = function(n, e) {
-                    var o = c(n);
+                        return gn(n).filter(A);
+                    }(n || vn(t));
+                }, hn = function(n, e) {
+                    var o = a(n);
                     this._settings = o, this.loadingCount = 0, function(n, t) {
-                        i && !gn(n) && (t._observer = new IntersectionObserver((function(e) {
-                            vn(e, n, t);
+                        fn(n) || (t._observer = new IntersectionObserver((function(e) {
+                            _n(e, n, t);
                         }), function(n) {
                             return {
                                 root: n.container === document ? null : n.container,
@@ -3556,60 +3556,60 @@
                         t && (e._onlineHandler = function() {
                             !function(n, t) {
                                 var e;
-                                (e = pn(n), bn(e).filter(mn)).forEach((function(t) {
-                                    M(t, n.class_error), A(t);
+                                (e = vn(n), gn(e).filter(bn)).forEach((function(t) {
+                                    C(t, n.class_error), k(t);
                                 })), t.update();
                             }(n, e);
                         }, window.addEventListener("online", e._onlineHandler));
                     }(o, this), this.update(e);
                 };
-                return En.prototype = {
+                return hn.prototype = {
                     update: function(n) {
-                        var t, o, a = this._settings, r = hn(n, a);
-                        G(this, r.length), !e && i ? gn(a) ? function(n, t, e) {
+                        var t, o, i = this._settings, a = pn(n, i);
+                        T(this, a.length), e ? this.loadAll(a) : fn(i) ? function(n, t, e) {
                             n.forEach((function(n) {
-                                -1 !== _n.indexOf(n.tagName) && function(n, t, e) {
-                                    n.setAttribute("loading", "lazy"), cn(n, t, e), function(n, t) {
-                                        var e = Y[n.tagName];
+                                -1 !== dn.indexOf(n.tagName) && function(n, t, e) {
+                                    n.setAttribute("loading", "lazy"), an(n, t, e), function(n, t) {
+                                        var e = X[n.tagName];
                                         e && e(n, t);
-                                    }(n, t), w(n, h);
+                                    }(n, t), y(n, p);
                                 }(n, t, e);
-                            })), G(e, 0);
-                        }(r, a, this) : (o = r, function(n) {
+                            })), T(e, 0);
+                        }(a, i, this) : (o = a, function(n) {
                             n.disconnect();
                         }(t = this._observer), function(n, t) {
                             t.forEach((function(t) {
                                 n.observe(t);
                             }));
-                        }(t, o)) : this.loadAll(r);
+                        }(t, o));
                     },
                     destroy: function() {
                         this._observer && this._observer.disconnect(), t && window.removeEventListener("online", this._onlineHandler), 
-                        pn(this._settings).forEach((function(n) {
-                            U(n);
+                        vn(this._settings).forEach((function(n) {
+                            P(n);
                         })), delete this._observer, delete this._settings, delete this._onlineHandler, delete this.loadingCount, 
                         delete this.toLoadCount;
                     },
                     loadAll: function(n) {
                         var t = this, e = this._settings;
-                        hn(n, e).forEach((function(n) {
-                            T(n, t), ln(n, e, t);
+                        pn(n, e).forEach((function(n) {
+                            z(n, t), rn(n, e, t);
                         }));
                     },
                     restoreAll: function() {
                         var n = this._settings;
-                        pn(n).forEach((function(t) {
-                            fn(t, n);
+                        vn(n).forEach((function(t) {
+                            sn(t, n);
                         }));
                     }
-                }, En.load = function(n, t) {
-                    var e = c(t);
-                    ln(n, e);
-                }, En.resetStatus = function(n) {
-                    A(n);
+                }, hn.load = function(n, t) {
+                    var e = a(t);
+                    rn(n, e);
+                }, hn.resetStatus = function(n) {
+                    k(n);
                 }, t && function(n, t) {
-                    if (t) if (t.length) for (var e, i = 0; e = t[i]; i += 1) l(n, e); else l(n, t);
-                }(En, window.lazyLoadOptions), En;
+                    if (t) if (t.length) for (var e, o = 0; e = t[o]; o += 1) r(n, e); else r(n, t);
+                }(hn, window.lazyLoadOptions), hn;
             }));
         }
     };
@@ -5512,15 +5512,15 @@
             if (wasBeginning && !isBeginning || wasEnd && !isEnd) swiper.emit("fromEdge");
             swiper.emit("progress", progress);
         }
+        const toggleSlideClasses = (slideEl, condition, className) => {
+            if (condition && !slideEl.classList.contains(className)) slideEl.classList.add(className); else if (!condition && slideEl.classList.contains(className)) slideEl.classList.remove(className);
+        };
         function updateSlidesClasses() {
             const swiper = this;
             const {slides, params, slidesEl, activeIndex} = swiper;
             const isVirtual = swiper.virtual && params.virtual.enabled;
             const gridEnabled = swiper.grid && params.grid && params.grid.rows > 1;
             const getFilteredSlide = selector => utils_elementChildren(slidesEl, `.${params.slideClass}${selector}, swiper-slide${selector}`)[0];
-            slides.forEach((slideEl => {
-                slideEl.classList.remove(params.slideActiveClass, params.slideNextClass, params.slidePrevClass);
-            }));
             let activeSlide;
             let prevSlide;
             let nextSlide;
@@ -5534,20 +5534,17 @@
                 nextSlide = slides.filter((slideEl => slideEl.column === activeIndex + 1))[0];
                 prevSlide = slides.filter((slideEl => slideEl.column === activeIndex - 1))[0];
             } else activeSlide = slides[activeIndex];
-            if (activeSlide) {
-                activeSlide.classList.add(params.slideActiveClass);
-                if (gridEnabled) {
-                    if (nextSlide) nextSlide.classList.add(params.slideNextClass);
-                    if (prevSlide) prevSlide.classList.add(params.slidePrevClass);
-                } else {
-                    nextSlide = elementNextAll(activeSlide, `.${params.slideClass}, swiper-slide`)[0];
-                    if (params.loop && !nextSlide) nextSlide = slides[0];
-                    if (nextSlide) nextSlide.classList.add(params.slideNextClass);
-                    prevSlide = elementPrevAll(activeSlide, `.${params.slideClass}, swiper-slide`)[0];
-                    if (params.loop && !prevSlide === 0) prevSlide = slides[slides.length - 1];
-                    if (prevSlide) prevSlide.classList.add(params.slidePrevClass);
-                }
+            if (activeSlide) if (!gridEnabled) {
+                nextSlide = elementNextAll(activeSlide, `.${params.slideClass}, swiper-slide`)[0];
+                if (params.loop && !nextSlide) nextSlide = slides[0];
+                prevSlide = elementPrevAll(activeSlide, `.${params.slideClass}, swiper-slide`)[0];
+                if (params.loop && !prevSlide === 0) prevSlide = slides[slides.length - 1];
             }
+            slides.forEach((slideEl => {
+                toggleSlideClasses(slideEl, slideEl === activeSlide, params.slideActiveClass);
+                toggleSlideClasses(slideEl, slideEl === nextSlide, params.slideNextClass);
+                toggleSlideClasses(slideEl, slideEl === prevSlide, params.slidePrevClass);
+            }));
             swiper.emitSlidesClasses();
         }
         const processLazyPreloader = (swiper, imageEl) => {
@@ -5789,6 +5786,7 @@
                         swiper.wrapperEl.removeEventListener("transitionend", swiper.onTranslateToWrapperTransitionEnd);
                         swiper.onTranslateToWrapperTransitionEnd = null;
                         delete swiper.onTranslateToWrapperTransitionEnd;
+                        swiper.animating = false;
                         if (runCallbacks) swiper.emit("transitionEnd");
                     };
                     swiper.wrapperEl.addEventListener("transitionend", swiper.onTranslateToWrapperTransitionEnd);
@@ -5860,14 +5858,14 @@
         };
         function slideTo(index, speed, runCallbacks, internal, initial) {
             if (index === void 0) index = 0;
-            if (speed === void 0) speed = this.params.speed;
             if (runCallbacks === void 0) runCallbacks = true;
             if (typeof index === "string") index = parseInt(index, 10);
             const swiper = this;
             let slideIndex = index;
             if (slideIndex < 0) slideIndex = 0;
             const {params, snapGrid, slidesGrid, previousIndex, activeIndex, rtlTranslate: rtl, wrapperEl, enabled} = swiper;
-            if (swiper.animating && params.preventInteractionOnTransition || !enabled && !internal && !initial || swiper.destroyed) return false;
+            if (!enabled && !internal && !initial || swiper.destroyed || swiper.animating && params.preventInteractionOnTransition) return false;
+            if (typeof speed === "undefined") speed = swiper.params.speed;
             const skip = Math.min(swiper.params.slidesPerGroupSkip, slideIndex);
             let snapIndex = skip + Math.floor((slideIndex - skip) / swiper.params.slidesPerGroup);
             if (snapIndex >= snapGrid.length) snapIndex = snapGrid.length - 1;
@@ -5956,7 +5954,6 @@
         }
         function slideToLoop(index, speed, runCallbacks, internal) {
             if (index === void 0) index = 0;
-            if (speed === void 0) speed = this.params.speed;
             if (runCallbacks === void 0) runCallbacks = true;
             if (typeof index === "string") {
                 const indexAsNumber = parseInt(index, 10);
@@ -5964,6 +5961,7 @@
             }
             const swiper = this;
             if (swiper.destroyed) return;
+            if (typeof speed === "undefined") speed = swiper.params.speed;
             const gridEnabled = swiper.grid && swiper.params.grid && swiper.params.grid.rows > 1;
             let newIndex = index;
             if (swiper.params.loop) if (swiper.virtual && swiper.params.virtual.enabled) newIndex += swiper.virtual.slidesBefore; else {
@@ -5981,6 +5979,7 @@
                 }
                 let needLoopFix = cols - targetSlideIndex < slidesPerView;
                 if (centeredSlides) needLoopFix = needLoopFix || targetSlideIndex < Math.ceil(slidesPerView / 2);
+                if (internal && centeredSlides && swiper.params.slidesPerView !== "auto" && !gridEnabled) needLoopFix = false;
                 if (needLoopFix) {
                     const direction = centeredSlides ? targetSlideIndex < swiper.activeIndex ? "prev" : "next" : targetSlideIndex - swiper.activeIndex - 1 < swiper.params.slidesPerView ? "next" : "prev";
                     swiper.loopFix({
@@ -6001,11 +6000,11 @@
             return swiper;
         }
         function slideNext(speed, runCallbacks, internal) {
-            if (speed === void 0) speed = this.params.speed;
             if (runCallbacks === void 0) runCallbacks = true;
             const swiper = this;
             const {enabled, params, animating} = swiper;
             if (!enabled || swiper.destroyed) return swiper;
+            if (typeof speed === "undefined") speed = swiper.params.speed;
             let perGroup = params.slidesPerGroup;
             if (params.slidesPerView === "auto" && params.slidesPerGroup === 1 && params.slidesPerGroupAuto) perGroup = Math.max(swiper.slidesPerViewDynamic("current", true), 1);
             const increment = swiper.activeIndex < params.slidesPerGroupSkip ? 1 : perGroup;
@@ -6027,11 +6026,11 @@
             return swiper.slideTo(swiper.activeIndex + increment, speed, runCallbacks, internal);
         }
         function slidePrev(speed, runCallbacks, internal) {
-            if (speed === void 0) speed = this.params.speed;
             if (runCallbacks === void 0) runCallbacks = true;
             const swiper = this;
             const {params, snapGrid, slidesGrid, rtlTranslate, enabled, animating} = swiper;
             if (!enabled || swiper.destroyed) return swiper;
+            if (typeof speed === "undefined") speed = swiper.params.speed;
             const isVirtual = swiper.virtual && params.virtual.enabled;
             if (params.loop) {
                 if (animating && !isVirtual && params.loopPreventsSliding) return false;
@@ -6076,18 +6075,18 @@
             return swiper.slideTo(prevIndex, speed, runCallbacks, internal);
         }
         function slideReset(speed, runCallbacks, internal) {
-            if (speed === void 0) speed = this.params.speed;
             if (runCallbacks === void 0) runCallbacks = true;
             const swiper = this;
             if (swiper.destroyed) return;
+            if (typeof speed === "undefined") speed = swiper.params.speed;
             return swiper.slideTo(swiper.activeIndex, speed, runCallbacks, internal);
         }
         function slideToClosest(speed, runCallbacks, internal, threshold) {
-            if (speed === void 0) speed = this.params.speed;
             if (runCallbacks === void 0) runCallbacks = true;
             if (threshold === void 0) threshold = .5;
             const swiper = this;
             if (swiper.destroyed) return;
+            if (typeof speed === "undefined") speed = swiper.params.speed;
             let index = swiper.activeIndex;
             const skip = Math.min(swiper.params.slidesPerGroupSkip, index);
             const snapIndex = skip + Math.floor((index - skip) / swiper.params.slidesPerGroup);
@@ -6878,6 +6877,8 @@
             const breakpointParams = breakpointOnlyParams || swiper.originalParams;
             const wasMultiRow = isGridEnabled(swiper, params);
             const isMultiRow = isGridEnabled(swiper, breakpointParams);
+            const wasGrabCursor = swiper.params.grabCursor;
+            const isGrabCursor = breakpointParams.grabCursor;
             const wasEnabled = params.enabled;
             if (wasMultiRow && !isMultiRow) {
                 el.classList.remove(`${params.containerModifierClass}grid`, `${params.containerModifierClass}grid-column`);
@@ -6887,6 +6888,7 @@
                 if (breakpointParams.grid.fill && breakpointParams.grid.fill === "column" || !breakpointParams.grid.fill && params.grid.fill === "column") el.classList.add(`${params.containerModifierClass}grid-column`);
                 swiper.emitContainerClasses();
             }
+            if (wasGrabCursor && !isGrabCursor) swiper.unsetGrabCursor(); else if (!wasGrabCursor && isGrabCursor) swiper.setGrabCursor();
             [ "navigation", "pagination", "scrollbar" ].forEach((prop => {
                 if (typeof breakpointParams[prop] === "undefined") return;
                 const wasModuleEnabled = params[prop] && params[prop].enabled;
@@ -7593,7 +7595,7 @@
                 }
                 if (el) {
                     if (typeof el === "string") res = [ ...document.querySelectorAll(el) ];
-                    if (swiper.params.uniqueNavElements && typeof el === "string" && res.length > 1 && swiper.el.querySelectorAll(el).length === 1) res = swiper.el.querySelector(el);
+                    if (swiper.params.uniqueNavElements && typeof el === "string" && res && res.length > 1 && swiper.el.querySelectorAll(el).length === 1) res = swiper.el.querySelector(el); else if (res && res.length === 1) res = res[0];
                 }
                 if (el && !res) return el;
                 return res;
@@ -10057,7 +10059,7 @@
             window.addEventListener("resize", updateFlex);
             updateFlex();
         }
-        window["FLS"] = true;
+        window["FLS"] = false;
         isWebp();
         addLoadedClass();
         menuInit();

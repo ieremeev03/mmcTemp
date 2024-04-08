@@ -632,6 +632,12 @@
       font-weight: 700;
       color: cl(ble);
     }
+
+    @media (any-hover: hover) {
+      &:hover {
+        font-weight: 700;
+      }
+    }
   }
 }
 

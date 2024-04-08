@@ -2601,6 +2601,10 @@
           background: transparent;
           padding: rem(0);
           text-underline-offset: 4px;
+
+          &:last-child {
+            padding-bottom: rem(5);
+          }
           @media (max-width: rem(1300)) {
             font-size: rem(16);
           }
@@ -2702,6 +2706,14 @@
     @media (any-hover: hover) {
       &:hover {
         background: cl(primary);
+      }
+    }
+
+    &.consultation-direction__showmore--mt {
+      margin-top: rem(60) !important;
+
+      @media (max-width: $tablet) {
+        margin-top: rem(40) !important;
       }
     }
   }

@@ -3874,6 +3874,10 @@ a {
   text-underline-offset: 4px;
 }
 
+.form__item-select .select__body .select__options .select__option:last-child {
+  padding-bottom: 0.3125rem;
+}
+
 .form__item-select .select__body .select__value {
   height: 3.75rem;
   padding: 0rem 1.875rem 0rem 1.125rem;
@@ -3918,6 +3922,10 @@ a {
   display: flex;
   -webkit-transition: all 0.3s ease-in 0s;
   transition: all 0.3s ease-in 0s;
+}
+
+.consultation-direction__showmore.consultation-direction__showmore--mt {
+  margin-top: 3.75rem !important;
 }
 
 .consultation-direction__content {
@@ -5153,6 +5161,10 @@ a {
   line-height: normal;
 }
 
+.reception__item-title a {
+  text-decoration: underline;
+}
+
 .reception__item-person {
   font-size: 1rem;
   font-weight: 400;
@@ -5169,6 +5181,10 @@ a {
   font-size: 1rem;
   font-weight: 400;
   line-height: normal;
+}
+
+.reception__item-info a {
+  text-decoration: underline;
 }
 
 .contacts {
@@ -7201,6 +7217,10 @@ a {
   .record.record--two .record__inner {
     padding: 0rem 0rem 0rem 0.125rem;
     margin: 0;
+  }
+
+  .consultation-direction__showmore.consultation-direction__showmore--mt {
+    margin-top: 2.5rem !important;
   }
 
   .consultation-direction__items {
@@ -9422,7 +9442,7 @@ a {
   }
 
   .header__language:hover {
-    color: var(--color-ble);
+    font-weight: 700;
   }
 
   .header__link:hover {
@@ -9477,6 +9497,10 @@ a {
 
   .info-top__page:hover::before {
     background: var(--color-ble);
+  }
+
+  .info-top__languag:hover {
+    font-weight: 700;
   }
 
   .company-top__page:hover {
@@ -9618,6 +9642,14 @@ a {
 
   .comment__link:hover {
     background: var(--color-primary);
+  }
+
+  .reception__item-title a:hover {
+    text-decoration: none;
+  }
+
+  .reception__item-info a:hover {
+    text-decoration: none;
   }
 
   .contacts__column-social:hover {

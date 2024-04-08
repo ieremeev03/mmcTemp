@@ -219,6 +219,16 @@
     @media (max-width: $mobile) {
       font-size: rem(12);
     }
+
+    a {
+      text-decoration: underline;
+
+      @media (any-hover: hover) {
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
   }
 
   // .reception__item-person
@@ -251,6 +261,16 @@
     line-height: normal;
     @media (max-width: $mobile) {
       font-size: rem(12);
+    }
+
+    a {
+      text-decoration: underline;
+
+      @media (any-hover: hover) {
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
   }
 }

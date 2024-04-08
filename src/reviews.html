@@ -302,7 +302,8 @@
           <div class="record__inner">
             <div class="record__content">
               <h2 class="record__title _title fade-up" data-watch data-watch-once>Оставить отзыв</h2>
-              <form action="#" class="record__form form form--two fade-up" data-watch data-watch-once>
+              <form action="popup-callback01.html" data-ajax data-popup-message="#success-modal01" method="GET"
+                class="record__form form form--two fade-up" data-watch data-watch-once>
                 <div class="form__inner">
                   <fieldset class="form__fieldset">
                     <div class="form__items">
@@ -348,8 +349,8 @@
                       <div class="form__item">
                         <div class="form__item-label">Дата посещения*</div>
                         <div class="form__item-input">
-                          <input autocomplete="off" type="date" name="form[]"
-                            data-error="Поле обязательное для заполнения!" class="input" data-validate data-required>
+                          <input autocomplete="off" type="date" name="form[]" data-error="Указана некорректная дата"
+                            class="input" data-validate data-required>
                         </div>
                       </div>
                     </div>
@@ -359,8 +360,8 @@
                       <div class="form__item">
                         <div class="form__item-label">Текст отзыва*</div>
                         <div class="form__item-textarea">
-                          <textarea class="input" data-error="Поле обязательное для заполнения!" data-validate
-                            data-required></textarea>
+                          <textarea class="input" data-error="Поле обязательное для заполнения!"
+                            data-validate></textarea>
                         </div>
 
                         <div class="form__item-file file-loader" data-type='files'>
@@ -397,7 +398,7 @@
                                 href="javascript:void(0);">Политикой
                                 обработки персональных данных</a> </span></label>
                         </div>
-                        <button type="submit" class=" form__constructor-btn">Отправить</button>
+                        <button type="submit" class="form__constructor-btn">Отправить</button>
                       </div>
                     </div>
                   </fieldset>

@@ -4098,6 +4098,10 @@
                         error++;
                     }
                 } else if (formRequiredItem.classList.contains("_form-error")) this.removeErrorTextarea(formRequiredItem);
+                if (formRequiredItem.tagName === "INPUT" && formRequiredItem.type === "date") if (formRequiredItem.value === "") formRequiredItem.value = (new Date).toISOString().split("T")[0]; else if (new Date(formRequiredItem.value) >= new Date) if (!formRequiredItem.classList.contains("_form-error")) {
+                    this.addError(formRequiredItem);
+                    error++;
+                }
                 return error;
             },
             addErrorTextarea(formRequiredItem, errorMessage) {
@@ -10324,7 +10328,7 @@
             window.addEventListener("resize", updateFlex);
             updateFlex();
         }
-        const inputFiles = () => {
+        const initInputFiles = () => {
             const loaders = document.querySelectorAll(".file-loader");
             loaders.forEach((loader => {
                 const dropBox = loader.querySelector(".file-loader__row");
@@ -10333,14 +10337,15 @@
                 const errors = loader.querySelector(".file-loader__error");
                 const errorsTextEl = document.querySelector("#errors-code");
                 const maxSize = errorsTextEl.getAttribute("data-size");
-                errorsTextEl.getAttribute("data-fileMax");
+                const maxFilesLenghtError = errorsTextEl.getAttribute("data-fileMax");
                 const fileTypeError = errorsTextEl.getAttribute("data-fileType");
                 const maxSizeError = errorsTextEl.getAttribute("data-fileSize");
                 const maxFiles = errorsTextEl.getAttribute("data-max");
-                let dt = new DataTransfer;
+                const dt = new DataTransfer;
                 let errorsArr = [];
                 const imageType = /image.*/;
                 const videoType = /video.*/;
+                const fileType = /application.*/;
                 const previewFile = fileList => {
                     const filesArr = [ ...fileList ];
                     filesArr.forEach((file => {
@@ -10348,29 +10353,27 @@
                         fReader.readAsDataURL(file);
                         fReader.onloadend = () => {
                             const wrap = document.createElement("div");
-                            wrap.classList.add("file-loader__result");
+                            wrap.setAttribute("class", "file-loader__result");
                             const close = document.createElement("button");
-                            const inp = document.createElement("input");
+                            const name = document.createElement("p");
                             close.classList.add("close");
-                            close.setAttribute("type", "button");
-                            inp.setAttribute("type", "file");
-                            const name = document.createElement("span");
                             name.textContent = file.name;
                             wrap.appendChild(name);
+                            wrap.appendChild(close);
+                            files.appendChild(wrap);
                             if (navigator.userAgent.toLowerCase().indexOf("firefox") === -1) {
                                 files.appendChild(wrap).appendChild(close);
                                 close.addEventListener("click", (e => {
-                                    deleteFile(e.target.parentNode);
-                                    e.preventDefault();
-                                    e.stopPropagation();
+                                    const element = e.target.parentNode;
+                                    const elementIndex = getChildElementIndex(element);
+                                    deleteFile(element, elementIndex);
                                 }));
                             }
-                            const image = new Image;
-                            image.src = fReader.result;
                         };
                     }));
                 };
                 const createError = () => {
+                    errors.innerHTML = "";
                     if (errorsArr.length) {
                         errors.classList.add("active");
                         errorsArr.forEach((string => {
@@ -10389,20 +10392,31 @@
                 };
                 const refreshFiles = () => {
                     files.innerHTML = "";
-                    dt = new DataTransfer;
                     Array.from(input.files).forEach((file => {
-                        if (dt.items.length > maxFiles - 1) {
-                            errorsArr.push(`${maxFilesLengthError}`);
+                        if (dt.files.length > maxFiles - 1) {
+                            errorsArr.push(` ${maxFilesLenghtError}`);
                             return;
                         }
                         if (file.size > maxSize) {
                             errorsArr.push(`${file.name} ${maxSizeError}`);
                             return;
                         }
-                        if (file.type.match(imageType) || file.type.match(videoType)) dt.items.add(file); else errorsArr.push(`${file.name} ${fileTypeError}`);
+                        if (file.type.match(imageType)) {
+                            dt.items.add(file);
+                            return;
+                        }
+                        if (file.type.match(fileType)) {
+                            dt.items.add(file);
+                            return;
+                        }
+                        if (file.type.match(videoType)) {
+                            dt.items.add(file);
+                            return;
+                        }
+                        errorsArr.push(`${file.name} ${fileTypeError}`);
                     }));
                     input.files = dt.files;
-                    previewFile(input.files);
+                    previewFile(dt.files);
                     if (input.files.length > 0) loader.classList.add("field"); else loader.classList.remove("field");
                     checkErrors();
                 };
@@ -10410,15 +10424,14 @@
                     return Array.prototype.indexOf.call(element.parentNode.children, element);
                 }
                 const deleteFile = element => {
-                    const index = getChildElementIndex(element);
-                    if (index > -1) {
-                        const newDt = new DataTransfer;
-                        Array.from(input.files).forEach(((file, i) => {
-                            if (i !== index) newDt.items.add(file);
+                    const newDt = new DataTransfer;
+                    const fileIndex = Array.from(input.files).findIndex((file => file.name === element.textContent.trim()));
+                    if (fileIndex !== -1) {
+                        Array.from(input.files).forEach(((file, index) => {
+                            if (index !== fileIndex) newDt.items.add(file);
                         }));
-                        dt.clearData();
+                        dt.items.clear();
                         input.files = newDt.files;
-                        element.parentNode.removeChild(element);
                         refreshFiles();
                     }
                 };
@@ -10437,7 +10450,8 @@
                 }));
             }));
         };
-        inputFiles();
+        initInputFiles();
+        window.initInputFiles = initInputFiles;
         document.addEventListener("DOMContentLoaded", (() => {
             const headerColumnLinks = document.querySelectorAll(".header__column-link--list");
             const headerColumns = document.querySelectorAll(".header__column");

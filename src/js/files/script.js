@@ -909,7 +909,1160 @@ if (actionInfoImg) {
 // window.initInputFiles = initInputFiles;
 
 //========================================================================================================================================================
-export const inputFiles = () => {
+
+//========================================================================================================================================================
+// export const inputFiles = () => {
+//   const loaders = document.querySelectorAll(".file-loader");
+
+//   loaders.forEach((loader) => {
+//     const dropBox = loader.querySelector(".file-loader__row");
+//     const input = loader.querySelector(".file-loader__input");
+//     const files = loader.querySelector(".file-loader__files");
+//     const errors = loader.querySelector(".file-loader__error");
+//     const errorsTextEl = document.querySelector("#errors-code");
+//     const maxSize = errorsTextEl.getAttribute("data-size");
+//     const maxFilesLenghtError = errorsTextEl.getAttribute("data-fileMax");
+//     const fileTypeError = errorsTextEl.getAttribute("data-fileType");
+//     const maxSizeError = errorsTextEl.getAttribute("data-fileSize");
+//     const maxFiles = errorsTextEl.getAttribute("data-max");
+
+//     let dt = new DataTransfer();
+//     let errorsArr = [];
+//     const imageType = /image.*/;
+//     const videoType = /video.*/;
+
+//     const previewFile = (fileList) => {
+//       const filesArr = [...fileList];
+
+//       filesArr.forEach((file) => {
+//         const fReader = new FileReader();
+//         fReader.readAsDataURL(file);
+//         fReader.onloadend = () => {
+//           const wrap = document.createElement("div");
+//           wrap.classList.add("file-loader__result");
+//           const close = document.createElement("button");
+//           const inp = document.createElement("input");
+//           close.classList.add("close");
+//           close.setAttribute("type", "button");
+//           inp.setAttribute("type", "file");
+//           const name = document.createElement("span");
+//           name.textContent = file.name;
+
+//           wrap.appendChild(name);
+
+//           if (navigator.userAgent.toLowerCase().indexOf("firefox") === -1) {
+//             files.appendChild(wrap).appendChild(close);
+//             close.addEventListener("click", (e) => {
+//               // eslint-disable-next-line no-use-before-define
+//               deleteFile(e.target.parentNode);
+//               e.preventDefault();
+//               e.stopPropagation();
+//             });
+//           }
+
+//           const image = new Image();
+//           image.src = fReader.result;
+//         };
+//       });
+//     };
+
+//     const createError = () => {
+//       if (errorsArr.length) {
+//         errors.classList.add("active");
+
+//         errorsArr.forEach((string) => {
+//           const p = document.createElement("p");
+//           p.textContent = string;
+//           errors.appendChild(p);
+//         });
+//       }
+//       errorsArr = [];
+//     };
+
+//     const checkErrors = () => {
+//       if (errorsArr[0]) {
+//         createError();
+//       } else {
+//         errors.classList.remove("active");
+
+//         errors.innerHTML = "";
+//       }
+//     };
+
+//     const refreshFiles = () => {
+//       // Clear files
+//       files.innerHTML = "";
+
+//       // Clear the DataTransfer object to avoid duplicates
+//       dt = new DataTransfer();
+
+//       // Make all files
+//       Array.from(input.files).forEach((file) => {
+//         if (dt.items.length > maxFiles - 1) {
+//           errorsArr.push(`${maxFilesLengthError}`);
+//           return;
+//         }
+//         if (file.size > maxSize) {
+//           errorsArr.push(`${file.name} ${maxSizeError}`);
+//           return;
+//         }
+//         if (file.type.match(imageType) || file.type.match(videoType)) {
+//           dt.items.add(file);
+//         } else {
+//           errorsArr.push(`${file.name} ${fileTypeError}`);
+//         }
+//       });
+
+//       // Now update input.files just once
+//       input.files = dt.files;
+
+//       // Create file previews or list
+//       previewFile(input.files);
+
+//       // Update loader visibility
+//       if (input.files.length > 0) {
+//         loader.classList.add("field");
+//       } else {
+//         loader.classList.remove("field");
+//       }
+
+//       // Check and display any errors
+//       checkErrors();
+//     };
+
+//     function getChildElementIndex(element) {
+//       return Array.prototype.indexOf.call(element.parentNode.children, element);
+//     }
+//     const deleteFile = (element) => {
+//       const index = getChildElementIndex(element);
+//       if (index > -1) {
+//         const newDt = new DataTransfer();
+//         // Копируем все файлы, кроме удаляемого, в новый DataTransfer
+//         Array.from(input.files).forEach((file, i) => {
+//           if (i !== index) {
+//             newDt.items.add(file);
+//           }
+//         });
+//         dt.clearData();
+//         input.files = newDt.files; // Обновляем input.files с новым набором файлов
+//         element.parentNode.removeChild(element); // Удаляем элемент из DOM
+//         refreshFiles(); // Обновляем UI
+//       }
+//     };
+
+//     dropBox.addEventListener("drop", (e) => {
+//       input.files = e.dataTransfer.files;
+//       refreshFiles();
+//       e.preventDefault();
+//     });
+
+//     input.addEventListener("change", (e) => {
+//       if (input.files.length === 0) {
+//         input.files = dt.files;
+//         return;
+//       }
+//       refreshFiles();
+//       e.preventDefault();
+//     });
+//   });
+// };
+// inputFiles();
+
+//========================================================================================================================================================
+// export const inputFiles = () => {
+//   const loaders = document.querySelectorAll(".file-loader");
+
+//   loaders.forEach((loader) => {
+//     const dropBox = loader.querySelector(".file-loader__row");
+//     const input = loader.querySelector(".file-loader__input");
+//     const files = loader.querySelector(".file-loader__files");
+//     const errors = loader.querySelector(".file-loader__error");
+//     const errorsTextEl = document.querySelector("#errors-code");
+//     const maxSize = errorsTextEl.getAttribute("data-size");
+//     const maxFilesLenghtError = errorsTextEl.getAttribute("data-fileMax");
+//     const fileTypeError = errorsTextEl.getAttribute("data-fileType");
+//     const maxSizeError = errorsTextEl.getAttribute("data-fileSize");
+//     const maxFiles = errorsTextEl.getAttribute("data-max");
+
+//     let dt = new DataTransfer();
+//     let errorsArr = [];
+//     const imageType = /image.*/;
+//     const videoType = /video.*/;
+
+//     const previewFile = (fileList) => {
+//       const filesArr = [...fileList];
+
+//       filesArr.forEach((file) => {
+//         const fReader = new FileReader();
+//         fReader.readAsDataURL(file);
+//         fReader.onloadend = () => {
+//           const wrap = document.createElement("div");
+//           wrap.classList.add("file-loader__result");
+//           const close = document.createElement("button");
+//           const inp = document.createElement("input");
+//           close.classList.add("close");
+//           close.setAttribute("type", "button");
+//           inp.setAttribute("type", "file");
+//           const name = document.createElement("span");
+//           name.textContent = file.name;
+
+//           wrap.appendChild(name);
+
+//           if (navigator.userAgent.toLowerCase().indexOf("firefox") === -1) {
+//             files.appendChild(wrap).appendChild(close);
+//             close.addEventListener("click", (e) => {
+//               // eslint-disable-next-line no-use-before-define
+//               deleteFile(e.target.parentNode);
+//               e.preventDefault();
+//               e.stopPropagation();
+//             });
+//           }
+
+//           const image = new Image();
+//           image.src = fReader.result;
+//         };
+//       });
+//     };
+
+//     const createError = () => {
+//       if (errorsArr.length) {
+//         errors.classList.add("active");
+
+//         errorsArr.forEach((string) => {
+//           const p = document.createElement("p");
+//           p.textContent = string;
+//           errors.appendChild(p);
+//         });
+//       }
+//       errorsArr = [];
+//     };
+
+//     const checkErrors = () => {
+//       if (errorsArr[0]) {
+//         createError();
+//       } else {
+//         errors.classList.remove("active");
+
+//         errors.innerHTML = "";
+//       }
+//     };
+
+//     const refreshFiles = () => {
+//       // Clear files
+//       files.innerHTML = "";
+
+//       // Clear the DataTransfer object to avoid duplicates
+//       dt = new DataTransfer();
+
+//       // Make all files
+//       Array.from(input.files).forEach((file) => {
+//         if (dt.items.length > maxFiles - 1) {
+//           errorsArr.push(`${maxFilesLengthError}`);
+//           return;
+//         }
+//         if (file.size > maxSize) {
+//           errorsArr.push(`${file.name} ${maxSizeError}`);
+//           return;
+//         }
+//         if (file.type.match(imageType) || file.type.match(videoType)) {
+//           dt.items.add(file);
+//         } else {
+//           errorsArr.push(`${file.name} ${fileTypeError}`);
+//         }
+//       });
+
+//       // Now update input.files just once
+//       input.files = dt.files;
+
+//       // Create file previews or list
+//       previewFile(input.files);
+
+//       // Update loader visibility
+//       if (input.files.length > 0) {
+//         loader.classList.add("field");
+//       } else {
+//         loader.classList.remove("field");
+//       }
+
+//       // Check and display any errors
+//       checkErrors();
+//     };
+
+//     function getChildElementIndex(element) {
+//       return Array.prototype.indexOf.call(element.parentNode.children, element);
+//     }
+//     const deleteFile = (element) => {
+//       const index = getChildElementIndex(element);
+//       if (index > -1) {
+//         const newDt = new DataTransfer();
+//         // Копируем все файлы, кроме удаляемого, в новый DataTransfer
+//         Array.from(input.files).forEach((file, i) => {
+//           if (i !== index) {
+//             newDt.items.add(file);
+//           }
+//         });
+//         dt.clearData();
+//         input.files = newDt.files; // Обновляем input.files с новым набором файлов
+//         element.parentNode.removeChild(element); // Удаляем элемент из DOM
+//         refreshFiles(); // Обновляем UI
+//       }
+//     };
+
+//     dropBox.addEventListener("drop", (e) => {
+//       input.files = e.dataTransfer.files;
+//       refreshFiles();
+//       e.preventDefault();
+//     });
+
+//     input.addEventListener("change", (e) => {
+//       dt.items.clear(); // Clear the current DataTransfer object
+
+//       const newFiles = Array.from(input.files);
+//       const currentFiles = Array.from(dt.files);
+//       const allFiles = currentFiles.concat(newFiles);
+
+//       if (allFiles.length > maxFiles) {
+//         errorsArr.push(
+//           `Количество загружаемых файлов не должно превышать ${maxFiles}`
+//         );
+//         checkErrors();
+//         return;
+//       }
+
+//       allFiles.forEach((file) => {
+//         dt.items.add(file);
+//       });
+
+//       // Update input.files with the combined files
+//       input.files = dt.files;
+
+//       // Create file previews or list
+//       previewFile(input.files);
+
+//       // Update loader visibility
+//       if (input.files.length > 0) {
+//         loader.classList.add("field");
+//       } else {
+//         loader.classList.remove("field");
+//       }
+
+//       // Check and display any errors
+//       checkErrors();
+//       e.preventDefault();
+//     });
+//   });
+// };
+// inputFiles();
+
+//========================================================================================================================================================
+// export const inputFiles = () => {
+//   const loaders = document.querySelectorAll(".file-loader");
+
+//   loaders.forEach((loader) => {
+//     const dropBox = loader.querySelector(".file-loader__row");
+//     const input = loader.querySelector(".file-loader__input");
+//     const files = loader.querySelector(".file-loader__files");
+//     const errors = loader.querySelector(".file-loader__error");
+//     const errorsTextEl = document.querySelector("#errors-code");
+//     const maxSize = errorsTextEl.getAttribute("data-size");
+//     const maxFilesLenghtError = errorsTextEl.getAttribute("data-fileMax");
+//     const fileTypeError = errorsTextEl.getAttribute("data-fileType");
+//     const maxSizeError = errorsTextEl.getAttribute("data-fileSize");
+//     const maxFiles = errorsTextEl.getAttribute("data-max");
+
+//     let dt = new DataTransfer();
+//     let errorsArr = [];
+//     const imageType = /image.*/;
+//     const videoType = /video.*/;
+
+//     const previewFile = (fileList) => {
+//       const filesArr = [...fileList];
+
+//       filesArr.forEach((file) => {
+//         const fReader = new FileReader();
+//         fReader.readAsDataURL(file);
+//         fReader.onloadend = () => {
+//           const wrap = document.createElement("div");
+//           wrap.classList.add("file-loader__result");
+//           const close = document.createElement("button");
+//           const inp = document.createElement("input");
+//           close.classList.add("close");
+//           close.setAttribute("type", "button");
+//           inp.setAttribute("type", "file");
+//           const name = document.createElement("span");
+//           name.textContent = file.name;
+
+//           wrap.appendChild(name);
+
+//           if (navigator.userAgent.toLowerCase().indexOf("firefox") === -1) {
+//             files.appendChild(wrap).appendChild(close);
+//             close.addEventListener("click", (e) => {
+//               // eslint-disable-next-line no-use-before-define
+//               deleteFile(e.target.parentNode);
+//               e.preventDefault();
+//               e.stopPropagation();
+//             });
+//           }
+
+//           const image = new Image();
+//           image.src = fReader.result;
+//         };
+//       });
+//     };
+
+//     const createError = () => {
+//       if (errorsArr.length) {
+//         errors.classList.add("active");
+
+//         errorsArr.forEach((string) => {
+//           const p = document.createElement("p");
+//           p.textContent = string;
+//           errors.appendChild(p);
+//         });
+//       }
+//       errorsArr = [];
+//     };
+
+//     const checkErrors = () => {
+//       if (errorsArr[0]) {
+//         createError();
+//       } else {
+//         errors.classList.remove("active");
+
+//         errors.innerHTML = "";
+//       }
+//     };
+
+//     const refreshFiles = () => {
+//       // Clear files
+//       files.innerHTML = "";
+
+//       // Clear the DataTransfer object to avoid duplicates
+//       dt = new DataTransfer();
+
+//       // Make all files
+//       Array.from(input.files).forEach((file) => {
+//         if (dt.items.length > maxFiles - 1) {
+//           errorsArr.push(`${maxFilesLengthError}`);
+//           return;
+//         }
+//         if (file.size > maxSize) {
+//           errorsArr.push(`${file.name} ${maxSizeError}`);
+//           return;
+//         }
+//         if (file.type.match(imageType) || file.type.match(videoType)) {
+//           dt.items.add(file);
+//         } else {
+//           errorsArr.push(`${file.name} ${fileTypeError}`);
+//         }
+//       });
+
+//       // Now update input.files just once
+//       input.files = dt.files;
+
+//       // Create file previews or list
+//       previewFile(input.files);
+
+//       // Update loader visibility
+//       if (input.files.length > 0) {
+//         loader.classList.add("field");
+//       } else {
+//         loader.classList.remove("field");
+//       }
+
+//       // Check and display any errors
+//       checkErrors();
+//     };
+
+//     function getChildElementIndex(element) {
+//       return Array.prototype.indexOf.call(element.parentNode.children, element);
+//     }
+//     const deleteFile = (element) => {
+//       const index = getChildElementIndex(element);
+//       if (index > -1) {
+//         const newDt = new DataTransfer();
+//         // Копируем все файлы, кроме удаляемого, в новый DataTransfer
+//         Array.from(input.files).forEach((file, i) => {
+//           if (i !== index) {
+//             newDt.items.add(file);
+//           }
+//         });
+//         dt.clearData();
+//         input.files = newDt.files; // Обновляем input.files с новым набором файлов
+//         element.parentNode.removeChild(element); // Удаляем элемент из DOM
+//         refreshFiles(); // Обновляем UI
+//       }
+//     };
+
+//     dropBox.addEventListener("drop", (e) => {
+//       input.files = e.dataTransfer.files;
+//       refreshFiles();
+//       e.preventDefault();
+//     });
+
+//     input.addEventListener("change", (e) => {
+//       dt.items.clear(); // Clear the current DataTransfer object
+
+//       const newFiles = Array.from(input.files);
+//       const currentFiles = Array.from(dt.files);
+//       const allFiles = currentFiles.concat(newFiles);
+
+//       if (allFiles.length > maxFiles) {
+//         errorsArr.push(
+//           `Количество загружаемых файлов не должно превышать ${maxFiles}`
+//         );
+//         checkErrors();
+//         return;
+//       }
+
+//       allFiles.forEach((file) => {
+//         dt.items.add(file);
+//       });
+
+//       // Update input.files with the combined files
+//       input.files = dt.files;
+
+//       // Create file previews or list
+//       previewFile(input.files);
+
+//       // Update loader visibility
+//       if (input.files.length > 0) {
+//         loader.classList.add("field");
+//       } else {
+//         loader.classList.remove("field");
+//       }
+
+//       // Check and display any errors
+//       checkErrors();
+//       e.preventDefault();
+//     });
+//   });
+// };
+// inputFiles();
+//========================================================================================================================================================
+
+// export const inputFiles = () => {
+//   const loaders = document.querySelectorAll(".file-loader");
+
+//   loaders.forEach((loader) => {
+//     const dropBox = loader.querySelector(".file-loader__row");
+//     const input = loader.querySelector(".file-loader__input");
+//     const files = loader.querySelector(".file-loader__files");
+//     const errors = loader.querySelector(".file-loader__error");
+//     const errorsTextEl = document.querySelector("#errors-code");
+//     const maxSize = errorsTextEl.getAttribute("data-size");
+//     const maxFilesLenghtError = errorsTextEl.getAttribute("data-fileMax");
+//     const fileTypeError = errorsTextEl.getAttribute("data-fileType");
+//     const maxSizeError = errorsTextEl.getAttribute("data-fileSize");
+//     const maxFiles = errorsTextEl.getAttribute("data-max");
+
+//     let dt = new DataTransfer();
+//     let errorsArr = [];
+//     const imageType = /image.*/;
+//     const videoType = /video.*/;
+
+//     const previewFile = (fileList) => {
+//       const filesArr = [...fileList];
+
+//       filesArr.forEach((file) => {
+//         const fReader = new FileReader();
+//         fReader.readAsDataURL(file);
+//         fReader.onloadend = () => {
+//           const wrap = document.createElement("div");
+//           wrap.classList.add("file-loader__result");
+//           const close = document.createElement("button");
+//           const inp = document.createElement("input");
+//           close.classList.add("close");
+//           close.setAttribute("type", "button");
+//           inp.setAttribute("type", "file");
+//           const name = document.createElement("span");
+//           name.textContent = file.name;
+
+//           wrap.appendChild(name);
+
+//           if (navigator.userAgent.toLowerCase().indexOf("firefox") === -1) {
+//             files.appendChild(wrap).appendChild(close);
+//             close.addEventListener("click", (e) => {
+//               // eslint-disable-next-line no-use-before-define
+//               deleteFile(e.target.parentNode);
+//               e.preventDefault();
+//               e.stopPropagation();
+//             });
+//           }
+
+//           const image = new Image();
+//           image.src = fReader.result;
+//         };
+//       });
+//     };
+
+//     const createError = () => {
+//       if (errorsArr.length) {
+//         errors.classList.add("active");
+
+//         errorsArr.forEach((string) => {
+//           const p = document.createElement("p");
+//           p.textContent = string;
+//           errors.appendChild(p);
+//         });
+//       }
+//       errorsArr = [];
+//     };
+
+//     const checkErrors = () => {
+//       if (errorsArr[0]) {
+//         createError();
+//       } else {
+//         errors.classList.remove("active");
+
+//         errors.innerHTML = "";
+//       }
+//     };
+
+//     const refreshFiles = () => {
+//       // Clear files
+//       files.innerHTML = "";
+
+//       // Clear the DataTransfer object to avoid duplicates
+//       dt = new DataTransfer();
+
+//       // Make all files
+//       Array.from(input.files).forEach((file) => {
+//         if (dt.items.length > maxFiles - 1) {
+//           errorsArr.push(`${maxFilesLengthError}`);
+//           return;
+//         }
+//         if (file.size > maxSize) {
+//           errorsArr.push(`${file.name} ${maxSizeError}`);
+//           return;
+//         }
+//         if (file.type.match(imageType) || file.type.match(videoType)) {
+//           dt.items.add(file);
+//         } else {
+//           errorsArr.push(`${file.name} ${fileTypeError}`);
+//         }
+//       });
+
+//       // Now update input.files just once
+//       input.files = dt.files;
+
+//       // Create file previews or list
+//       previewFile(input.files);
+
+//       // Update loader visibility
+//       if (input.files.length > 0) {
+//         loader.classList.add("field");
+//       } else {
+//         loader.classList.remove("field");
+//       }
+
+//       // Check and display any errors
+//       checkErrors();
+//     };
+
+//     function getChildElementIndex(element) {
+//       return Array.prototype.indexOf.call(element.parentNode.children, element);
+//     }
+//     const deleteFile = (element) => {
+//       const index = getChildElementIndex(element);
+//       if (index > -1) {
+//         const newDt = new DataTransfer();
+//         // Копируем все файлы, кроме удаляемого, в новый DataTransfer
+//         Array.from(input.files).forEach((file, i) => {
+//           if (i !== index) {
+//             newDt.items.add(file);
+//           }
+//         });
+//         dt.clearData();
+//         input.files = newDt.files; // Обновляем input.files с новым набором файлов
+//         element.parentNode.removeChild(element); // Удаляем элемент из DOM
+//         refreshFiles(); // Обновляем UI
+//       }
+//     };
+
+//     dropBox.addEventListener("drop", (e) => {
+//       input.files = e.dataTransfer.files;
+//       refreshFiles();
+//       e.preventDefault();
+//     });
+
+//     let totalFilesUploaded = 0; // Variable to track total files uploaded
+
+//     input.addEventListener("change", (e) => {
+//       const currentFileCount = input.files.length;
+
+//       dt.items.clear();
+
+//       const newFiles = Array.from(input.files);
+//       const currentFiles = Array.from(dt.files);
+//       const allFiles = currentFiles.concat(newFiles);
+
+//       if (allFiles.length + totalFilesUploaded > maxFiles) {
+//         errorsArr.push(
+//           `Количество загружаемых файлов не должно превышать ${maxFiles}`
+//         );
+//         checkErrors();
+//         return;
+//       }
+
+//       allFiles.forEach((file) => {
+//         dt.items.add(file);
+//       });
+
+//       // Update input.files with the combined files
+//       input.files = dt.files;
+
+//       // Create file previews or list
+//       previewFile(input.files);
+
+//       // Update loader visibility
+//       if (input.files.length > 0) {
+//         loader.classList.add("field");
+//       } else {
+//         loader.classList.remove("field");
+//       }
+
+//       // Update totalFilesUploaded
+//       totalFilesUploaded = input.files.length;
+
+//       // Check and display any errors
+//       checkErrors();
+//       e.preventDefault();
+//     });
+
+//     // input.addEventListener("change", (e) => {
+//     //   dt.items.clear(); // Clear the current DataTransfer object
+
+//     //   const newFiles = Array.from(input.files);
+//     //   const currentFiles = Array.from(dt.files);
+//     //   const allFiles = currentFiles.concat(newFiles);
+
+//     //   if (allFiles.length > maxFiles) {
+//     //     errorsArr.push(
+//     //       `Количество загружаемых файлов не должно превышать ${maxFiles}`
+//     //     );
+//     //     checkErrors();
+//     //     return;
+//     //   }
+
+//     //   allFiles.forEach((file) => {
+//     //     dt.items.add(file);
+//     //   });
+
+//     //   // Update input.files with the combined files
+//     //   input.files = dt.files;
+
+//     //   // Create file previews or list
+//     //   previewFile(input.files);
+
+//     //   // Update loader visibility
+//     //   if (input.files.length > 0) {
+//     //     loader.classList.add("field");
+//     //   } else {
+//     //     loader.classList.remove("field");
+//     //   }
+
+//     //   // Check and display any errors
+//     //   checkErrors();
+//     //   e.preventDefault();
+//     // });
+//   });
+// };
+// inputFiles();
+//========================================================================================================================================================
+// export const inputFiles = () => {
+//   const loaders = document.querySelectorAll(".file-loader");
+
+//   loaders.forEach((loader) => {
+//     const dropBox = loader.querySelector(".file-loader__row");
+//     const input = loader.querySelector(".file-loader__input");
+//     const files = loader.querySelector(".file-loader__files");
+//     const errors = loader.querySelector(".file-loader__error");
+//     const errorsTextEl = document.querySelector("#errors-code");
+//     const maxSize = errorsTextEl.getAttribute("data-size");
+//     const maxFilesLenghtError = errorsTextEl.getAttribute("data-fileMax");
+//     const fileTypeError = errorsTextEl.getAttribute("data-fileType");
+//     const maxSizeError = errorsTextEl.getAttribute("data-fileSize");
+//     const maxFiles = errorsTextEl.getAttribute("data-max");
+
+//     let dt = new DataTransfer();
+//     let errorsArr = [];
+//     const imageType = /image.*/;
+//     const videoType = /video.*/;
+
+//     const previewFile = (fileList) => {
+//       const filesArr = [...fileList];
+
+//       filesArr.forEach((file) => {
+//         const fReader = new FileReader();
+//         fReader.readAsDataURL(file);
+//         fReader.onloadend = () => {
+//           const wrap = document.createElement("div");
+//           wrap.classList.add("file-loader__result");
+//           const close = document.createElement("button");
+//           const inp = document.createElement("input");
+//           close.classList.add("close");
+//           close.setAttribute("type", "button");
+//           inp.setAttribute("type", "file");
+//           const name = document.createElement("span");
+//           name.textContent = file.name;
+
+//           wrap.appendChild(name);
+
+//           if (navigator.userAgent.toLowerCase().indexOf("firefox") === -1) {
+//             files.appendChild(wrap).appendChild(close);
+//             close.addEventListener("click", (e) => {
+//               // eslint-disable-next-line no-use-before-define
+//               deleteFile(e.target.parentNode);
+//               e.preventDefault();
+//               e.stopPropagation();
+//             });
+//           }
+
+//           const image = new Image();
+//           image.src = fReader.result;
+//         };
+//       });
+//     };
+
+//     const createError = () => {
+//       if (errorsArr.length) {
+//         errors.classList.add("active");
+
+//         errorsArr.forEach((string) => {
+//           const p = document.createElement("p");
+//           p.textContent = string;
+//           errors.appendChild(p);
+//         });
+//       }
+//       errorsArr = [];
+//     };
+
+//     const checkErrors = () => {
+//       if (errorsArr[0]) {
+//         createError();
+//       } else {
+//         errors.classList.remove("active");
+
+//         errors.innerHTML = "";
+//       }
+//     };
+
+//     const refreshFiles = () => {
+//       // Clear files
+//       files.innerHTML = "";
+
+//       // Clear the DataTransfer object to avoid duplicates
+//       dt = new DataTransfer();
+
+//       // Make all files
+//       Array.from(input.files).forEach((file) => {
+//         if (dt.items.length > maxFiles - 1) {
+//           errorsArr.push(`${maxFilesLengthError}`);
+//           return;
+//         }
+//         if (file.size > maxSize) {
+//           errorsArr.push(`${file.name} ${maxSizeError}`);
+//           return;
+//         }
+//         if (file.type.match(imageType) || file.type.match(videoType)) {
+//           dt.items.add(file);
+//         } else {
+//           errorsArr.push(`${file.name} ${fileTypeError}`);
+//         }
+//       });
+
+//       // Now update input.files just once
+//       input.files = dt.files;
+
+//       // Create file previews or list
+//       previewFile(input.files);
+
+//       // Update loader visibility
+//       if (input.files.length > 0) {
+//         loader.classList.add("field");
+//       } else {
+//         loader.classList.remove("field");
+//       }
+
+//       // Check and display any errors
+//       checkErrors();
+//     };
+
+//     function getChildElementIndex(element) {
+//       return Array.prototype.indexOf.call(element.parentNode.children, element);
+//     }
+
+//     const deleteFile = (element) => {
+//       const index = getChildElementIndex(element);
+//       if (index > -1) {
+//         const newDt = new DataTransfer();
+//         // Копируем все файлы, кроме удаляемого, в новый DataTransfer
+//         Array.from(input.files).forEach((file, i) => {
+//           if (i !== index) {
+//             newDt.items.add(file);
+//           }
+//         });
+//         dt.clearData();
+//         input.files = newDt.files; // Обновляем input.files с новым набором файлов
+//         element.parentNode.removeChild(element); // Удаляем элемент из DOM
+//         refreshFiles(); // Обновляем UI
+//       }
+//     };
+
+//     dropBox.addEventListener("drop", (e) => {
+//       input.files = e.dataTransfer.files;
+//       refreshFiles();
+//       e.preventDefault();
+//     });
+
+//     let totalFilesUploaded = 0; // Variable to track total files uploaded
+
+//     input.addEventListener("change", (e) => {
+//       const currentFileCount = input.files.length;
+
+//       dt.items.clear();
+
+//       const newFiles = Array.from(input.files);
+//       const currentFiles = Array.from(dt.files);
+//       const allFiles = currentFiles.concat(newFiles);
+
+//       if (allFiles.length + totalFilesUploaded > maxFiles) {
+//         errorsArr.push(
+//           `Количество загружаемых файлов не должно превышать ${maxFiles}`
+//         );
+//         checkErrors();
+//         return;
+//       }
+
+//       allFiles.forEach((file) => {
+//         dt.items.add(file);
+//       });
+
+//       // Update input.files with the combined files
+//       input.files = dt.files;
+
+//       // Create file previews or list
+//       previewFile(input.files);
+
+//       // Update loader visibility
+//       if (input.files.length > 0) {
+//         loader.classList.add("field");
+//       } else {
+//         loader.classList.remove("field");
+//       }
+
+//       // Update totalFilesUploaded
+//       totalFilesUploaded = input.files.length;
+
+//       // Check and display any errors
+//       checkErrors();
+//       e.preventDefault();
+//     });
+
+//     // input.addEventListener("change", (e) => {
+//     //   dt.items.clear(); // Clear the current DataTransfer object
+
+//     //   const newFiles = Array.from(input.files);
+//     //   const currentFiles = Array.from(dt.files);
+//     //   const allFiles = currentFiles.concat(newFiles);
+
+//     //   if (allFiles.length > maxFiles) {
+//     //     errorsArr.push(
+//     //       `Количество загружаемых файлов не должно превышать ${maxFiles}`
+//     //     );
+//     //     checkErrors();
+//     //     return;
+//     //   }
+
+//     //   allFiles.forEach((file) => {
+//     //     dt.items.add(file);
+//     //   });
+
+//     //   // Update input.files with the combined files
+//     //   input.files = dt.files;
+
+//     //   // Create file previews or list
+//     //   previewFile(input.files);
+
+//     //   // Update loader visibility
+//     //   if (input.files.length > 0) {
+//     //     loader.classList.add("field");
+//     //   } else {
+//     //     loader.classList.remove("field");
+//     //   }
+
+//     //   // Check and display any errors
+//     //   checkErrors();
+//     //   e.preventDefault();
+//     // });
+//   });
+// };
+// inputFiles();
+//========================================================================================================================================================
+// const initInputFiles = () => {
+//   const loaders = document.querySelectorAll(".file-loader");
+
+//   loaders.forEach((loader) => {
+//     const dropBox = loader.querySelector(".file-loader__row");
+//     const input = loader.querySelector(".file-loader__input");
+//     const files = loader.querySelector(".file-loader__files");
+//     const errors = loader.querySelector(".file-loader__error");
+//     const errorsTextEl = document.querySelector("#errors-code");
+//     const maxSize = errorsTextEl.getAttribute("data-size");
+//     const maxFilesLenghtError = errorsTextEl.getAttribute("data-fileMax");
+//     const fileTypeError = errorsTextEl.getAttribute("data-fileType");
+//     const maxSizeError = errorsTextEl.getAttribute("data-fileSize");
+//     const maxFiles = errorsTextEl.getAttribute("data-max");
+
+//     const dt = new DataTransfer();
+//     let errorsArr = [];
+//     const imageType = /image.*/;
+//     const videoType = /video.*/;
+//     const fileType = /application.*/;
+
+//     const previewFile = (fileList) => {
+//       const filesArr = [...fileList];
+
+//       filesArr.forEach((file) => {
+//         const fReader = new FileReader();
+
+//         fReader.readAsDataURL(file);
+//         fReader.onloadend = () => {
+//           const wrap = document.createElement("div");
+//           wrap.setAttribute("class", "file-loader__result");
+//           const close = document.createElement("button");
+//           const name = document.createElement("p");
+//           close.classList.add("close");
+//           name.textContent = file.name;
+//           wrap.appendChild(name);
+//           wrap.appendChild(close);
+//           files.appendChild(wrap);
+//           if (navigator.userAgent.toLowerCase().indexOf("firefox") === -1) {
+//             files.appendChild(wrap).appendChild(close);
+//             close.addEventListener("click", (e) => {
+//               // eslint-disable-next-line no-use-before-define
+//               // deleteFile(e.target.parentNode);
+//               // e.preventDefault();
+//               // e.stopPropagation();
+
+//               const element = e.target.parentNode;
+//               const elementIndex = getChildElementIndex(element);
+//               deleteFile(element, elementIndex);
+//             });
+//           }
+//         };
+//       });
+//     };
+
+//     const createError = () => {
+//       if (errorsArr.length) {
+//         errors.classList.add("active");
+
+//         errorsArr.forEach((string) => {
+//           const p = document.createElement("p");
+//           p.textContent = string;
+//           errors.appendChild(p);
+//         });
+//       }
+//       errorsArr = [];
+//     };
+
+//     const checkErrors = () => {
+//       if (errorsArr[0]) {
+//         createError();
+//       } else {
+//         errors.classList.remove("active");
+
+//         errors.innerHTML = "";
+//       }
+//     };
+
+//     const refreshFiles = () => {
+//       // Clear files
+//       files.innerHTML = "";
+
+//       // Make all files
+
+//       Array.from(input.files).forEach((file) => {
+//         if (dt.files.length > maxFiles - 1) {
+//           errorsArr.push(` ${maxFilesLenghtError}`);
+//           return;
+//         }
+//         if (file.size > maxSize) {
+//           errorsArr.push(`${file.name} ${maxSizeError}`);
+//           return;
+//         }
+
+//         if (file.type.match(imageType)) {
+//           dt.items.add(file);
+//           return;
+//         }
+//         if (file.type.match(fileType)) {
+//           dt.items.add(file);
+//           return;
+//         }
+//         if (file.type.match(videoType)) {
+//           dt.items.add(file);
+//           return;
+//         }
+//         errorsArr.push(`${file.name} ${fileTypeError}`);
+//       });
+//       input.files = dt.files;
+
+//       previewFile(dt.files);
+
+//       if (input.files.length > 0) {
+//         loader.classList.add("field");
+//       } else {
+//         loader.classList.remove("field");
+//       }
+//       checkErrors();
+//     };
+
+//     function getChildElementIndex(element) {
+//       return Array.prototype.indexOf.call(element.parentNode.children, element);
+//     }
+//     const deleteFile = (element) => {
+//       const newDt = new DataTransfer();
+//       const fileIndex = Array.from(input.files).findIndex(
+//         (file) => file.name === element.textContent.trim()
+//       );
+
+//       if (fileIndex !== -1) {
+//         Array.from(input.files).forEach((file, index) => {
+//           if (index !== fileIndex) {
+//             newDt.items.add(file);
+//           }
+//         });
+
+//         dt.items.clear();
+//         input.files = newDt.files;
+//         refreshFiles();
+//       }
+//     };
+
+//     dropBox.addEventListener("drop", (e) => {
+//       input.files = e.dataTransfer.files;
+//       refreshFiles();
+//       e.preventDefault();
+//     });
+
+//     input.addEventListener("change", (e) => {
+//       if (input.files.length === 0) {
+//         input.files = dt.files;
+//         return;
+//       }
+//       refreshFiles();
+//       e.preventDefault();
+//     });
+//   });
+// };
+// initInputFiles();
+// window.initInputFiles = initInputFiles;
+
+//========================================================================================================================================================
+const initInputFiles = () => {
   const loaders = document.querySelectorAll(".file-loader");
 
   loaders.forEach((loader) => {
@@ -924,47 +2077,48 @@ export const inputFiles = () => {
     const maxSizeError = errorsTextEl.getAttribute("data-fileSize");
     const maxFiles = errorsTextEl.getAttribute("data-max");
 
-    let dt = new DataTransfer();
+    const dt = new DataTransfer();
     let errorsArr = [];
     const imageType = /image.*/;
     const videoType = /video.*/;
+    const fileType = /application.*/;
 
     const previewFile = (fileList) => {
       const filesArr = [...fileList];
 
       filesArr.forEach((file) => {
         const fReader = new FileReader();
+
         fReader.readAsDataURL(file);
         fReader.onloadend = () => {
           const wrap = document.createElement("div");
-          wrap.classList.add("file-loader__result");
+          wrap.setAttribute("class", "file-loader__result");
           const close = document.createElement("button");
-          const inp = document.createElement("input");
+          const name = document.createElement("p");
           close.classList.add("close");
-          close.setAttribute("type", "button");
-          inp.setAttribute("type", "file");
-          const name = document.createElement("span");
           name.textContent = file.name;
-
           wrap.appendChild(name);
-
+          wrap.appendChild(close);
+          files.appendChild(wrap);
           if (navigator.userAgent.toLowerCase().indexOf("firefox") === -1) {
             files.appendChild(wrap).appendChild(close);
             close.addEventListener("click", (e) => {
               // eslint-disable-next-line no-use-before-define
-              deleteFile(e.target.parentNode);
-              e.preventDefault();
-              e.stopPropagation();
+              // deleteFile(e.target.parentNode);
+              // e.preventDefault();
+              // e.stopPropagation();
+
+              const element = e.target.parentNode;
+              const elementIndex = getChildElementIndex(element);
+              deleteFile(element, elementIndex);
             });
           }
-
-          const image = new Image();
-          image.src = fReader.result;
         };
       });
     };
 
     const createError = () => {
+      errors.innerHTML = ""; // Очистить ошибки перед добавлением новой
       if (errorsArr.length) {
         errors.classList.add("active");
 
@@ -991,40 +2145,41 @@ export const inputFiles = () => {
       // Clear files
       files.innerHTML = "";
 
-      // Clear the DataTransfer object to avoid duplicates
-      dt = new DataTransfer();
-
       // Make all files
+
       Array.from(input.files).forEach((file) => {
-        if (dt.items.length > maxFiles - 1) {
-          errorsArr.push(`${maxFilesLengthError}`);
+        if (dt.files.length > maxFiles - 1) {
+          errorsArr.push(` ${maxFilesLenghtError}`);
           return;
         }
         if (file.size > maxSize) {
           errorsArr.push(`${file.name} ${maxSizeError}`);
           return;
         }
-        if (file.type.match(imageType) || file.type.match(videoType)) {
-          dt.items.add(file);
-        } else {
-          errorsArr.push(`${file.name} ${fileTypeError}`);
-        }
-      });
 
-      // Now update input.files just once
+        if (file.type.match(imageType)) {
+          dt.items.add(file);
+          return;
+        }
+        if (file.type.match(fileType)) {
+          dt.items.add(file);
+          return;
+        }
+        if (file.type.match(videoType)) {
+          dt.items.add(file);
+          return;
+        }
+        errorsArr.push(`${file.name} ${fileTypeError}`);
+      });
       input.files = dt.files;
 
-      // Create file previews or list
-      previewFile(input.files);
+      previewFile(dt.files);
 
-      // Update loader visibility
       if (input.files.length > 0) {
         loader.classList.add("field");
       } else {
         loader.classList.remove("field");
       }
-
-      // Check and display any errors
       checkErrors();
     };
 
@@ -1032,19 +2187,21 @@ export const inputFiles = () => {
       return Array.prototype.indexOf.call(element.parentNode.children, element);
     }
     const deleteFile = (element) => {
-      const index = getChildElementIndex(element);
-      if (index > -1) {
-        const newDt = new DataTransfer();
-        // Копируем все файлы, кроме удаляемого, в новый DataTransfer
-        Array.from(input.files).forEach((file, i) => {
-          if (i !== index) {
+      const newDt = new DataTransfer();
+      const fileIndex = Array.from(input.files).findIndex(
+        (file) => file.name === element.textContent.trim()
+      );
+
+      if (fileIndex !== -1) {
+        Array.from(input.files).forEach((file, index) => {
+          if (index !== fileIndex) {
             newDt.items.add(file);
           }
         });
-        dt.clearData();
-        input.files = newDt.files; // Обновляем input.files с новым набором файлов
-        element.parentNode.removeChild(element); // Удаляем элемент из DOM
-        refreshFiles(); // Обновляем UI
+
+        dt.items.clear();
+        input.files = newDt.files;
+        refreshFiles();
       }
     };
 
@@ -1064,7 +2221,8 @@ export const inputFiles = () => {
     });
   });
 };
-inputFiles();
+initInputFiles();
+window.initInputFiles = initInputFiles;
 //========================================================================================================================================================
 
 // const headerColumnLinks = document.querySelectorAll(

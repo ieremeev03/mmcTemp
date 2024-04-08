@@ -132,7 +132,11 @@
               <h1 class="clinic__title ">«MMC» on Malaya <br> Konyushennaya Street</h1>
             </div>
             <div class="clinic__img">
-              <img data-src="./img/main/01.png" alt="">
+              <picture>
+                <source media="(max-width: 767px)" srcset="./img/main/01-s.png, ./img/main/01-s@2x.png 2x">
+                <source media="(max-width: 1360px)" srcset="./img/main/01-m.png, ./img/main/01-m@2x.png 2x">
+                <img src="./img/main/01.png" srcset="./img/main/01@2x.png 2x" alt="">
+              </picture>
             </div>
           </div>
         </div>
@@ -236,6 +240,8 @@
             </a>
 
           </div>
+
+          <a href="javascript:void(0);" class="direction__showmore" data-watch data-watch-once>Показать еще</a>
         </div>
       </section>
 

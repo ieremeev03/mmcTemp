@@ -199,17 +199,7 @@ export let formValidate = {
         this.removeError(formRequiredItem);
       }
     }
-    // if (formRequiredItem.tagName === "TEXTAREA") {
-    //   if (formRequiredItem.value.length > 5) {
-    //     this.addErrorTextarea(
-    //       formRequiredItem,
-    //       "Максимальное количество символов превышено"
-    //     );
-    //     error++;
-    //   } else {
-    //     this.removeErrorTextarea(formRequiredItem);
-    //   }
-    // }
+
     if (formRequiredItem.tagName === "TEXTAREA") {
       if (formRequiredItem.value.length > 1000) {
         if (!formRequiredItem.classList.contains("_form-error")) {
@@ -226,6 +216,36 @@ export let formValidate = {
       }
     }
 
+    // if (
+    //   formRequiredItem.tagName === "INPUT" &&
+    //   formRequiredItem.type === "date"
+    // ) {
+    //   if (new Date(formRequiredItem.value) < new Date()) {
+    //     if (!formRequiredItem.classList.contains("_form-error")) {
+    //       this.addError(formRequiredItem);
+    //       error++;
+    //     }
+    //   } else {
+    //     if (formRequiredItem.classList.contains("_form-error")) {
+    //       this.removeErrorInput(formRequiredItem);
+    //     }
+    //   }
+    // }
+
+    if (
+      formRequiredItem.tagName === "INPUT" &&
+      formRequiredItem.type === "date"
+    ) {
+      if (formRequiredItem.value === "") {
+        formRequiredItem.value = new Date().toISOString().split("T")[0];
+      } else if (new Date(formRequiredItem.value) >= new Date()) {
+        // измененное условие
+        if (!formRequiredItem.classList.contains("_form-error")) {
+          this.addError(formRequiredItem);
+          error++;
+        }
+      }
+    }
     return error;
   },
 

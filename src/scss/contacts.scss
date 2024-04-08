@@ -9,6 +9,31 @@
   @media (max-width: $mobile) {
     padding-bottom: rem(129);
   }
+
+  &.contacts--two {
+    .contacts__container {
+      display: grid;
+      grid-template-columns: rem(725) 1fr;
+      gap: rem(30);
+
+      @media (max-width: em(1500)) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: $tablet) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contacts__map {
+      max-height: rem(542);
+      overflow: hidden;
+
+      @media (max-width: $mobile) {
+        max-height: rem(350);
+      }
+    }
+  }
   // .contacts__container
 
   &__container {
@@ -172,6 +197,12 @@
       width: rem(18);
       height: rem(10);
     }
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   // .contacts__column-address
@@ -197,7 +228,8 @@
 
     @media (any-hover: hover) {
       &:hover {
-        color: cl(ble);
+        // color: cl(ble);
+        text-decoration: underline;
       }
     }
 

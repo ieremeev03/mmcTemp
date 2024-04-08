@@ -96,7 +96,7 @@
 
   &__column-items {
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     gap: rem(20) rem(77);
 
     @media (max-width: $mobile) {

@@ -41,7 +41,7 @@ class ScrollWatcher {
         Array.from(items).map(function (item) {
           return `${
             item.dataset.watchRoot ? item.dataset.watchRoot : null
-          }|${item.dataset.watchMargin ? item.dataset.watchMargin : "0px"}|${item.dataset.watchThreshold ? item.dataset.watchThreshold : 0}`;
+          }|${item.dataset.watchMargin ? item.dataset.watchMargin : "-150px"}|${item.dataset.watchThreshold ? item.dataset.watchThreshold : 0}`;
         })
       );
       // Отримуємо групи об'єктів з однаковими параметрами,
@@ -59,7 +59,7 @@ class ScrollWatcher {
             : null;
           let watchMargin = item.dataset.watchMargin
             ? item.dataset.watchMargin
-            : "0px";
+            : "-150px";
           let watchThreshold = item.dataset.watchThreshold
             ? item.dataset.watchThreshold
             : 0;

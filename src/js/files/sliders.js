@@ -2,7 +2,13 @@
 Документация слайдера: https://swiperjs.com/
 */
 import Swiper from "swiper";
-import { Navigation, Pagination, EffectFade, Thumbs } from "swiper/modules";
+import {
+  Navigation,
+  Pagination,
+  EffectFade,
+  Thumbs,
+  Autoplay,
+} from "swiper/modules";
 /*
 Navigation, Pagination, Autoplay, 
 EffectFade, Lazy, Manipulation
@@ -23,7 +29,7 @@ export function initSliders() {
       // Указываем класс нужного слайдера
       // Подключаем модули слайдера
       // для конкретного случая
-      modules: [Navigation, Pagination, EffectFade],
+      modules: [Navigation, Pagination, EffectFade, Autoplay],
       observer: true,
       observeParents: true,
       slidesPerView: 1,
@@ -41,13 +47,10 @@ export function initSliders() {
       //preloadImages: false,
       //lazy: true,
 
-      /*
-			effect: 'fade',
-			autoplay: {
-				delay: 3000,
-				disableOnInteraction: false,
-			},
-			*/
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: true,
+      },
 
       pagination: {
         el: ".main__pagination",

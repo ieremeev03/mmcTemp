@@ -50,6 +50,211 @@
       );
     }
   }
+
+  &.header--two {
+    .header__content {
+      width: 100%;
+    }
+    .header__row {
+      flex: 1 1 auto;
+      margin-left: rem(83);
+
+      @media (max-width: em(1500)) {
+        margin-left: rem(0);
+      }
+
+      @media (max-width: em(1200)) {
+        position: fixed;
+        top: rem(89);
+        left: 0;
+        width: 100%;
+        height: max-content;
+        overflow: auto;
+        background: rgba(145, 188, 229, 0.65);
+        backdrop-filter: blur(10px);
+        transition: all $time $tr 0s;
+        opacity: 0;
+        pointer-events: none;
+
+        flex-direction: column;
+        align-items: center;
+        gap: rem(16);
+        padding: rem(20) rem(0);
+      }
+
+      @media (max-width: $mobileSmall) {
+        height: calc(100vh - rem(91));
+        background: rgba(145, 188, 229, 0.65);
+        backdrop-filter: blur(30px);
+      }
+    }
+    .header__logo {
+      img,
+      picture {
+        width: rem(155);
+        height: rem(59);
+      }
+    }
+    .header__info {
+      padding-right: rem(105);
+
+      @media (max-width: em(1500)) {
+        padding-right: rem(0);
+      }
+    }
+
+    .header__icon {
+      @media (min-width: em(1200)) {
+        display: none;
+      }
+    }
+  }
+
+  // .header__row
+
+  &__row {
+    display: flex;
+    gap: rem(68);
+
+    @media (max-width: em(1500)) {
+      gap: rem(30);
+    }
+  }
+
+  // .header__column
+
+  &__column {
+    position: relative;
+
+    &._active {
+      .header__column-submenu {
+        pointer-events: all;
+
+        @media (max-width: em(1200)) {
+          margin-bottom: rem(46);
+        }
+      }
+
+      .header__column-link--list {
+        &::after {
+          content: "";
+          transform: translate(0, rem(0)) rotate(180deg);
+        }
+      }
+    }
+  }
+
+  // .header__column-link
+
+  &__column-link {
+    font-size: rem(15);
+    font-weight: 700;
+    line-height: normal;
+
+    @media (max-width: em(1200)) {
+      text-decoration: underline;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    &.header__column-link--list {
+      display: flex;
+      align-items: center;
+      gap: rem(6);
+
+      &::after {
+        content: "";
+        mask: var(--icon) center center/contain no-repeat;
+        -webkit-mask: var(--icon) center center/contain no-repeat;
+        background: cl(primary);
+        --size: 10px;
+        width: var(--size);
+        height: var(--size);
+        transform: translate(0, rem(0));
+        transition: all $time $tr 0s;
+      }
+    }
+  }
+
+  // .header__column-submenu
+
+  &__column-submenu {
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+
+    pointer-events: none;
+
+    transition: all $time $tr 0s;
+
+    @media (max-width: em(1200)) {
+      position: relative;
+      top: rem(30);
+      overflow: hidden !important;
+      text-align: center;
+      gap: rem(16);
+    }
+
+    @media (min-width: em(1200)) {
+      position: absolute;
+      top: calc(100% + rem(10));
+      left: 0;
+      width: max-content;
+      border: rem(1) solid cl(primary);
+      background: cl(whte);
+      border-radius: rem(10);
+      padding: rem(10);
+    }
+  }
+
+  // .header__column-sublink
+
+  &__column-sublink {
+    color: cl(primary);
+    text-decoration: underline;
+
+    @media (max-width: em(1200)) {
+      font-weight: 700;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  // .header__languages
+
+  &__languages {
+    display: flex;
+    gap: rem(5);
+    padding-right: rem(6);
+  }
+
+  // .header__language
+
+  &__language {
+    font-size: rem(20);
+
+    &._active {
+      font-weight: 700;
+      color: cl(ble);
+
+      @media (max-width: em(1200)) {
+        color: cl(whte);
+      }
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: cl(ble);
+      }
+    }
+  }
   // .header__container
 
   &__container {
@@ -293,6 +498,19 @@
       color: var(--color);
 
       transition: all $time $tr 0s;
+      transform: translate(rem(4), rem(0));
+
+      @media (max-width: rem(1800)) {
+        transform: translate(rem(0), rem(0));
+      }
+
+      @media (max-width: rem(1420)) {
+        transform: translate(rem(-7), rem(0));
+      }
+
+      @media (max-width: rem(1200)) {
+        transform: translate(rem(0), rem(0));
+      }
     }
     &::before {
       content: "";
@@ -452,7 +670,7 @@
       content: "";
       mask: var(--icon) center center/contain no-repeat;
       -webkit-mask: var(--icon) center center/contain no-repeat;
-      background: cl(primary);
+      background: cl(ble);
 
       --size: 22px;
       flex: 0 0 var(--size);

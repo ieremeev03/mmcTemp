@@ -272,22 +272,38 @@ if (cookiesLink) {
   });
 }
 
+// const animateItems = document.querySelectorAll(".animate-block");
+// if (animateItems[0]) {
+//   animateItems.forEach((element) => {
+//     const items = element.querySelectorAll("[data-watch]");
+//     if (items[0]) {
+//       items.forEach((element, index) => {
+//         if (window.matchMedia("(max-width: 992px)").matches) {
+//           element.style.animationDelay = "0.1s";
+//         } else {
+//           element.style.animationDelay = index * 0.1 + "s";
+//         }
+//       });
+//     }
+//   });
+// }
+
 const animateItems = document.querySelectorAll(".animate-block");
 if (animateItems[0]) {
   animateItems.forEach((element) => {
     const items = element.querySelectorAll("[data-watch]");
     if (items[0]) {
       items.forEach((element, index) => {
-        if (window.matchMedia("(max-width: 992px)").matches) {
+        if (window.matchMedia("(max-width: 1800px)").matches) {
           element.style.animationDelay = "0.1s";
         } else {
-          element.style.animationDelay = index * 0.1 + "s";
+          const delayInSeconds = (index % 6) * 0.1 + 0.1; // Reset to 0.1 after reaching 0.5
+          element.style.animationDelay = delayInSeconds + "s";
         }
       });
     }
   });
 }
-
 // const allSwiperConstructors = document.querySelectorAll(".swiper__constructor");
 
 // if (allSwiperConstructors) {
@@ -678,17 +694,17 @@ if (slides) {
 //   }
 // };
 
-const formItemFile = document.querySelector(".form__item-file");
+// const formItemFile = document.querySelector(".form__item-file");
 
-if (formItemFile) {
-  const formItemText = document.querySelector(".form__item-text");
-  formItemFile.addEventListener("mouseover", () => {
-    formItemText.classList.add("_active");
-  });
-  formItemFile.addEventListener("mouseout", () => {
-    formItemText.classList.remove("_active");
-  });
-}
+// if (formItemFile) {
+//   const formItemText = document.querySelector(".form__item-text");
+//   formItemFile.addEventListener("mouseover", () => {
+//     formItemText.classList.add("_active");
+//   });
+//   formItemFile.addEventListener("mouseout", () => {
+//     formItemText.classList.remove("_active");
+//   });
+// }
 
 const directionColumnImgs = document.querySelectorAll(".direction__column-img");
 
@@ -733,3 +749,397 @@ if (actionInfoImg) {
     updateFlex();
   }
 }
+
+//========================================================================================================================================================
+
+// const initInputFiles = () => {
+//   const loaders = document.querySelectorAll(".file-loader");
+
+//   loaders.forEach((loader) => {
+//     const dropBox = loader.querySelector(".file-loader__row");
+//     const input = loader.querySelector(".file-loader__input");
+//     const files = loader.querySelector(".file-loader__files");
+//     const errors = loader.querySelector(".file-loader__error");
+//     const errorsTextEl = document.querySelector("#errors-code");
+//     const maxSize = errorsTextEl.getAttribute("data-size");
+//     const maxFilesLenghtError = errorsTextEl.getAttribute("data-fileMax");
+//     const fileTypeError = errorsTextEl.getAttribute("data-fileType");
+//     const maxSizeError = errorsTextEl.getAttribute("data-fileSize");
+//     const maxFiles = errorsTextEl.getAttribute("data-max");
+
+//     const dt = new DataTransfer();
+//     let errorsArr = [];
+//     const imageType = /image.*/;
+//     const videoType = /video.*/;
+//     const fileType = /application.*/;
+
+//     const previewFile = (fileList) => {
+//       const filesArr = [...fileList];
+
+//       filesArr.forEach((file) => {
+//         const fReader = new FileReader();
+
+//         fReader.readAsDataURL(file);
+//         fReader.onloadend = () => {
+//           const wrap = document.createElement("div");
+//           wrap.setAttribute("class", "file-loader__result");
+//           const close = document.createElement("button");
+//           const name = document.createElement("p");
+//           close.classList.add("close");
+//           name.textContent = file.name;
+//           wrap.appendChild(name);
+//           wrap.appendChild(close);
+//           files.appendChild(wrap);
+//           if (navigator.userAgent.toLowerCase().indexOf("firefox") === -1) {
+//             files.appendChild(wrap).appendChild(close);
+//             close.addEventListener("click", (e) => {
+//               // eslint-disable-next-line no-use-before-define
+//               // deleteFile(e.target.parentNode);
+//               e.preventDefault();
+//               e.stopPropagation();
+//             });
+//           }
+//         };
+//       });
+//     };
+
+//     const createError = () => {
+//       if (errorsArr.length) {
+//         errors.classList.add("active");
+
+//         errorsArr.forEach((string) => {
+//           const p = document.createElement("p");
+//           p.textContent = string;
+//           errors.appendChild(p);
+//         });
+//       }
+//       errorsArr = [];
+//     };
+
+//     const checkErrors = () => {
+//       if (errorsArr[0]) {
+//         createError();
+//       } else {
+//         errors.classList.remove("active");
+
+//         errors.innerHTML = "";
+//       }
+//     };
+
+//     const refreshFiles = () => {
+//       // Clear files
+//       files.innerHTML = "";
+
+//       // Make all files
+
+//       Array.from(input.files).forEach((file) => {
+//         if (dt.files.length > maxFiles - 1) {
+//           errorsArr.push(` ${maxFilesLenghtError}`);
+//           return;
+//         }
+//         if (file.size > maxSize) {
+//           errorsArr.push(`${file.name} ${maxSizeError}`);
+//           return;
+//         }
+
+//         if (file.type.match(imageType)) {
+//           dt.items.add(file);
+//           return;
+//         }
+//         if (file.type.match(fileType)) {
+//           dt.items.add(file);
+//           return;
+//         }
+//         if (file.type.match(videoType)) {
+//           dt.items.add(file);
+//           return;
+//         }
+//         errorsArr.push(`${file.name} ${fileTypeError}`);
+//       });
+//       input.files = dt.files;
+
+//       previewFile(dt.files);
+
+//       if (input.files.length > 0) {
+//         loader.classList.add("field");
+//       } else {
+//         loader.classList.remove("field");
+//       }
+//       checkErrors();
+//     };
+
+//     function getChildElementIndex(element) {
+//       return Array.prototype.indexOf.call(element.parentNode.children, element);
+//     }
+//     const deleteFile = (element, elIndex) => {
+//       const newDt = new DataTransfer();
+
+//       const index = elIndex || getChildElementIndex(element);
+//       // Copy all besides deleted
+//       // eslint-disable-next-line no-plusplus
+//       for (let i = 0; i <= input.files.length - 1; i++) {
+//         if (i !== index) newDt.items.add(input.files[i]);
+//       }
+
+//       // Replace
+//       dt.clearData();
+
+//       input.files = newDt.files;
+
+//       refreshFiles();
+//     };
+
+//     dropBox.addEventListener("drop", (e) => {
+//       input.files = e.dataTransfer.files;
+//       refreshFiles();
+//       e.preventDefault();
+//     });
+
+//     input.addEventListener("change", (e) => {
+//       if (input.files.length === 0) {
+//         input.files = dt.files;
+//         return;
+//       }
+//       refreshFiles();
+//       e.preventDefault();
+//     });
+//   });
+// };
+// initInputFiles();
+// window.initInputFiles = initInputFiles;
+
+//========================================================================================================================================================
+export const inputFiles = () => {
+  const loaders = document.querySelectorAll(".file-loader");
+
+  loaders.forEach((loader) => {
+    const dropBox = loader.querySelector(".file-loader__row");
+    const input = loader.querySelector(".file-loader__input");
+    const files = loader.querySelector(".file-loader__files");
+    const errors = loader.querySelector(".file-loader__error");
+    const errorsTextEl = document.querySelector("#errors-code");
+    const maxSize = errorsTextEl.getAttribute("data-size");
+    const maxFilesLenghtError = errorsTextEl.getAttribute("data-fileMax");
+    const fileTypeError = errorsTextEl.getAttribute("data-fileType");
+    const maxSizeError = errorsTextEl.getAttribute("data-fileSize");
+    const maxFiles = errorsTextEl.getAttribute("data-max");
+
+    let dt = new DataTransfer();
+    let errorsArr = [];
+    const imageType = /image.*/;
+    const videoType = /video.*/;
+
+    const previewFile = (fileList) => {
+      const filesArr = [...fileList];
+
+      filesArr.forEach((file) => {
+        const fReader = new FileReader();
+        fReader.readAsDataURL(file);
+        fReader.onloadend = () => {
+          const wrap = document.createElement("div");
+          wrap.classList.add("file-loader__result");
+          const close = document.createElement("button");
+          const inp = document.createElement("input");
+          close.classList.add("close");
+          close.setAttribute("type", "button");
+          inp.setAttribute("type", "file");
+          const name = document.createElement("span");
+          name.textContent = file.name;
+
+          wrap.appendChild(name);
+
+          if (navigator.userAgent.toLowerCase().indexOf("firefox") === -1) {
+            files.appendChild(wrap).appendChild(close);
+            close.addEventListener("click", (e) => {
+              // eslint-disable-next-line no-use-before-define
+              deleteFile(e.target.parentNode);
+              e.preventDefault();
+              e.stopPropagation();
+            });
+          }
+
+          const image = new Image();
+          image.src = fReader.result;
+        };
+      });
+    };
+
+    const createError = () => {
+      if (errorsArr.length) {
+        errors.classList.add("active");
+
+        errorsArr.forEach((string) => {
+          const p = document.createElement("p");
+          p.textContent = string;
+          errors.appendChild(p);
+        });
+      }
+      errorsArr = [];
+    };
+
+    const checkErrors = () => {
+      if (errorsArr[0]) {
+        createError();
+      } else {
+        errors.classList.remove("active");
+
+        errors.innerHTML = "";
+      }
+    };
+
+    const refreshFiles = () => {
+      // Clear files
+      files.innerHTML = "";
+
+      // Clear the DataTransfer object to avoid duplicates
+      dt = new DataTransfer();
+
+      // Make all files
+      Array.from(input.files).forEach((file) => {
+        if (dt.items.length > maxFiles - 1) {
+          errorsArr.push(`${maxFilesLengthError}`);
+          return;
+        }
+        if (file.size > maxSize) {
+          errorsArr.push(`${file.name} ${maxSizeError}`);
+          return;
+        }
+        if (file.type.match(imageType) || file.type.match(videoType)) {
+          dt.items.add(file);
+        } else {
+          errorsArr.push(`${file.name} ${fileTypeError}`);
+        }
+      });
+
+      // Now update input.files just once
+      input.files = dt.files;
+
+      // Create file previews or list
+      previewFile(input.files);
+
+      // Update loader visibility
+      if (input.files.length > 0) {
+        loader.classList.add("field");
+      } else {
+        loader.classList.remove("field");
+      }
+
+      // Check and display any errors
+      checkErrors();
+    };
+
+    function getChildElementIndex(element) {
+      return Array.prototype.indexOf.call(element.parentNode.children, element);
+    }
+    const deleteFile = (element) => {
+      const index = getChildElementIndex(element);
+      if (index > -1) {
+        const newDt = new DataTransfer();
+        // Копируем все файлы, кроме удаляемого, в новый DataTransfer
+        Array.from(input.files).forEach((file, i) => {
+          if (i !== index) {
+            newDt.items.add(file);
+          }
+        });
+        dt.clearData();
+        input.files = newDt.files; // Обновляем input.files с новым набором файлов
+        element.parentNode.removeChild(element); // Удаляем элемент из DOM
+        refreshFiles(); // Обновляем UI
+      }
+    };
+
+    dropBox.addEventListener("drop", (e) => {
+      input.files = e.dataTransfer.files;
+      refreshFiles();
+      e.preventDefault();
+    });
+
+    input.addEventListener("change", (e) => {
+      if (input.files.length === 0) {
+        input.files = dt.files;
+        return;
+      }
+      refreshFiles();
+      e.preventDefault();
+    });
+  });
+};
+inputFiles();
+//========================================================================================================================================================
+
+// const headerColumnLinks = document.querySelectorAll(
+//   ".header__column-link--list"
+// );
+
+// headerColumnLinks.forEach((link) => {
+//   link.addEventListener("click", function () {
+//     document.querySelectorAll(".header__column").forEach((column) => {
+//       column.classList.remove("_active");
+//     });
+
+//     this.closest(".header__column").classList.toggle("_active");
+//   });
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const headerColumnLinks = document.querySelectorAll(
+    ".header__column-link--list"
+  );
+
+  const headerColumns = document.querySelectorAll(".header__column");
+
+  headerColumnLinks.forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.stopPropagation();
+      const headerColumn = this.closest(".header__column");
+      const submenu = headerColumn.querySelector(".header__column-submenu");
+
+      if (headerColumn.classList.contains("_active")) {
+        headerColumn.classList.remove("_active");
+        submenu.style.maxHeight = "0";
+        submenu.style.visibility = "hidden";
+        submenu.style.overflow = "hidden";
+      } else {
+        headerColumns.forEach((column) => {
+          if (column !== headerColumn) {
+            column.classList.remove("_active");
+            const sub = column.querySelector(".header__column-submenu");
+            if (sub) {
+              sub.style.maxHeight = "0";
+              sub.style.visibility = "hidden";
+              sub.style.overflow = "hidden";
+            }
+          }
+        });
+
+        headerColumn.classList.add("_active");
+        submenu.style.maxHeight = submenu.scrollHeight + "px";
+        submenu.style.visibility = "visible";
+        submenu.style.overflow = "auto";
+      }
+    });
+  });
+
+  // Hide all submenus initially
+  const submenus = document.querySelectorAll(".header__column-submenu");
+  submenus.forEach((submenu) => {
+    submenu.style.maxHeight = "0";
+    submenu.style.visibility = "hidden";
+    submenu.style.overflow = "hidden";
+  });
+
+  // Click outside headerColumn to remove _active class
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest(".header__column")) {
+      headerColumns.forEach((column) => {
+        column.classList.remove("_active");
+        const submenu = column.querySelector(".header__column-submenu");
+        if (submenu) {
+          submenu.style.maxHeight = "0";
+          submenu.style.visibility = "hidden";
+          submenu.style.overflow = "hidden";
+        }
+      });
+    }
+  });
+});

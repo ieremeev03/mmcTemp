@@ -2,6 +2,26 @@
 .clinic {
   position: relative;
 
+  margin-top: rem(128);
+
+  @media (max-width: rem(1800)) {
+    margin-top: rem(115);
+  }
+
+  @media (max-width: rem(1500)) {
+    margin-top: rem(106);
+  }
+  @media (max-width: rem(1420)) {
+    margin-top: rem(123);
+  }
+
+  @media (max-width: rem(1200)) {
+    margin-top: rem(69);
+  }
+
+  @media (max-width: $mobile) {
+    margin-top: rem(71);
+  }
   &.clinic--two {
     .clinic__title {
       @media (max-width: $mobile) {
@@ -25,13 +45,32 @@
   // .clinic__inner
 
   &__inner {
-    min-height: 100vh;
+    // min-height: 100vh;
 
     display: flex;
     align-items: center;
 
     padding: rem(200) rem(0);
+    min-height: calc(100vh - rem(128));
 
+    @media (max-width: rem(1800)) {
+      min-height: calc(100vh - rem(115));
+    }
+    @media (max-width: rem(1500)) {
+      min-height: calc(100vh - rem(106));
+    }
+
+    @media (max-width: rem(1420)) {
+      min-height: calc(100vh - rem(123));
+    }
+
+    @media (max-width: rem(1200)) {
+      min-height: calc(100vh - rem(69));
+    }
+
+    @media (max-width: $mobile) {
+      min-height: calc(100vh - rem(71));
+    }
     @media (max-width: $mobile) {
       align-items: flex-end;
       padding: rem(200) rem(0) rem(39);

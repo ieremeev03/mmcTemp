@@ -193,10 +193,10 @@
                   </div>
                 </div>
 
-                <a href="javascript:void(0);" class="comment__column-title" style='--icon:url("../img/comment/07.png")'>
+                <div class="comment__column-title" style='--icon:url("../img/comment/07.png")'>
                   Констанинопольский <br>
                   Константин Константинович
-                </a>
+                </div>
               </div>
               <div class="comment__column fade-up" data-watch data-watch-once>
                 <time datetime="2016-11-18T09:54" class="comment__column-date"
@@ -238,10 +238,10 @@
                     Еще 35
                   </a>
                 </div>
-                <a href="javascript:void(0);" class="comment__column-title" style='--icon:url("../img/comment/07.png")'>
+                <div class="comment__column-title" style='--icon:url("../img/comment/07.png")'>
                   Констанинопольский <br>
                   Константин Константинович
-                </a>
+                </div>
               </div>
               <div class="comment__column fade-up" data-watch data-watch-once>
                 <time datetime="2016-11-18T09:54" class="comment__column-date"
@@ -271,10 +271,10 @@
                   </div>
 
                 </div>
-                <a href="javascript:void(0);" class="comment__column-title" style='--icon:url("../img/comment/07.png")'>
+                <div class="comment__column-title" style='--icon:url("../img/comment/07.png")'>
                   Констанинопольский <br>
                   Константин Константинович
-                </a>
+                </div>
               </div>
               <div class="comment__column fade-up" data-watch data-watch-once>
                 <time datetime="2016-11-18T09:54" class="comment__column-date"
@@ -287,9 +287,9 @@
                   человеку.
                   🌷🌷🌷
                 </div>
-                <a href="javascript:void(0);" class="comment__column-title" style='--icon:url("../img/comment/07.png")'>
+                <div class="comment__column-title" style='--icon:url("../img/comment/07.png")'>
                   Мария Свердлова
-                </a>
+                </div>
               </div>
             </div>
 
@@ -363,10 +363,20 @@
                             data-required></textarea>
                         </div>
 
-                        <div class="form__item-file">
-                          <div class="form__item-text">Прикрепить файл</div>
-                          <input type="file" name="form[]" data-error="Ошибка" class="input">
+                        <div class="form__item-file file-loader" data-type='files'>
+                          <div class="file-loader__inner">
+                            <div class="file-loader__row">
+                              <input id="file-upload" class="file-loader__input visually-hidden" type="file" name="file"
+                                multiple>
+                              <label class="label-upload" for="file-upload" style='--icon:url(../img/icon/12.svg)'>
+                                Прикрепить файл
+                              </label>
+                            </div>
+                            <div class="file-loader__files"></div>
+                          </div>
+                          <div class="file-loader__error"></div>
                         </div>
+
 
                         <div class="form__item-attention">
                           <div class="form__item-moderation" style='--icon:url("../img/icons/20.png")'>

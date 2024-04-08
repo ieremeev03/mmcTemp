@@ -31,7 +31,7 @@
 	<meta name="msapplication-TileColor" content="#272727">
 	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 	<meta name="theme-color" content="#C2AB81">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240328201108">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240406234426">
 	<script>
 		var baseUrl = "./js/";
 	</script>
@@ -52,7 +52,7 @@
 				</a>
 				<div class="header__content">
 					<div class="header__info">
-						<a href="javascript:void(0);" class="header__link" data-da=".catalog__inner, 1200, 2">Записаться на
+						<a href="popup-callback.html" data-popup="#callback-modal" class="header__link" data-da=".catalog__inner, 1200, 2">Записаться на
 							прием</a>
 						<div class="header__phones" data-da=".catalog__inner, 1200, 3">
 							<a href="tel:+74990000000" class="header__phone" style='--icon:url("../img/icons/05.png"); --color: #15396B'>+7
@@ -72,7 +72,7 @@
 						<a href="javascript:void(0);" class="header__item js-search" style='--icon:url("../img/icons/11.png")'></a>
 					</div>
 					<div class="header__cabinet" data-da=".catalog__inner, 1420, 5">
-						<a href="javascript:void(0);" class="header__cabinet-link" style='--icon:url("../img/icons/08.png")'>Личный кабинет</a>
+						<div class="header__cabinet-link" style='--icon:url("../img/icons/08.png")'>Личный кабинет</div>
 						<a href="javascript:void(0);" class="header__cabinet-entrance">войти</a>
 					</div>
 					<button type="button" class="header__icon icon-menu"><span></span></button>
@@ -258,10 +258,10 @@
 									</div>
 								</div>
 
-								<a href="javascript:void(0);" class="comment__column-title" style='--icon:url("../img/comment/07.png")'>
+								<div class="comment__column-title" style='--icon:url("../img/comment/07.png")'>
 									Констанинопольский <br>
 									Константин Константинович
-								</a>
+								</div>
 							</div>
 							<div class="comment__column fade-up" data-watch data-watch-once>
 								<time datetime="2016-11-18T09:54" class="comment__column-date" style='--icon:url("../img/review/01.png")'>02.12.2023</time>
@@ -302,10 +302,10 @@
 										Еще 35
 									</a>
 								</div>
-								<a href="javascript:void(0);" class="comment__column-title" style='--icon:url("../img/comment/07.png")'>
+								<div class="comment__column-title" style='--icon:url("../img/comment/07.png")'>
 									Констанинопольский <br>
 									Константин Константинович
-								</a>
+								</div>
 							</div>
 							<div class="comment__column fade-up" data-watch data-watch-once>
 								<time datetime="2016-11-18T09:54" class="comment__column-date" style='--icon:url("../img/review/01.png")'>22.11.2023</time>
@@ -334,10 +334,10 @@
 									</div>
 
 								</div>
-								<a href="javascript:void(0);" class="comment__column-title" style='--icon:url("../img/comment/07.png")'>
+								<div class="comment__column-title" style='--icon:url("../img/comment/07.png")'>
 									Констанинопольский <br>
 									Константин Константинович
-								</a>
+								</div>
 							</div>
 							<div class="comment__column fade-up" data-watch data-watch-once>
 								<time datetime="2016-11-18T09:54" class="comment__column-date" style='--icon:url("../img/review/01.png")'>18.11.2023</time>
@@ -349,9 +349,9 @@
 									человеку.
 									🌷🌷🌷
 								</div>
-								<a href="javascript:void(0);" class="comment__column-title" style='--icon:url("../img/comment/07.png")'>
+								<div class="comment__column-title" style='--icon:url("../img/comment/07.png")'>
 									Мария Свердлова
-								</a>
+								</div>
 							</div>
 						</div>
 
@@ -414,10 +414,19 @@
 													<textarea class="input" data-error="Поле обязательное для заполнения!" data-validate data-required></textarea>
 												</div>
 
-												<div class="form__item-file">
-													<div class="form__item-text">Прикрепить файл</div>
-													<input type="file" name="form[]" data-error="Ошибка" class="input">
+												<div class="form__item-file file-loader" data-type='files'>
+													<div class="file-loader__inner">
+														<div class="file-loader__row">
+															<input id="file-upload" class="file-loader__input visually-hidden" type="file" name="file" multiple>
+															<label class="label-upload" for="file-upload" style='--icon:url(../img/icon/12.svg)'>
+																Прикрепить файл
+															</label>
+														</div>
+														<div class="file-loader__files"></div>
+													</div>
+													<div class="file-loader__error"></div>
 												</div>
+
 
 												<div class="form__item-attention">
 													<div class="form__item-moderation" style='--icon:url("../img/icons/20.png")'>
@@ -588,7 +597,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20240328201108"></script>
+	<template id="errors-code" data-fileMax="Количество загружаемых файлов не должно превышать 5" data-fileType="Не является изображением или видео" data-fileSize="Превышает максимальный объем файла в 4мб" data-size="4000000" data-max="5"></template>
+	<script src="js/app.min.js?_v=20240406234426"></script>
 </body>
 
 </html>

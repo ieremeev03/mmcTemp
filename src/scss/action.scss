@@ -123,6 +123,8 @@
       }
     }
     .action__content {
+      overflow: visible;
+
       p {
         margin-bottom: rem(22);
 
@@ -366,7 +368,8 @@
       }
 
       ul {
-        margin-bottom: rem(45);
+        // margin-bottom: rem(45);
+        margin-bottom: rem(30);
 
         @media (max-width: em(950)) {
           margin-bottom: rem(32);
@@ -403,6 +406,9 @@
   }
 
   &.action--five {
+    .action__content {
+      overflow: visible;
+    }
     .action__direction {
       .direction__row {
         grid-template-columns: repeat(3, 1fr) !important;
@@ -593,10 +599,11 @@
   // .action__thumbsslider
 
   &__thumbsslider {
+    width: 100%;
     .action__slide {
       .action__slide-img {
         cursor: pointer;
-        pointer-events: none;
+        // pointer-events: none;
         img,
         picture {
           width: rem(193);
@@ -770,6 +777,32 @@
   // .action__content
 
   &__content {
+    ol {
+      display: flex;
+      flex-direction: column;
+      gap: rem(12);
+      padding-left: rem(18);
+      font-size: rem(16);
+      margin-bottom: rem(30);
+
+      @media (max-width: $mobile) {
+        font-size: rem(12);
+      }
+      // list-style: decimal;
+
+      // counter-reset: list-counter;
+      // margin-bottom: rem(30);
+
+      // li {
+      //   counter-increment: list-counter;
+      //   font-size: rem(16);
+      //   &::before {
+      //     content: counter(list-counter) ". ";
+      //     margin-right: rem(5);
+      //     min-width: rem(20);
+      //   }
+      // }
+    }
     @media (min-width: $tablet) {
       padding-left: rem(4);
       overflow: hidden;

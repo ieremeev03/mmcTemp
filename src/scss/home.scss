@@ -9,6 +9,26 @@
   // .main__slider
 
   &__slider {
+    margin-top: rem(128);
+
+    @media (max-width: rem(1800)) {
+      margin-top: rem(115);
+    }
+
+    @media (max-width: rem(1500)) {
+      margin-top: rem(106);
+    }
+    @media (max-width: rem(1420)) {
+      margin-top: rem(123);
+    }
+
+    @media (max-width: rem(1200)) {
+      margin-top: rem(69);
+    }
+
+    @media (max-width: $mobile) {
+      margin-top: rem(71);
+    }
   }
 
   // .main__swiper
@@ -19,7 +39,9 @@
   // .main__slide
 
   &__slide {
-    min-height: 100vh;
+    // min-height: 100vh;
+
+    min-height: calc(100vh - rem(128));
 
     position: relative;
     display: flex;
@@ -27,17 +49,27 @@
 
     padding: rem(73);
 
+    @media (max-width: rem(1800)) {
+      min-height: calc(100vh - rem(115));
+    }
     @media (max-width: rem(1500)) {
       padding: rem(73) rem(40);
+      min-height: calc(100vh - rem(106));
+    }
+
+    @media (max-width: rem(1420)) {
+      min-height: calc(100vh - rem(123));
     }
 
     @media (max-width: rem(1200)) {
       padding: rem(73) rem(15);
+      min-height: calc(100vh - rem(69));
     }
 
     @media (max-width: $mobile) {
       padding: rem(74) rem(10);
       align-items: flex-end;
+      min-height: calc(100vh - rem(71));
     }
 
     &.swiper-slide-active {
@@ -154,11 +186,11 @@
     text-decoration: underline;
 
     transition: all $time $tr 0s;
+    max-width: max-content;
 
     @media (any-hover: hover) {
       &:hover {
         text-decoration: none;
-        color: cl(ble);
       }
     }
   }
@@ -1031,29 +1063,31 @@
 
   &__row {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    // grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(rem(266), 1fr));
     gap: rem(66) rem(20);
 
     @media (max-width: rem(1500)) {
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(rem(250), 1fr));
       gap: rem(60) rem(20);
     }
     @media (max-width: rem(1200)) {
-      grid-template-columns: repeat(4, 1fr);
+      // grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(rem(216), 1fr));
     }
 
     @media (max-width: $tablet) {
       gap: rem(58) rem(22);
-      grid-template-columns: repeat(auto-fill, minmax(rem(216), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(rem(216), 1fr));
     }
 
     @media (max-width: $mobile) {
-      grid-template-columns: repeat(auto-fill, minmax(rem(165), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(rem(165), 1fr));
       gap: rem(14) rem(12);
     }
 
     @media (max-width: em(549)) {
-      grid-template-columns: repeat(auto-fill, minmax(rem(120), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(rem(120), 1fr));
     }
     @media (max-width: $mobileSmall) {
       grid-template-columns: repeat(2, 1fr);
@@ -1071,6 +1105,7 @@
   &__column {
     display: flex;
     flex-direction: column;
+    max-width: rem(270);
     @media (any-hover: hover) {
       &:hover {
         .direction__column-img {
@@ -1791,7 +1826,7 @@
     img,
     picture {
       width: 100%;
-      height: 100%;
+      height: rem(565);
 
       max-width: 100%;
       max-height: 100%;
@@ -2158,6 +2193,24 @@
 .record {
   background: #f3f3f3;
 
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: rem(0);
+    left: 0;
+    width: 100%;
+    height: rem(25);
+    z-index: 4;
+    background: #fff;
+    background: linear-gradient(
+      360deg,
+      rgb(122, 121, 143) 0%,
+      rgba(255, 255, 255, 0) 50%
+    );
+    opacity: 0.1;
+  }
   &.record--two {
     @media (max-width: $tablet) {
       padding: rem(86) rem(0) rem(56);
@@ -2526,16 +2579,16 @@
 
       .select__options {
         background: rgba(145, 188, 229, 0.65);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(20px);
         padding: rem(17) rem(18);
 
         @media (max-width: $mobile) {
           // backdrop-filter: blur(30px);
-          backdrop-filter: blur(0px);
+          backdrop-filter: blur(20px);
           background: rgba(145, 188, 229, 1);
         }
         .select__scroll {
-          @extend %hidescroll;
+          // @extend %hidescroll;
 
           display: flex;
           flex-direction: column;
@@ -2677,7 +2730,7 @@
     background: cl(whte);
     transition: all $time $tr 0s;
     padding: rem(70) rem(20) rem(30);
-    cursor: pointer;
+    // cursor: pointer;
     position: relative;
     @media (max-width: $mobile) {
       padding: rem(86) rem(20) rem(23);

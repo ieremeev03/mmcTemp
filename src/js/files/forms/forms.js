@@ -199,7 +199,53 @@ export let formValidate = {
         this.removeError(formRequiredItem);
       }
     }
+    // if (formRequiredItem.tagName === "TEXTAREA") {
+    //   if (formRequiredItem.value.length > 5) {
+    //     this.addErrorTextarea(
+    //       formRequiredItem,
+    //       "Максимальное количество символов превышено"
+    //     );
+    //     error++;
+    //   } else {
+    //     this.removeErrorTextarea(formRequiredItem);
+    //   }
+    // }
+    if (formRequiredItem.tagName === "TEXTAREA") {
+      if (formRequiredItem.value.length > 1000) {
+        if (!formRequiredItem.classList.contains("_form-error")) {
+          this.addErrorTextarea(
+            formRequiredItem,
+            "Допустим текст не более 1000 символов"
+          );
+          error++;
+        }
+      } else {
+        if (formRequiredItem.classList.contains("_form-error")) {
+          this.removeErrorTextarea(formRequiredItem);
+        }
+      }
+    }
+
     return error;
+  },
+
+  addErrorTextarea(formRequiredItem, errorMessage) {
+    formRequiredItem.classList.add("_form-error");
+    formRequiredItem.parentElement.classList.add("_form-error");
+    let inputError =
+      formRequiredItem.parentElement.querySelector(".form__error");
+    if (inputError) formRequiredItem.parentElement.removeChild(inputError);
+    formRequiredItem.parentElement.insertAdjacentHTML(
+      "beforeend",
+      `<div class="form__error">${errorMessage}</div>`
+    );
+  },
+  removeErrorTextarea(formRequiredItem) {
+    formRequiredItem.classList.remove("_form-error");
+    formRequiredItem.parentElement.classList.remove("_form-error");
+    let inputError =
+      formRequiredItem.parentElement.querySelector(".form__error");
+    if (inputError) formRequiredItem.parentElement.removeChild(inputError);
   },
   addError(formRequiredItem) {
     formRequiredItem.classList.add("_form-error");
@@ -280,7 +326,8 @@ export let formValidate = {
     );
   },
   phoneTest(formRequiredItem) {
-    const phoneNumberPattern = /^\+7 \([1-9]\d{2}\) [1-9]\d{2}-[1-9]\d{3}$/;
+    const phoneNumberPattern = /^\+7 \(\d{3}\) \d{3}-\d{4}$/;
+
     return phoneNumberPattern.test(formRequiredItem.value);
   },
 };

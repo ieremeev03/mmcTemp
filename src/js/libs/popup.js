@@ -23,7 +23,8 @@ import {
 // flsForms.initMask();
 import { initSelect } from "./select.js";
 import { flsModules } from "../files/modules.js";
-import { initSliders } from "../files/sliders.js";
+// import { initSliders } from "../files/sliders.js";
+import Swiper from "swiper";
 // Клас Popup
 class Popup {
   constructor(options) {
@@ -147,9 +148,18 @@ class Popup {
           null,
           `${selector} select`
         );
+
         // initMask();
         flsForms.initMask();
-        initSliders();
+        // initSliders();
+        const popupSliders = el.querySelectorAll(".swiper"); // Adjust the selector based on your slider elements
+        if (popupSliders.length > 0) {
+          initSliders(".swiper"); // Initialize sliders if they exist within the popup
+        }
+        // if (slidersInitialized) {
+        //   initSliders();
+        //   slidersInitialized = true;
+        // }
 
         this.open();
       },

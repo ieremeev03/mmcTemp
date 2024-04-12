@@ -2582,22 +2582,24 @@
         // backdrop-filter: blur(10px);
         // -webkit-backdrop-filter: blur(10px); /* Альтернатива для Safari */
         padding: rem(17) rem(18);
-
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          background: rgba(145, 188, 229, 0.65);
-        }
+        // background: transparent;
+        background: rgba(145, 188, 229, 0.9);
+        // &::before {
+        //   content: "";
+        //   position: absolute;
+        //   top: 0;
+        //   left: 0;
+        //   width: 100%;
+        //   height: 100%;
+        //   backdrop-filter: blur(10px);
+        //   -webkit-backdrop-filter: blur(10px);
+        //   background: rgba(145, 188, 229, 0.65);
+        //   z-index: 1;
+        // }
         @media (max-width: $mobile) {
           // backdrop-filter: blur(30px);
-          backdrop-filter: blur(10px);
-          background: rgba(145, 188, 229, 1);
+          // backdrop-filter: blur(10px);
+          // background: rgba(145, 188, 229, 1);
         }
         .select__scroll {
           // @extend %hidescroll;
@@ -2605,6 +2607,21 @@
           display: flex;
           flex-direction: column;
           gap: rem(13);
+
+          z-index: 3;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(145, 188, 229, 0.65);
+            z-index: -1;
+            // filter: blur(rem(10));
+          }
         }
         .select__option {
           font-size: rem(20);

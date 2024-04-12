@@ -3849,18 +3849,7 @@ a {
 
 .form__item-select .select__body .select__options {
   padding: 1.0625rem 1.125rem;
-}
-
-.form__item-select .select__body .select__options::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: rgba(145, 188, 229, 0.65);
+  background: rgba(145, 188, 229, 0.9);
 }
 
 .form__item-select .select__body .select__options .select__scroll {
@@ -3872,6 +3861,20 @@ a {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 0.8125rem;
+  z-index: 3;
+}
+
+.form__item-select .select__body .select__options .select__scroll::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(145, 188, 229, 0.65);
+  z-index: -1;
 }
 
 .form__item-select .select__body .select__options .select__option {
@@ -8555,12 +8558,6 @@ a {
 
   .form__item-select {
     width: 15.6875rem;
-  }
-
-  .form__item-select .select__body .select__options {
-    -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-    background: rgb(145, 188, 229);
   }
 
   .form__item-select .select__body .select__value::after {

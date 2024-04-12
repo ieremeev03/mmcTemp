@@ -2269,9 +2269,9 @@ a {
   color: var(--color);
   -webkit-transition: all 0.3s ease-in 0s;
   transition: all 0.3s ease-in 0s;
-  -webkit-transform: translate(0.25rem, 0rem);
-      -ms-transform: translate(0.25rem, 0rem);
-          transform: translate(0.25rem, 0rem);
+  -webkit-transform: translate(0.1875rem, 0rem);
+      -ms-transform: translate(0.1875rem, 0rem);
+          transform: translate(0.1875rem, 0rem);
 }
 
 .header__phone::before {
@@ -2507,9 +2507,9 @@ a {
   color: var(--color);
   -webkit-transition: all 0.3s ease-in 0s;
   transition: all 0.3s ease-in 0s;
-  -webkit-transform: translate(0.25rem, 0rem);
-      -ms-transform: translate(0.25rem, 0rem);
-          transform: translate(0.25rem, 0rem);
+  -webkit-transform: translate(0.1875rem, 0rem);
+      -ms-transform: translate(0.1875rem, 0rem);
+          transform: translate(0.1875rem, 0rem);
 }
 
 .top-footer__phone::before {
@@ -3848,10 +3848,19 @@ a {
 }
 
 .form__item-select .select__body .select__options {
-  background: rgba(145, 188, 229, 0.65);
-  -webkit-backdrop-filter: blur(20px);
-          backdrop-filter: blur(20px);
   padding: 1.0625rem 1.125rem;
+}
+
+.form__item-select .select__body .select__options::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(145, 188, 229, 0.65);
 }
 
 .form__item-select .select__body .select__options .select__scroll {
@@ -3872,6 +3881,7 @@ a {
   background: transparent;
   padding: 0rem;
   text-underline-offset: 4px;
+  position: relative;
 }
 
 .form__item-select .select__body .select__options .select__option:last-child {
@@ -5503,10 +5513,6 @@ a {
     display: none;
   }
 
-  .action__mainslider .action__slide .action__slide-text {
-    min-width: 33.5rem;
-  }
-
   .action__content {
     padding-left: 0.25rem;
     overflow: hidden;
@@ -5747,9 +5753,9 @@ a {
   }
 
   .header__phone span {
-    -webkit-transform: translate(0rem, 0rem);
-        -ms-transform: translate(0rem, 0rem);
-            transform: translate(0rem, 0rem);
+    -webkit-transform: translate(-0.0625rem, 0rem);
+        -ms-transform: translate(-0.0625rem, 0rem);
+            transform: translate(-0.0625rem, 0rem);
   }
 
   .header__phone::before {
@@ -6629,9 +6635,9 @@ a {
   }
 
   .header__phone span {
-    -webkit-transform: translate(0rem, 0rem);
-        -ms-transform: translate(0rem, 0rem);
-            transform: translate(0rem, 0rem);
+    -webkit-transform: translate(-0.0625rem, 0rem);
+        -ms-transform: translate(-0.0625rem, 0rem);
+            transform: translate(-0.0625rem, 0rem);
   }
 
   .header__address {
@@ -6690,9 +6696,9 @@ a {
   }
 
   .top-footer__phone span {
-    -webkit-transform: translate(-0.4375rem, 0rem);
-        -ms-transform: translate(-0.4375rem, 0rem);
-            transform: translate(-0.4375rem, 0rem);
+    -webkit-transform: translate(-0.5rem, 0rem);
+        -ms-transform: translate(-0.5rem, 0rem);
+            transform: translate(-0.5rem, 0rem);
   }
 
   .top-footer__block {
@@ -8552,8 +8558,8 @@ a {
   }
 
   .form__item-select .select__body .select__options {
-    -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
     background: rgb(145, 188, 229);
   }
 
@@ -9460,10 +9466,6 @@ a {
   .header__phone:hover::before {
     content: "";
     background: var(--color-ble);
-  }
-
-  .header__cabinet-link:hover {
-    text-decoration: underline;
   }
 
   .header__cabinet-entrance:hover {

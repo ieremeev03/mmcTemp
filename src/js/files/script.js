@@ -644,7 +644,11 @@ if (slides) {
 
       slide.addEventListener("mouseover", () => {
         slidesText.style.opacity = "1";
-        slidesText.style.height = `${originalHeight + 5}px`;
+        // slidesText.style.height = `${originalHeight + 5}px`;
+
+        // new 24.04.2024
+        slidesText.style.height = `${originalHeight}px`;
+        // конец
         // slidesText.style.height = originalHeight + "px";
         slide.classList.add("_active");
       });
@@ -2301,3 +2305,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+//========================================================================================================================================================
+
+const spoilers = document.querySelectorAll(".question__spoller");
+
+if (spoilers) {
+  spoilers.forEach((spoiler) => {
+    spoiler.addEventListener("click", () => {
+      const title = spoiler.querySelector(".question__spoller-title");
+      title.click(); // Симулировать клик на title
+    });
+  });
+}

@@ -2578,13 +2578,25 @@
       }
 
       .select__options {
-        background: rgba(145, 188, 229, 0.65);
-        backdrop-filter: blur(20px);
+        // background: rgba(145, 188, 229, 0.65);
+        // backdrop-filter: blur(10px);
+        // -webkit-backdrop-filter: blur(10px); /* Альтернатива для Safari */
         padding: rem(17) rem(18);
 
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          background: rgba(145, 188, 229, 0.65);
+        }
         @media (max-width: $mobile) {
           // backdrop-filter: blur(30px);
-          backdrop-filter: blur(20px);
+          backdrop-filter: blur(10px);
           background: rgba(145, 188, 229, 1);
         }
         .select__scroll {
@@ -2601,7 +2613,7 @@
           background: transparent;
           padding: rem(0);
           text-underline-offset: 4px;
-
+          position: relative;
           &:last-child {
             padding-bottom: rem(5);
           }

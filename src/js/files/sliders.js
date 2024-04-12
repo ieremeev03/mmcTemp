@@ -48,7 +48,7 @@ export function initSliders() {
       //lazy: true,
 
       autoplay: {
-        delay: 2000,
+        delay: 6000,
         disableOnInteraction: true,
       },
 

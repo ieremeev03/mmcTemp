@@ -8880,7 +8880,7 @@
                     },
                     loop: true,
                     autoplay: {
-                        delay: 2e3,
+                        delay: 6e3,
                         disableOnInteraction: true
                     },
                     pagination: {
@@ -10288,7 +10288,7 @@
                 slidesText.style.webkitBoxOrient = "vertical";
                 slide.addEventListener("mouseover", (() => {
                     slidesText.style.opacity = "1";
-                    slidesText.style.height = `${originalHeight + 5}px`;
+                    slidesText.style.height = `${originalHeight}px`;
                     slide.classList.add("_active");
                 }));
                 slide.addEventListener("mouseout", (() => {
@@ -10500,6 +10500,13 @@
                         submenu.style.overflow = "hidden";
                     }
                 }));
+            }));
+        }));
+        const spoilers = document.querySelectorAll(".question__spoller");
+        if (spoilers) spoilers.forEach((spoiler => {
+            spoiler.addEventListener("click", (() => {
+                const title = spoiler.querySelector(".question__spoller-title");
+                title.click();
             }));
         }));
         window["FLS"] = true;

@@ -303,7 +303,7 @@
       color: var(--color);
 
       transition: all $time $tr 0s;
-      transform: translate(rem(4), rem(0));
+      transform: translate(rem(3), rem(0));
 
       @media (max-width: rem(1800)) {
         transform: translate(rem(-5), rem(0));
@@ -314,7 +314,7 @@
       }
 
       @media (max-width: rem(1200)) {
-        transform: translate(rem(-7), rem(0));
+        transform: translate(rem(-8), rem(0));
       }
     }
     &::before {

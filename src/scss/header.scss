@@ -498,10 +498,10 @@
       color: var(--color);
 
       transition: all $time $tr 0s;
-      transform: translate(rem(4), rem(0));
+      transform: translate(rem(3), rem(0));
 
       @media (max-width: rem(1800)) {
-        transform: translate(rem(0), rem(0));
+        transform: translate(rem(-1), rem(0));
       }
 
       @media (max-width: rem(1420)) {
@@ -509,7 +509,7 @@
       }
 
       @media (max-width: rem(1200)) {
-        transform: translate(rem(0), rem(0));
+        transform: translate(rem(-1), rem(0));
       }
     }
     &::before {
@@ -685,7 +685,6 @@
     @media (any-hover: hover) {
       &:hover {
         // color: cl(ble);
-        text-decoration: underline;
         // &::before {
         //   content: "";
         //   background: cl(ble);

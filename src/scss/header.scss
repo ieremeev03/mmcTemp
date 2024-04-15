@@ -84,8 +84,9 @@
 
       @media (max-width: $mobileSmall) {
         height: calc(100vh - rem(91));
-        background: rgba(145, 188, 229, 0.65);
-        backdrop-filter: blur(30px);
+        background: rgba(145, 188, 229, 0.9);
+        // background: rgba(145, 188, 229, 0.65);
+        // backdrop-filter: blur(30px);
       }
     }
     .header__logo {

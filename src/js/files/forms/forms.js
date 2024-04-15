@@ -383,22 +383,20 @@ export const initMask = () => {
   }
 };
 /* Модуль формы "количество" */
-export function formSubmit() {
-  const forms = document.forms;
+export function formSubmit(context = document) {
+  const forms = context.querySelectorAll("form");
   if (forms.length) {
     // new 16.03.2024
     // console.log("12312");
     // конец
-    for (const form of forms) {
-      document.addEventListener("submit", function (e) {
-        const form = e.target;
-        formSubmitAction(form, e);
-      });
-      form.addEventListener("reset", function (e) {
-        const form = e.target;
-        formValidate.formClean(form);
-      });
-    }
+    document.addEventListener("submit", function (e) {
+      const form = e.target;
+      formSubmitAction(form, e);
+    });
+    document.addEventListener("reset", function (e) {
+      const form = e.target;
+      formValidate.formClean(form);
+    });
   }
   async function formSubmitAction(form, e) {
     const error = !form.hasAttribute("data-no-validate")

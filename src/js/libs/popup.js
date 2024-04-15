@@ -137,7 +137,7 @@ class Popup {
         // конец
         document.body.appendChild(el);
 
-        flsForms.formSubmit();
+        flsForms.formSubmit(el);
         flsForms.formFieldsInit({
           viewPass: false,
           autoHeight: false,

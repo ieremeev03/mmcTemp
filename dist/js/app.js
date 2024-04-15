@@ -4190,14 +4190,14 @@
                 }));
             }));
         };
-        function formSubmit() {
-            const forms = document.forms;
-            if (forms.length) for (const form of forms) {
+        function formSubmit(context = document) {
+            const forms = context.querySelectorAll("form");
+            if (forms.length) {
                 document.addEventListener("submit", (function(e) {
                     const form = e.target;
                     formSubmitAction(form, e);
                 }));
-                form.addEventListener("reset", (function(e) {
+                document.addEventListener("reset", (function(e) {
                     const form = e.target;
                     formValidate.formClean(form);
                 }));
@@ -7659,7 +7659,7 @@
                         const response = parser.parseFromString(responseResult, "text/html");
                         const el = response.querySelector(selector);
                         document.body.appendChild(el);
-                        formSubmit();
+                        formSubmit(el);
                         formFieldsInit({
                             viewPass: false,
                             autoHeight: false

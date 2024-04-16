@@ -232,17 +232,100 @@ export let formValidate = {
     //   }
     // }
 
+    // if (
+    //   formRequiredItem.tagName === "INPUT" &&
+    //   formRequiredItem.type === "date"
+    // ) {
+    //   if (formRequiredItem.value === "") {
+    //     formRequiredItem.value = new Date().toISOString().split("T")[0];
+    //   } else if (new Date(formRequiredItem.value) >= new Date()) {
+    //     // измененное условие
+    //     if (!formRequiredItem.classList.contains("_form-error")) {
+    //       this.addError(formRequiredItem);
+    //       error++;
+    //     }
+    //   }
+    // }
+
+    // if (
+    //   formRequiredItem.tagName === "INPUT" &&
+    //   formRequiredItem.type === "date"
+    // ) {
+    //   if (formRequiredItem.value === "") {
+    //     formRequiredItem.value = new Date().toISOString().split("T")[0];
+    //   } else {
+    //     const selectedDate = new Date(formRequiredItem.value);
+    //     const minDate = new Date("2001-01-01");
+    //     const maxDate = new Date();
+
+    //     if (selectedDate < minDate || selectedDate > maxDate) {
+    //       if (!formRequiredItem.classList.contains("_form-error")) {
+    //         this.addError(formRequiredItem);
+    //         error++;
+    //       }
+    //     }
+    //   }
+    // }
+
+    // Regular expression to match "dd.mm.yyyy" format
+    // Regular expression to match "dd.mm.yyyy" format
     if (
       formRequiredItem.tagName === "INPUT" &&
       formRequiredItem.type === "date"
     ) {
       if (formRequiredItem.value === "") {
         formRequiredItem.value = new Date().toISOString().split("T")[0];
-      } else if (new Date(formRequiredItem.value) >= new Date()) {
-        // измененное условие
-        if (!formRequiredItem.classList.contains("_form-error")) {
-          this.addError(formRequiredItem);
-          error++;
+      } else {
+        const selectedDate = formRequiredItem.value;
+        const dateParts = selectedDate.split(".");
+
+        // Check if the date format is correct
+        if (dateParts.length === 3) {
+          const day = parseInt(dateParts[0], 10);
+          const month = parseInt(dateParts[1], 10);
+          let year = parseInt(dateParts[2].slice(0, 2), 10); // Extract only the first two digits of the year
+
+          if (year < 50) {
+            year += 2000; // Adjust the year for 2-digit years less than 50
+          } else {
+            year += 1900; // Adjust the year for 2-digit years greater than or equal to 50
+          }
+
+          // Validate day, month, and year ranges
+          if (
+            day >= 1 &&
+            day <= 31 &&
+            month >= 1 &&
+            month <= 12 &&
+            year >= 2001 &&
+            year <= new Date().getFullYear()
+          ) {
+            // Date format is correct, proceed with further validations
+            const parsedDate = `${day}-${month}-${year}`;
+            const minDate = new Date("2001-01-01");
+            const maxDate = new Date();
+
+            const dateObj = new Date(parsedDate);
+
+            if (dateObj < minDate || dateObj > maxDate) {
+              if (!formRequiredItem.classList.contains("_form-error")) {
+                this.addError(formRequiredItem);
+                error++;
+              }
+            }
+          } else {
+            // Handle invalid date format (e.g., show error message)
+            if (!formRequiredItem.classList.contains("_form-error")) {
+              this.addError(formRequiredItem);
+              error++;
+            }
+          }
+        } else {
+          // Handle invalid date format (e.g., show error message)
+          if (!formRequiredItem.classList.contains("_form-error")) {
+            this.addError(formRequiredItem);
+            error++;
+          }
         }
       }
     }

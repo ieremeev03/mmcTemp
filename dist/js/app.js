@@ -4098,9 +4098,31 @@
                         error++;
                     }
                 } else if (formRequiredItem.classList.contains("_form-error")) this.removeErrorTextarea(formRequiredItem);
-                if (formRequiredItem.tagName === "INPUT" && formRequiredItem.type === "date") if (formRequiredItem.value === "") formRequiredItem.value = (new Date).toISOString().split("T")[0]; else if (new Date(formRequiredItem.value) >= new Date) if (!formRequiredItem.classList.contains("_form-error")) {
-                    this.addError(formRequiredItem);
-                    error++;
+                if (formRequiredItem.tagName === "INPUT" && formRequiredItem.type === "date") if (formRequiredItem.value === "") formRequiredItem.value = (new Date).toISOString().split("T")[0]; else {
+                    const selectedDate = formRequiredItem.value;
+                    const dateParts = selectedDate.split(".");
+                    if (dateParts.length === 3) {
+                        const day = parseInt(dateParts[0], 10);
+                        const month = parseInt(dateParts[1], 10);
+                        let year = parseInt(dateParts[2].slice(0, 2), 10);
+                        if (year < 50) year += 2e3; else year += 1900;
+                        if (day >= 1 && day <= 31 && month >= 1 && month <= 12 && year >= 2001 && year <= (new Date).getFullYear()) {
+                            const parsedDate = `${day}-${month}-${year}`;
+                            const minDate = new Date("2001-01-01");
+                            const maxDate = new Date;
+                            const dateObj = new Date(parsedDate);
+                            if (dateObj < minDate || dateObj > maxDate) if (!formRequiredItem.classList.contains("_form-error")) {
+                                this.addError(formRequiredItem);
+                                error++;
+                            }
+                        } else if (!formRequiredItem.classList.contains("_form-error")) {
+                            this.addError(formRequiredItem);
+                            error++;
+                        }
+                    } else if (!formRequiredItem.classList.contains("_form-error")) {
+                        this.addError(formRequiredItem);
+                        error++;
+                    }
                 }
                 return error;
             },
@@ -8873,7 +8895,7 @@
                     observeParents: true,
                     slidesPerView: 1,
                     spaceBetween: 0,
-                    initialSlide: 1,
+                    initialSlide: 0,
                     speed: 500,
                     fadeEffect: {
                         crossFade: true
@@ -10344,7 +10366,6 @@
                 const dt = new DataTransfer;
                 let errorsArr = [];
                 const imageType = /image.*/;
-                const videoType = /video.*/;
                 const fileType = /application.*/;
                 const previewFile = fileList => {
                     const filesArr = [ ...fileList ];
@@ -10406,10 +10427,6 @@
                             return;
                         }
                         if (file.type.match(fileType)) {
-                            dt.items.add(file);
-                            return;
-                        }
-                        if (file.type.match(videoType)) {
                             dt.items.add(file);
                             return;
                         }

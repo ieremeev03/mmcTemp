@@ -2084,7 +2084,7 @@ const initInputFiles = () => {
     const dt = new DataTransfer();
     let errorsArr = [];
     const imageType = /image.*/;
-    const videoType = /video.*/;
+    // const videoType = /video.*/;
     const fileType = /application.*/;
 
     const previewFile = (fileList) => {
@@ -2169,10 +2169,10 @@ const initInputFiles = () => {
           dt.items.add(file);
           return;
         }
-        if (file.type.match(videoType)) {
-          dt.items.add(file);
-          return;
-        }
+        // if (file.type.match(videoType)) {
+        //   dt.items.add(file);
+        //   return;
+        // }
         errorsArr.push(`${file.name} ${fileTypeError}`);
       });
       input.files = dt.files;
@@ -2318,3 +2318,5 @@ if (spoilers) {
     });
   });
 }
+
+//========================================================================================================================================================

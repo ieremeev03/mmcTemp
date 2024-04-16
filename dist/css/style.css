@@ -1291,6 +1291,11 @@ a {
   pointer-events: all !important;
 }
 
+.menu-open .header__row--two {
+  opacity: 1 !important;
+  pointer-events: all !important;
+}
+
 .menu-search .search-catalog {
   opacity: 1;
   pointer-events: all;
@@ -2014,6 +2019,13 @@ a {
   --size: 20px;
   width: var(--size);
   height: var(--size);
+}
+
+.header__row--two {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  margin-left: 5.1875rem;
 }
 
 .header {
@@ -4692,6 +4704,7 @@ a {
           flex-direction: column;
   gap: 0.8125rem;
   margin-bottom: 3.4375rem;
+  padding-left: 0.3125rem;
 }
 
 .action__content ul li {
@@ -5706,6 +5719,34 @@ a {
     padding-bottom: 1.1875rem;
   }
 
+  .header__row--two {
+    position: fixed;
+    top: 5.5625rem;
+    left: 0;
+    width: 100%;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    overflow: auto;
+    background: rgba(145, 188, 229, 0.65);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    -webkit-transition: all 0.3s ease-in 0s;
+    transition: all 0.3s ease-in 0s;
+    opacity: 0;
+    z-index: 5;
+    pointer-events: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 0rem;
+  }
+
   .header.header--two .header__row {
     position: fixed;
     top: 5.5625rem;
@@ -5806,7 +5847,7 @@ a {
   .header__logo img,
   .header__logo picture {
     width: 12.5625rem;
-    height: 2.9375rem;
+    height: 3.375rem;
   }
 
   .header__info {
@@ -5996,6 +6037,10 @@ a {
 @media (max-width: 93.75em) {
   [class*=__container] {
     --pad: 41px;
+  }
+
+  .header__row--two {
+    margin-left: 0rem;
   }
 
   .header.header--two .header__row {
@@ -9351,6 +9396,11 @@ a {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+
+  .header__row--two {
+    height: calc(100vh - 5.6875rem);
+    background: rgba(145, 188, 229, 0.65);
   }
 
   .header.header--two .header__row {

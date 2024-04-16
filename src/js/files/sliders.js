@@ -34,7 +34,7 @@ export function initSliders() {
       observeParents: true,
       slidesPerView: 1,
       spaceBetween: 0,
-      initialSlide: 1,
+      initialSlide: 0,
       // autoHeight: true,
       speed: 500,
       // effect: "fade",

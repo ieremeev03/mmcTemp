@@ -289,8 +289,9 @@
       object-fit: cover;
 
       @media (max-width: rem(1800)) {
+        // width: rem(201);
         width: rem(201);
-        height: rem(47);
+        height: rem(54);
       }
 
       @media (max-width: rem(1420)) {

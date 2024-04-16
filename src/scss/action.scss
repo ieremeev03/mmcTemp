@@ -904,7 +904,7 @@
       flex-direction: column;
       gap: rem(13);
       margin-bottom: rem(55);
-
+      padding-left: rem(5);
       @media (max-width: $mobile) {
         display: none;
       }

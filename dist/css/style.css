@@ -2033,6 +2033,28 @@ a {
   position: relative;
 }
 
+.form__item--date .form__item-icon {
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  pointer-events: none;
+}
+
+.form__item--date .form__item-icon::before {
+  content: "";
+  mask: var(--icon) center center/contain no-repeat;
+  -webkit-mask: var(--icon) center center/contain no-repeat;
+  background: var(--color-ble);
+  --size: 20px;
+  width: var(--size);
+  height: var(--size);
+  cursor: pointer;
+  pointer-events: none;
+}
+
 input[type=date]::-webkit-calendar-picker-indicator {
   position: absolute;
   top: 0;
@@ -2043,29 +2065,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   height: auto;
   color: transparent;
   background: transparent;
-  -webkit-user-select: none;
-  /* Chrome/Safari */
-  -moz-user-select: none;
-  /* Firefox */
-  -ms-user-select: none;
-  /* IE/Edge */
-  user-select: none;
-  /* Стандартный синтаксис */
-  -webkit-user-select: none;
-  /* Chrome/Safari */
-  -moz-user-select: none;
-  /* Firefox */
-  -ms-user-select: none;
-  /* IE/Edge */
-  user-select: none;
-  /* Standard syntax */
-}
-
-input[type=date]::-webkit-calendar-picker-indicator::selection {
-  background: transparent;
-  /* Какое выделение? Не вижу! */
-  color: inherit;
-  /* Цвет текста сохраняется, даже если кто-то пытается его выделить */
+  cursor: pointer;
 }
 
 input[type=date]::-webkit-inner-spin-button,
@@ -2074,36 +2074,13 @@ input[type=date]::-webkit-clear-button {
 }
 
 input[type=date] {
-  -webkit-user-select: none;
-  /* Chrome/Safari */
-  -moz-user-select: none;
-  /* Firefox */
-  -ms-user-select: none;
-  /* IE/Edge */
-  user-select: none;
-  /* Стандартный синтаксис */
-  -webkit-user-select: none;
-  /* Chrome/Safari */
-  -moz-user-select: none;
-  /* Firefox */
-  -ms-user-select: none;
-  /* IE/Edge */
-  user-select: none;
-  /* Standard syntax */
-}
-
-input[type=date]::-moz-selection {
-  background: transparent;
-  /* Какое выделение? Не вижу! */
-  color: inherit;
-  /* Цвет текста сохраняется, даже если кто-то пытается его выделить */
-}
-
-input[type=date]::selection {
-  background: transparent;
-  /* Какое выделение? Не вижу! */
-  color: inherit;
-  /* Цвет текста сохраняется, даже если кто-то пытается его выделить */
+  background: var(--color-whte) !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
 }
 
 .header {

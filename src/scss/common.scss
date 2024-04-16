@@ -1854,7 +1854,6 @@ a {
 
 .form__item--date {
   position: relative;
-
   // .form__item-date {
   //   position: absolute;
   //   top: 0;
@@ -1863,6 +1862,25 @@ a {
   //   height: 100%;
   //   background: red;
   // }
+
+  .form__item-icon {
+    position: absolute;
+    top: 50%;
+    right: rem(20);
+    transform: translate(0, -50%);
+    pointer-events: none;
+    &::before {
+      content: "";
+      mask: var(--icon) center center/contain no-repeat;
+      -webkit-mask: var(--icon) center center/contain no-repeat;
+      background: cl(ble);
+      --size: 20px;
+      width: var(--size);
+      height: var(--size);
+      cursor: pointer;
+      pointer-events: none;
+    }
+  }
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -1876,19 +1894,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: transparent;
   background: transparent;
 
-  -webkit-user-select: none; /* Chrome/Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE/Edge */
-  user-select: none; /* Стандартный синтаксис */
-  -webkit-user-select: none; /* Chrome/Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE/Edge */
-  user-select: none; /* Standard syntax */
+  // color: cl(blck);
+  // background: cl(whte);
+  // -webkit-user-select: none; /* Chrome/Safari */
+  // -moz-user-select: none; /* Firefox */
+  // -ms-user-select: none; /* IE/Edge */
+  // user-select: none; /* Стандартный синтаксис */
+  // -webkit-user-select: none; /* Chrome/Safari */
+  // -moz-user-select: none; /* Firefox */
+  // -ms-user-select: none; /* IE/Edge */
+  // user-select: none; /* Standard syntax */
+  cursor: pointer;
 
-  &::selection {
-    background: transparent; /* Какое выделение? Не вижу! */
-    color: inherit; /* Цвет текста сохраняется, даже если кто-то пытается его выделить */
-  }
+  // &::selection {
+  //   background: transparent; /* Какое выделение? Не вижу! */
+  //   color: inherit; /* Цвет текста сохраняется, даже если кто-то пытается его выделить */
+  // }
 }
 
 input[type="date"]::-webkit-inner-spin-button,
@@ -1897,17 +1918,19 @@ input[type="date"]::-webkit-clear-button {
 }
 
 input[type="date"] {
-  -webkit-user-select: none; /* Chrome/Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE/Edge */
-  user-select: none; /* Стандартный синтаксис */
-  -webkit-user-select: none; /* Chrome/Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE/Edge */
-  user-select: none; /* Standard syntax */
-
-  &::selection {
-    background: transparent; /* Какое выделение? Не вижу! */
-    color: inherit; /* Цвет текста сохраняется, даже если кто-то пытается его выделить */
-  }
+  // -webkit-user-select: none; /* Chrome/Safari */
+  // -moz-user-select: none; /* Firefox */
+  // -ms-user-select: none; /* IE/Edge */
+  // user-select: none; /* Стандартный синтаксис */
+  // -webkit-user-select: none; /* Chrome/Safari */
+  // -moz-user-select: none; /* Firefox */
+  // -ms-user-select: none; /* IE/Edge */
+  // user-select: none; /* Standard syntax */
+  background: cl(whte) !important;
+  display: flex !important;
+  align-items: center !important;
+  // &::selection {
+  //   background: transparent; /* Какое выделение? Не вижу! */
+  //   color: inherit; /* Цвет текста сохраняется, даже если кто-то пытается его выделить */
+  // }
 }

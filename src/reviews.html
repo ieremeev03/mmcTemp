@@ -346,12 +346,11 @@
                             placeholder="" class="input" data-email="email" data-validate>
                         </div>
                       </div>
-                      <div class="form__item">
+                      <div class="form__item form__item--date">
                         <div class="form__item-label">Дата посещения*</div>
                         <div class="form__item-input">
-                          <input autocomplete="off" type="date" name="form[]"
-                            oninput="this.value = this.value.slice(0, 10)" data-error="Указана некорректная дата"
-                            class="input" data-validate data-required>
+                          <input autocomplete="off" type="date" name="form[]" data-errortwo="Введите дату"
+                            data-error="Указана некорректная дата" class="input" data-validate data-required>
                         </div>
                       </div>
                     </div>

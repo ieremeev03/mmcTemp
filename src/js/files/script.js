@@ -2320,3 +2320,12 @@ if (spoilers) {
 }
 
 //========================================================================================================================================================
+// document
+//   .querySelector(".form__item-date")
+//   .addEventListener("click", function () {
+//     var inputField =
+//       this.previousElementSibling.querySelector('input[type="date"]');
+//     if (inputField) {
+//       inputField.click();
+//     }
+//   });

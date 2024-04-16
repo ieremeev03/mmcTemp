@@ -219,6 +219,7 @@ import "./libs/fslightbox.js";
 import { initSelect } from "./libs/select.js";
 // import { initMask } from "./files/script.js";
 flsForms.initMask();
+// flsForms.initMaskDate();
 
 // initMask();
 initSelect();

@@ -202,6 +202,7 @@ body::-webkit-scrollbar-thumb {
 input[type=text],
 input[type=email],
 input[type=tel],
+input[type=date],
 textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -2026,6 +2027,83 @@ a {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   margin-left: 5.1875rem;
+}
+
+.form__item--date {
+  position: relative;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+  user-select: none;
+  /* Стандартный синтаксис */
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+  user-select: none;
+  /* Standard syntax */
+}
+
+input[type=date]::-webkit-calendar-picker-indicator::selection {
+  background: transparent;
+  /* Какое выделение? Не вижу! */
+  color: inherit;
+  /* Цвет текста сохраняется, даже если кто-то пытается его выделить */
+}
+
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-clear-button {
+  z-index: -10;
+}
+
+input[type=date] {
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+  user-select: none;
+  /* Стандартный синтаксис */
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+  user-select: none;
+  /* Standard syntax */
+}
+
+input[type=date]::-moz-selection {
+  background: transparent;
+  /* Какое выделение? Не вижу! */
+  color: inherit;
+  /* Цвет текста сохраняется, даже если кто-то пытается его выделить */
+}
+
+input[type=date]::selection {
+  background: transparent;
+  /* Какое выделение? Не вижу! */
+  color: inherit;
+  /* Цвет текста сохраняется, даже если кто-то пытается его выделить */
 }
 
 .header {

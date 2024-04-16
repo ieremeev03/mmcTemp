@@ -1849,3 +1849,65 @@ a {
     // backdrop-filter: blur(30px);
   }
 }
+
+//========================================================================================================================================================
+
+.form__item--date {
+  position: relative;
+
+  // .form__item-date {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   background: red;
+  // }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+  user-select: none; /* Стандартный синтаксис */
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+  user-select: none; /* Standard syntax */
+
+  &::selection {
+    background: transparent; /* Какое выделение? Не вижу! */
+    color: inherit; /* Цвет текста сохраняется, даже если кто-то пытается его выделить */
+  }
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+  z-index: -10;
+}
+
+input[type="date"] {
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+  user-select: none; /* Стандартный синтаксис */
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+  user-select: none; /* Standard syntax */
+
+  &::selection {
+    background: transparent; /* Какое выделение? Не вижу! */
+    color: inherit; /* Цвет текста сохраняется, даже если кто-то пытается его выделить */
+  }
+}

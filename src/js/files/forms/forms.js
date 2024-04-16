@@ -247,15 +247,37 @@ export let formValidate = {
     //   }
     // }
 
+    if (
+      formRequiredItem.tagName === "INPUT" &&
+      formRequiredItem.type === "date"
+    ) {
+      if (formRequiredItem.value === "") {
+        // formRequiredItem.value = new Date().toISOString().split("T")[0];
+        this.addErrorTwo(formRequiredItem);
+        error++;
+      } else {
+        const selectedDate = new Date(formRequiredItem.value);
+        const minDate = new Date("2000-01-01");
+        const maxDate = new Date();
+
+        if (selectedDate < minDate || selectedDate > maxDate) {
+          if (!formRequiredItem.classList.contains("_form-error")) {
+            this.addError(formRequiredItem);
+            error++;
+          }
+        }
+      }
+    }
+
     // if (
     //   formRequiredItem.tagName === "INPUT" &&
-    //   formRequiredItem.type === "date"
+    //   formRequiredItem.getAttribute("data-required") === "date"
     // ) {
     //   if (formRequiredItem.value === "") {
     //     formRequiredItem.value = new Date().toISOString().split("T")[0];
     //   } else {
     //     const selectedDate = new Date(formRequiredItem.value);
-    //     const minDate = new Date("2001-01-01");
+    //     const minDate = new Date("2000-01-01");
     //     const maxDate = new Date();
 
     //     if (selectedDate < minDate || selectedDate > maxDate) {
@@ -267,68 +289,86 @@ export let formValidate = {
     //   }
     // }
 
-    // Regular expression to match "dd.mm.yyyy" format
-    // Regular expression to match "dd.mm.yyyy" format
-    if (
-      formRequiredItem.tagName === "INPUT" &&
-      formRequiredItem.type === "date"
-    ) {
-      if (formRequiredItem.value === "") {
-        formRequiredItem.value = new Date().toISOString().split("T")[0];
-      } else {
-        const selectedDate = formRequiredItem.value;
-        const dateParts = selectedDate.split(".");
+    // if (
+    //   formRequiredItem.tagName === "INPUT" &&
+    //   formRequiredItem.getAttribute("data-required") === "date"
+    // ) {
+    //   if (formRequiredItem.value === "") {
+    //     formRequiredItem.value = new Date().toISOString().split("T")[0];
+    //   } else {
+    //     const selectedDate = new Date(formRequiredItem.value);
+    //     const minDate = new Date("2000-01-01");
+    //     const maxDate = new Date();
 
-        // Check if the date format is correct
-        if (dateParts.length === 3) {
-          const day = parseInt(dateParts[0], 10);
-          const month = parseInt(dateParts[1], 10);
-          let year = parseInt(dateParts[2].slice(0, 2), 10); // Extract only the first two digits of the year
+    //     if (isNaN(selectedDate)) {
+    //       if (!formRequiredItem.classList.contains("_form-error")) {
+    //         this.addError(formRequiredItem);
+    //         error++;
+    //       }
+    //     } else if (selectedDate < minDate || selectedDate > maxDate) {
+    //       if (!formRequiredItem.classList.contains("_form-error")) {
+    //         this.addError(formRequiredItem);
+    //         error++;
+    //       }
+    //     }
+    //   }
+    // }
 
-          if (year < 50) {
-            year += 2000; // Adjust the year for 2-digit years less than 50
-          } else {
-            year += 1900; // Adjust the year for 2-digit years greater than or equal to 50
-          }
+    // if (
+    //   formRequiredItem.tagName === "INPUT" &&
+    //   formRequiredItem.getAttribute("data-required") === "date"
+    // ) {
+    //   if (formRequiredItem.value === "") {
+    //     formRequiredItem.value = new Date().toISOString().split("T")[0];
+    //   } else {
+    //     const dateParts = formRequiredItem.value.split(".");
+    //     const selectedDate = new Date(
+    //       `${dateParts[1]}/${dateParts[0]}/${dateParts[2]}`
+    //     );
+    //     const minDate = new Date("2000-01-01");
+    //     const maxDate = new Date();
 
-          // Validate day, month, and year ranges
-          if (
-            day >= 1 &&
-            day <= 31 &&
-            month >= 1 &&
-            month <= 12 &&
-            year >= 2001 &&
-            year <= new Date().getFullYear()
-          ) {
-            // Date format is correct, proceed with further validations
-            const parsedDate = `${day}-${month}-${year}`;
-            const minDate = new Date("2001-01-01");
-            const maxDate = new Date();
+    //     if (isNaN(selectedDate)) {
+    //       if (!formRequiredItem.classList.contains("_form-error")) {
+    //         this.addError(formRequiredItem);
+    //         error++;
+    //       }
+    //     } else if (selectedDate < minDate || selectedDate > maxDate) {
+    //       if (!formRequiredItem.classList.contains("_form-error")) {
+    //         this.addError(formRequiredItem);
+    //         error++;
+    //       }
+    //     }
+    //   }
+    // }
 
-            const dateObj = new Date(parsedDate);
+    // if (
+    //   formRequiredItem.tagName === "INPUT" &&
+    //   formRequiredItem.getAttribute("data-required") === "date"
+    // ) {
+    //   if (formRequiredItem.value === "") {
+    //     formRequiredItem.value = new Date().toISOString().split("T")[0];
+    //   } else {
+    //     const dateParts = formRequiredItem.value.split(".");
+    //     const selectedDate = new Date(
+    //       `${dateParts[1]}/${dateParts[0]}/${dateParts[2]}`
+    //     );
+    //     const minDate = new Date("2000-01-01");
+    //     const maxDate = new Date();
 
-            if (dateObj < minDate || dateObj > maxDate) {
-              if (!formRequiredItem.classList.contains("_form-error")) {
-                this.addError(formRequiredItem);
-                error++;
-              }
-            }
-          } else {
-            // Handle invalid date format (e.g., show error message)
-            if (!formRequiredItem.classList.contains("_form-error")) {
-              this.addError(formRequiredItem);
-              error++;
-            }
-          }
-        } else {
-          // Handle invalid date format (e.g., show error message)
-          if (!formRequiredItem.classList.contains("_form-error")) {
-            this.addError(formRequiredItem);
-            error++;
-          }
-        }
-      }
-    }
+    //     if (isNaN(selectedDate)) {
+    //       if (!formRequiredItem.classList.contains("_form-error")) {
+    //         this.addError(formRequiredItem);
+    //         error++;
+    //       }
+    //     } else if (selectedDate < minDate || selectedDate > maxDate) {
+    //       if (!formRequiredItem.classList.contains("_form-error")) {
+    //         this.addError(formRequiredItem);
+    //         error++;
+    //       }
+    //     }
+    //   }
+    // }
     return error;
   },
 
@@ -465,6 +505,17 @@ export const initMask = () => {
     });
   }
 };
+
+// export const initMaskDate = () => {
+//   const dateInputs = document.querySelectorAll('input[data-required="date"]');
+
+//   if (dateInputs) {
+//     dateInputs.forEach((input) => {
+//       const dateMask = "99.99.9999";
+//       Inputmask({ mask: dateMask, showMaskOnHover: false }).mask(input);
+//     });
+//   }
+// };
 /* Модуль формы "количество" */
 export function formSubmit(context = document) {
   const forms = context.querySelectorAll("form");

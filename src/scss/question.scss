@@ -170,7 +170,8 @@
 
         padding-left: rem(18);
         position: relative;
-        color: #7c7878;
+        // color: #7c7878;
+        color: cl(primary);
 
         @media (max-width: $mobile) {
           font-size: rem(12);
@@ -222,7 +223,8 @@
         line-height: normal;
 
         position: relative;
-        color: #7c7878;
+        // color: #7c7878;
+        color: cl(primary);
 
         @media (max-width: $mobile) {
           font-size: rem(12);
@@ -234,7 +236,7 @@
   // .question__spoller-text
 
   &__spoller-text {
-    color: #7c7878;
+    // color: #7c7878;
 
     font-size: rem(16);
     font-weight: 300;
@@ -244,6 +246,7 @@
     flex-direction: column;
     gap: rem(23);
 
+    color: cl(primary);
     @media (max-width: $mobile) {
       font-size: rem(12);
       gap: rem(15);

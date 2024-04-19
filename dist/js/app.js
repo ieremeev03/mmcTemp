@@ -8688,19 +8688,19 @@
                             autoHeight: false
                         });
                         window.select = new window.select.constructor(null, `${selector} select`);
-                        initMask();
                         const popupSliders = el.querySelectorAll(".swiper");
-                        if (popupSliders.length > 0) {
-                            console.log(button);
-                            popupSliders.forEach((element => {
-                                let initionSlide = button.dataset.slide || 0;
-                                const sliderGallery = new swiper_core_Swiper(".js-slider-gallery", {
+                        if (popupSliders.length > 0) popupSliders.forEach((element => {
+                            let sliderGallery = null;
+                            function initSlider(initionSlide) {
+                                if (sliderGallery) sliderGallery.destroy();
+                                sliderGallery = new swiper_core_Swiper(".js-slider-gallery", {
                                     modules: [ Navigation, Pagination ],
                                     observer: true,
                                     observeParents: true,
                                     slidesPerView: 1,
                                     spaceBetween: 0,
                                     initialSlide: initionSlide,
+                                    centeredSlides: true,
                                     speed: 500,
                                     pagination: {
                                         el: ".popup__pagging",
@@ -8733,11 +8733,25 @@
                                             spaceBetween: 61
                                         }
                                     },
-                                    on: {}
+                                    initialSlide: initionSlide,
+                                    on: {
+                                        init: function() {
+                                            let initionSlide = button.dataset.slide || 0;
+                                            setTimeout((() => {
+                                                this.slides.forEach((slide => {
+                                                    slide.classList.remove("swiper-slide-active");
+                                                }));
+                                                this.slides[initionSlide].classList.add("swiper-slide-active");
+                                                this.update();
+                                            }), 100);
+                                        }
+                                    }
                                 });
-                                sliderGallery.activeIndex = initionSlide;
-                            }));
-                        }
+                            }
+                            let initionSlide = button.dataset.slide || 0;
+                            initSlider(initionSlide);
+                        }));
+                        initMask();
                         this.open();
                     }
                 });
@@ -8943,7 +8957,9 @@
                         clickable: true,
                         dynamicBullets: 5,
                         renderBullet: function(index, className) {
-                            const slides = document.querySelectorAll(".swiper-slide");
+                            const slides = (() => this.slides)();
+                            console.log("Number of slides:", slides.length);
+                            if (slides.length <= 1) return "";
                             const style = slides[index].getAttribute("style") || "";
                             return `<span class="${className}" style="${style}"></span>`;
                         }
@@ -8969,13 +8985,16 @@
                     spaceBetween: 0,
                     speed: 800,
                     initialSlide: 0,
-                    loop: true,
                     pagination: {
                         el: ".news__pagination",
                         clickable: true,
                         dynamicBullets: 5,
                         renderBullet: function(index, className) {
-                            if (index < 5) return '<span class="' + className + '"></span>'; else return "";
+                            const slides = (() => this.slides)();
+                            console.log("Number of slides:", slides.length);
+                            if (slides.length <= 1) return "";
+                            const style = slides[index].getAttribute("style") || "";
+                            return `<span class="${className}" style="${style}"></span>`;
                         }
                     },
                     navigation: {
@@ -9034,13 +9053,16 @@
                     spaceBetween: 0,
                     speed: 800,
                     initialSlide: 0,
-                    loop: true,
                     pagination: {
                         el: ".review__pagination",
                         clickable: true,
                         dynamicBullets: 5,
                         renderBullet: function(index, className) {
-                            if (index < 5) return '<span class="' + className + '"></span>'; else return "";
+                            const slides = (() => this.slides)();
+                            console.log("Number of slides:", slides.length);
+                            if (slides.length <= 1) return "";
+                            const style = slides[index].getAttribute("style") || "";
+                            return `<span class="${className}" style="${style}"></span>`;
                         }
                     },
                     navigation: {
@@ -10251,6 +10273,11 @@
                 cookiesElement.classList.toggle("_active");
             }));
         }
+        document.addEventListener("click", (function(event) {
+            const searchCatalog = document.querySelector(".js-search");
+            const menuSearch = document.documentElement.classList.contains("menu-search");
+            if (searchCatalog && !searchCatalog.contains(event.target) && !event.target.closest(".search-catalog") && menuSearch) document.documentElement.classList.remove("menu-search");
+        }));
         const animateItems = document.querySelectorAll(".animate-block");
         if (animateItems[0]) animateItems.forEach((element => {
             const items = element.querySelectorAll("[data-watch]");

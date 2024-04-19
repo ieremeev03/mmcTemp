@@ -157,98 +157,242 @@ class Popup {
           `${selector} select`
         );
 
+        const popupSliders = el.querySelectorAll(".swiper"); // Уточните селектор в соответствии с вашими элементами слайдера
+        if (popupSliders.length > 0) {
+          popupSliders.forEach((element) => {
+            let sliderGallery = null; // Объявляем переменную слайдера здесь
+
+            function initSlider(initionSlide) {
+              if (sliderGallery) {
+                sliderGallery.destroy(); // Уничтожаем текущий слайдер, если он существует
+              }
+
+              sliderGallery = new Swiper(".js-slider-gallery", {
+                modules: [Navigation, Pagination],
+                observer: true,
+                observeParents: true,
+                slidesPerView: 1,
+                spaceBetween: 0,
+                initialSlide: initionSlide,
+                centeredSlides: true,
+                // autoHeight: true,
+                speed: 500,
+                // effect: "fade",
+                // fadeEffect: {
+                //   crossFade: true,
+                // },
+                // touchRatio: 0,
+                // simulateTouch: false,
+                // loop: true,
+                //preloadImages: false,
+                //lazy: true,
+
+                /*
+                      effect: 'fade',
+                      autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                      },
+                      */
+
+                pagination: {
+                  el: ".popup__pagging",
+                  clickable: true,
+                  type: "fraction",
+                  // renderBullet: function (index, className) {
+                  //   if (index < 5) {
+                  //     return '<span class="' + className + '"></span>';
+                  //   } else {
+                  //     return ""; // возвращаем пустую строку для индексов больше 4
+                  //   }
+                  // },
+                },
+                /*
+                      scrollbar: {
+                        el: '.swiper-scrollbar',
+                        draggable: true,
+                      },
+                      */
+
+                navigation: {
+                  prevEl: ".popup__arrow--prev",
+                  nextEl: ".popup__arrow--next",
+                },
+                breakpoints: {
+                  320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                  },
+                  640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                  },
+                  768: {
+                    slidesPerView: 1,
+                    spaceBetween: 24,
+                  },
+                  992: {
+                    slidesPerView: 1,
+                    spaceBetween: 24,
+                  },
+                  1268: {
+                    slidesPerView: 1,
+                    spaceBetween: 61,
+                  },
+                },
+                // Используем переменную для инициализации слайдера
+                // Конфигурация слайдера
+                // ...
+                initialSlide: initionSlide, // Устанавливаем начальный слайд
+                on: {
+                  // init: function () {
+                  //   let initionSlide = button.dataset.slide || 0;
+                  //   // Удалить класс swiper-slide-active со всех слайдов
+                  //   this.slides.forEach((slide) => {
+                  //     slide.classList.remove("swiper-slide-active");
+                  //   });
+                  //   // Установить класс swiper-slide-active для начального слайда
+                  //   this.slides[initionSlide].classList.add(
+                  //     "swiper-slide-active"
+                  //   );
+                  //   // Переинициализировать Swiper
+                  //   this.update();
+                  // },
+                  init: function () {
+                    let initionSlide = button.dataset.slide || 0;
+
+                    setTimeout(() => {
+                      // Удалить класс swiper-slide-active со всех слайдов
+                      this.slides.forEach((slide) => {
+                        slide.classList.remove("swiper-slide-active");
+                      });
+
+                      // Установить класс swiper-slide-active для начального слайда
+                      this.slides[initionSlide].classList.add(
+                        "swiper-slide-active"
+                      );
+
+                      // Переинициализировать Swiper
+                      this.update();
+                    }, 100); // Задержка в миллисекундах
+                  },
+                },
+              });
+            }
+
+            let initionSlide = button.dataset.slide || 0; // Получаем начальный слайд из data-атрибута кнопки
+
+            initSlider(initionSlide); // Инициализируем слайдер с начальным слайдом
+
+            // Дополнительный код, если необходимо
+          });
+        }
+
         // initMask();
         flsForms.initMask();
         // initSliders();
-        const popupSliders = el.querySelectorAll(".swiper"); // Adjust the selector based on your slider elements
-        if (popupSliders.length > 0) {
-          // initSliders(".swiper"); // Initialize sliders if they exist within the popup
-          console.log(button);
-          popupSliders.forEach((element) => {
-            let initionSlide = button.dataset.slide || 0; // Set the initial slide index to the value of button.dataset.slide or 0 if undefined
+        // const popupSliders = el.querySelectorAll(".swiper"); // Adjust the selector based on your slider elements
+        // if (popupSliders.length > 0) {
+        //   // initSliders(".swiper"); // Initialize sliders if they exist within the popup
+        //   console.log(button);
+        //   popupSliders.forEach((element) => {
+        //     let initionSlide = button.dataset.slide || 0;
+        //     const sliderGallery = new Swiper(".js-slider-gallery", {
+        //       // Указываем класс нужного слайдера
+        //       // Подключаем модули слайдера
+        //       // для конкретного случая
+        //       modules: [Navigation, Pagination],
+        //       observer: true,
+        //       observeParents: true,
+        //       slidesPerView: 1,
+        //       spaceBetween: 0,
+        //       initialSlide: initionSlide,
+        //       centeredSlides: true,
+        //       // autoHeight: true,
+        //       speed: 500,
+        //       // effect: "fade",
+        //       // fadeEffect: {
+        //       //   crossFade: true,
+        //       // },
+        //       // touchRatio: 0,
+        //       // simulateTouch: false,
+        //       // loop: true,
+        //       //preloadImages: false,
+        //       //lazy: true,
 
-            const sliderGallery = new Swiper(".js-slider-gallery", {
-              // Указываем класс нужного слайдера
-              // Подключаем модули слайдера
-              // для конкретного случая
-              modules: [Navigation, Pagination],
-              observer: true,
-              observeParents: true,
-              slidesPerView: 1,
-              spaceBetween: 0,
-              initialSlide: initionSlide, // Use the initionSlide value as the initialSlide
-              // autoHeight: true,
-              speed: 500,
-              // effect: "fade",
-              // fadeEffect: {
-              //   crossFade: true,
-              // },
-              // touchRatio: 0,
-              // simulateTouch: false,
-              // loop: true,
-              //preloadImages: false,
-              //lazy: true,
+        //       /*
+        //       effect: 'fade',
+        //       autoplay: {
+        //         delay: 3000,
+        //         disableOnInteraction: false,
+        //       },
+        //       */
 
-              /*
-              effect: 'fade',
-              autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-              },
-              */
+        //       pagination: {
+        //         el: ".popup__pagging",
+        //         clickable: true,
+        //         type: "fraction",
+        //         // renderBullet: function (index, className) {
+        //         //   if (index < 5) {
+        //         //     return '<span class="' + className + '"></span>';
+        //         //   } else {
+        //         //     return ""; // возвращаем пустую строку для индексов больше 4
+        //         //   }
+        //         // },
+        //       },
+        //       /*
+        //       scrollbar: {
+        //         el: '.swiper-scrollbar',
+        //         draggable: true,
+        //       },
+        //       */
 
-              pagination: {
-                el: ".popup__pagging",
-                clickable: true,
-                type: "fraction",
-                // renderBullet: function (index, className) {
-                //   if (index < 5) {
-                //     return '<span class="' + className + '"></span>';
-                //   } else {
-                //     return ""; // возвращаем пустую строку для индексов больше 4
-                //   }
-                // },
-              },
-              /*
-              scrollbar: {
-                el: '.swiper-scrollbar',
-                draggable: true,
-              },
-              */
+        //       navigation: {
+        //         prevEl: ".popup__arrow--prev",
+        //         nextEl: ".popup__arrow--next",
+        //       },
+        //       breakpoints: {
+        //         320: {
+        //           slidesPerView: 1,
+        //           spaceBetween: 20,
+        //         },
+        //         640: {
+        //           slidesPerView: 1,
+        //           spaceBetween: 20,
+        //         },
+        //         768: {
+        //           slidesPerView: 1,
+        //           spaceBetween: 24,
+        //         },
+        //         992: {
+        //           slidesPerView: 1,
+        //           spaceBetween: 24,
+        //         },
+        //         1268: {
+        //           slidesPerView: 1,
+        //           spaceBetween: 61,
+        //         },
+        //       },
 
-              navigation: {
-                prevEl: ".popup__arrow--prev",
-                nextEl: ".popup__arrow--next",
-              },
-              breakpoints: {
-                320: {
-                  slidesPerView: 1,
-                  spaceBetween: 20,
-                },
-                640: {
-                  slidesPerView: 1,
-                  spaceBetween: 20,
-                },
-                768: {
-                  slidesPerView: 1,
-                  spaceBetween: 24,
-                },
-                992: {
-                  slidesPerView: 1,
-                  spaceBetween: 24,
-                },
-                1268: {
-                  slidesPerView: 1,
-                  spaceBetween: 61,
-                },
-              },
+        //       on: {
+        //         init: function () {
+        //           setTimeout(() => {
+        //             // Удалить класс swiper-slide-active со всех слайдов
+        //             this.slides.forEach((slide) => {
+        //               slide.classList.remove("swiper-slide-active");
+        //             });
 
-              on: {},
-            });
-            sliderGallery.activeIndex = initionSlide;
-          });
-        }
-        // if (popupSliders) {
+        //             // Установить класс swiper-slide-active для начального слайда
+        //             this.slides[initionSlide].classList.add(
+        //               "swiper-slide-active"
+        //             );
+        //           }, 100);
+        //         },
+        //       },
+        //     });
+        //   });
+        // }
+        // if (slidersInitialized) {
         //   initSliders();
         //   slidersInitialized = true;
         // }

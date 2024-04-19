@@ -245,6 +245,34 @@ if (catalogItems.length > 0) {
   // }
 }
 
+// const catalogSearch = document.querySelectorAll(".js-search");
+
+// if (catalogSearch) {
+//   const catalogClose = document.querySelectorAll(".form__close");
+//   catalogSearch.forEach((item) => {
+//     item.addEventListener("click", function () {
+//       document.documentElement.classList.toggle("menu-search");
+//       menuClose();
+//     });
+//   });
+//   catalogClose.forEach((item) => {
+//     item.addEventListener("click", function () {
+//       document.documentElement.classList.toggle("menu-search");
+//       menuClose();
+//     });
+//   });
+// }
+
+// const cookiesLink = document.querySelector(".main__cookies-link");
+
+// if (cookiesLink) {
+//   const cookiesElement = document.querySelector(".main__cookies");
+//   cookiesLink.addEventListener("click", () => {
+//     cookiesElement.classList.toggle("_active");
+//   });
+// }
+
+//========================================================================================================================================================
 const catalogSearch = document.querySelectorAll(".js-search");
 
 if (catalogSearch) {
@@ -271,6 +299,21 @@ if (cookiesLink) {
     cookiesElement.classList.toggle("_active");
   });
 }
+
+document.addEventListener("click", function (event) {
+  const searchCatalog = document.querySelector(".js-search");
+  const menuSearch = document.documentElement.classList.contains("menu-search");
+
+  if (
+    searchCatalog &&
+    !searchCatalog.contains(event.target) &&
+    !event.target.closest(".search-catalog") &&
+    menuSearch
+  ) {
+    document.documentElement.classList.remove("menu-search");
+  }
+});
+//========================================================================================================================================================
 
 // const animateItems = document.querySelectorAll(".animate-block");
 // if (animateItems[0]) {

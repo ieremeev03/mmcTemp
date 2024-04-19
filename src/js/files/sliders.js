@@ -69,8 +69,21 @@ export function initSliders() {
         el: ".main__pagination",
         clickable: true,
         dynamicBullets: 5,
+        // renderBullet: function (index, className) {
+        //   const slides = document.querySelectorAll(".swiper-slide");
+        //   const style = slides[index].getAttribute("style") || ""; // Получаем стили из атрибута style
+        //   return `<span class="${className}" style="${style}"></span>`;
+        // },
+
         renderBullet: function (index, className) {
-          const slides = document.querySelectorAll(".swiper-slide");
+          const slides = (() => this.slides)(); // Используем функцию-стрелочку для создания замыкания
+
+          console.log("Number of slides:", slides.length); // Отладочный вывод
+
+          if (slides.length <= 1) {
+            return ""; // Не выводить буллит, если всего один слайд
+          }
+
           const style = slides[index].getAttribute("style") || ""; // Получаем стили из атрибута style
           return `<span class="${className}" style="${style}"></span>`;
         },
@@ -139,7 +152,7 @@ export function initSliders() {
       initialSlide: 0,
       // touchRatio: 0,
       // simulateTouch: false,
-      loop: true,
+      // loop: true,
       //preloadImages: false,
       //lazy: true,
 
@@ -155,12 +168,24 @@ export function initSliders() {
         el: ".news__pagination",
         clickable: true,
         dynamicBullets: 5,
+        // renderBullet: function (index, className) {
+        //   if (index < 5) {
+        //     return '<span class="' + className + '"></span>';
+        //   } else {
+        //     return ""; // возвращаем пустую строку для индексов больше 4
+        //   }
+        // },
         renderBullet: function (index, className) {
-          if (index < 5) {
-            return '<span class="' + className + '"></span>';
-          } else {
-            return ""; // возвращаем пустую строку для индексов больше 4
+          const slides = (() => this.slides)(); // Используем функцию-стрелочку для создания замыкания
+
+          console.log("Number of slides:", slides.length); // Отладочный вывод
+
+          if (slides.length <= 1) {
+            return ""; // Не выводить буллит, если всего один слайд
           }
+
+          const style = slides[index].getAttribute("style") || ""; // Получаем стили из атрибута style
+          return `<span class="${className}" style="${style}"></span>`;
         },
         // renderBullet: function (index, className) {
         //   if (index < 5) {
@@ -254,7 +279,7 @@ export function initSliders() {
       initialSlide: 0,
       // touchRatio: 0,
       // simulateTouch: false,
-      loop: true,
+      // loop: true,
       //preloadImages: false,
       //lazy: true,
 
@@ -271,12 +296,24 @@ export function initSliders() {
         clickable: true,
         dynamicBullets: 5,
         renderBullet: function (index, className) {
-          if (index < 5) {
-            return '<span class="' + className + '"></span>';
-          } else {
-            return ""; // возвращаем пустую строку для индексов больше 4
+          const slides = (() => this.slides)(); // Используем функцию-стрелочку для создания замыкания
+
+          console.log("Number of slides:", slides.length); // Отладочный вывод
+
+          if (slides.length <= 1) {
+            return ""; // Не выводить буллит, если всего один слайд
           }
+
+          const style = slides[index].getAttribute("style") || ""; // Получаем стили из атрибута style
+          return `<span class="${className}" style="${style}"></span>`;
         },
+        // renderBullet: function (index, className) {
+        //   if (index < 5) {
+        //     return '<span class="' + className + '"></span>';
+        //   } else {
+        //     return ""; // возвращаем пустую строку для индексов больше 4
+        //   }
+        // },
         // renderBullet: function (index, className) {
         //   if (index < 5) {
         //     return '<span class="' + className + '"></span>';

@@ -681,6 +681,7 @@
       transition: all $time $tr 0s;
       @media (max-width: rem(1420)) {
         --size: 24px;
+        background: cl(primary);
       }
     }
 

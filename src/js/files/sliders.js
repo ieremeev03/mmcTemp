@@ -52,24 +52,28 @@ export function initSliders() {
         disableOnInteraction: true,
       },
 
+      // pagination: {
+      //   el: ".main__pagination",
+      //   clickable: true,
+      //   dynamicBullets: 5,
+      //   renderBullet: function (index, className) {
+      //     if (index < 5) {
+      //       return '<span class="' + className + '"></span>';
+      //     } else {
+      //       return ""; // возвращаем пустую строку для индексов больше 4
+      //     }
+      //   },
+      // },
+
       pagination: {
         el: ".main__pagination",
         clickable: true,
         dynamicBullets: 5,
         renderBullet: function (index, className) {
-          if (index < 5) {
-            return '<span class="' + className + '"></span>';
-          } else {
-            return ""; // возвращаем пустую строку для индексов больше 4
-          }
+          const slides = document.querySelectorAll(".swiper-slide");
+          const style = slides[index].getAttribute("style") || ""; // Получаем стили из атрибута style
+          return `<span class="${className}" style="${style}"></span>`;
         },
-        // renderBullet: function (index, className) {
-        //   if (index < 5) {
-        //     return '<span class="' + className + '"></span>';
-        //   } else {
-        //     return ""; // возвращаем пустую строку для индексов больше 4
-        //   }
-        // },
       },
       /*
 			scrollbar: {

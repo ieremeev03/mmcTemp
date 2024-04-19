@@ -746,6 +746,13 @@ a {
     //   display: none;
     // }
   }
+
+  .js-search {
+    &::before {
+      content: "";
+      background: cl(ble);
+    }
+  }
 }
 
 .search-catalog {

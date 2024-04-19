@@ -134,15 +134,15 @@
   }
 
   .menu-search & {
-    &::after {
-      content: "";
-      background: cl(ble);
-      width: rem(29);
+    // &::after {
+    //   content: "";
+    //   background: cl(ble);
+    //   width: rem(29);
 
-      @media (max-width: rem(1200)) {
-        width: rem(18);
-      }
-    }
+    //   @media (max-width: rem(1200)) {
+    //     width: rem(18);
+    //   }
+    // }
   }
 
   @media (any-hover: hover) {

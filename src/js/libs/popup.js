@@ -25,6 +25,14 @@ import { initSelect } from "./select.js";
 import { flsModules } from "../files/modules.js";
 // import { initSliders } from "../files/sliders.js";
 import Swiper from "swiper";
+
+import {
+  Navigation,
+  Pagination,
+  EffectFade,
+  Thumbs,
+  Autoplay,
+} from "swiper/modules";
 // Клас Popup
 class Popup {
   constructor(options) {
@@ -124,7 +132,7 @@ class Popup {
     this.popupLogging(`Проснулся`);
     this.eventsPopup();
   }
-  async getModal(link, selector) {
+  async getModal(link, selector, button) {
     api.load({
       url: link,
       format: "text",
@@ -154,9 +162,93 @@ class Popup {
         // initSliders();
         const popupSliders = el.querySelectorAll(".swiper"); // Adjust the selector based on your slider elements
         if (popupSliders.length > 0) {
-          initSliders(".swiper"); // Initialize sliders if they exist within the popup
+          // initSliders(".swiper"); // Initialize sliders if they exist within the popup
+          console.log(button);
+          popupSliders.forEach((element) => {
+            let initionSlide = button.dataset.slide || 0; // Set the initial slide index to the value of button.dataset.slide or 0 if undefined
+
+            const sliderGallery = new Swiper(".js-slider-gallery", {
+              // Указываем класс нужного слайдера
+              // Подключаем модули слайдера
+              // для конкретного случая
+              modules: [Navigation, Pagination],
+              observer: true,
+              observeParents: true,
+              slidesPerView: 1,
+              spaceBetween: 0,
+              initialSlide: initionSlide, // Use the initionSlide value as the initialSlide
+              // autoHeight: true,
+              speed: 500,
+              // effect: "fade",
+              // fadeEffect: {
+              //   crossFade: true,
+              // },
+              // touchRatio: 0,
+              // simulateTouch: false,
+              // loop: true,
+              //preloadImages: false,
+              //lazy: true,
+
+              /*
+              effect: 'fade',
+              autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+              },
+              */
+
+              pagination: {
+                el: ".popup__pagging",
+                clickable: true,
+                type: "fraction",
+                // renderBullet: function (index, className) {
+                //   if (index < 5) {
+                //     return '<span class="' + className + '"></span>';
+                //   } else {
+                //     return ""; // возвращаем пустую строку для индексов больше 4
+                //   }
+                // },
+              },
+              /*
+              scrollbar: {
+                el: '.swiper-scrollbar',
+                draggable: true,
+              },
+              */
+
+              navigation: {
+                prevEl: ".popup__arrow--prev",
+                nextEl: ".popup__arrow--next",
+              },
+              breakpoints: {
+                320: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                640: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 1,
+                  spaceBetween: 24,
+                },
+                992: {
+                  slidesPerView: 1,
+                  spaceBetween: 24,
+                },
+                1268: {
+                  slidesPerView: 1,
+                  spaceBetween: 61,
+                },
+              },
+
+              on: {},
+            });
+            sliderGallery.activeIndex = initionSlide;
+          });
         }
-        // if (slidersInitialized) {
+        // if (popupSliders) {
         //   initSliders();
         //   slidersInitialized = true;
         // }
@@ -186,7 +278,7 @@ class Popup {
           )
             ? buttonOpen.getAttribute(this.options.youtubeAttribute)
             : null;
-          await this.getModal(e.target.href, this._dataValue);
+          await this.getModal(e.target.href, this._dataValue, e.target);
           if (this._dataValue !== "error") {
             if (!this.isOpen) this.lastFocusEl = buttonOpen;
             this.targetOpen.selector = `${this._dataValue}`;
@@ -440,7 +532,8 @@ class Popup {
     if (button) {
       await this.getModal(
         button.href,
-        button.getAttribute(this.options.attributeOpenButton)
+        button.getAttribute(this.options.attributeOpenButton),
+        button
       ).then(() => {
         this.open(button.getAttribute(this.options.attributeOpenButton));
       });

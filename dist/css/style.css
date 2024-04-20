@@ -718,7 +718,7 @@ body::after {
 }
 
 .popup__slider {
-  height: 28.375rem;
+  height: 34.375rem;
 }
 
 .popup__swiper {
@@ -732,11 +732,11 @@ body::after {
 }
 
 .popup__slide .popup__slide-img {
-  height: 26.375rem;
+  height: 25rem;
 }
 
 .popup__slide.swiper-slide-active .popup__slide-img {
-  height: 28.375rem;
+  height: 34.375rem;
 }
 
 .popup__slide-img {

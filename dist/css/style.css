@@ -5898,7 +5898,7 @@ input[type=date] {
   .header__logo img,
   .header__logo picture {
     width: 12.5625rem;
-    height: 3.375rem;
+    height: 3rem;
   }
 
   .header__info {
@@ -6411,8 +6411,8 @@ input[type=date] {
 
   .header__logo img,
   .header__logo picture {
-    width: 12.5rem;
-    height: 3.375rem;
+    width: 8.75rem;
+    height: 2.375rem;
     margin-top: -0.3125rem;
   }
 

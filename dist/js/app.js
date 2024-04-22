@@ -10588,6 +10588,22 @@
                 title.click();
             }));
         }));
+        document.addEventListener("DOMContentLoaded", (function() {
+            var iconMenu = document.querySelector(".icon-menu");
+            var scrolledToTop = true;
+            if (iconMenu && window.innerWidth >= 1500) {
+                iconMenu.click();
+                window.addEventListener("scroll", (function() {
+                    if (window.scrollY === 0) {
+                        scrolledToTop = true;
+                        if (iconMenu && scrolledToTop) {
+                            iconMenu.click();
+                            scrolledToTop = false;
+                        }
+                    }
+                }));
+            }
+        }));
         window["FLS"] = true;
         isWebp();
         addLoadedClass();

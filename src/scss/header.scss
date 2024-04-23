@@ -291,16 +291,19 @@
       @media (max-width: rem(1800)) {
         // width: rem(201);
         width: rem(200);
-        // height: rem(54);
-        height: rem(47);
+        height: rem(54);
+        // height: rem(47);
         object-fit: contain;
       }
 
       @media (max-width: rem(1420)) {
-        width: rem(140);
+        // width: rem(140);
         // height: rem(54);
-        height: rem(38);
+        // height: rem(38);
+        width: rem(200);
+        height: rem(54);
         margin-top: rem(-5);
+        object-fit: cover;
       }
 
       @media (max-width: rem(1200)) {
@@ -332,6 +335,8 @@
     @media (max-width: rem(1800)) {
       gap: rem(53);
       padding-right: rem(0);
+      width: 100%;
+      justify-content: center;
     }
 
     @media (max-width: rem(1420)) {
@@ -356,6 +361,7 @@
 
     @media (max-width: rem(1800)) {
       gap: rem(60);
+      width: 100%;
     }
 
     @media (max-width: rem(1420)) {
@@ -658,6 +664,7 @@
     align-items: center;
     gap: rem(8);
 
+    white-space: nowrap;
     transition: all $time $tr 0s;
 
     @media (max-width: rem(1800)) {

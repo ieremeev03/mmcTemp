@@ -2412,6 +2412,7 @@ input[type=date] {
       -ms-flex-align: center;
           align-items: center;
   gap: 0.5rem;
+  white-space: nowrap;
   -webkit-transition: all 0.3s ease-in 0s;
   transition: all 0.3s ease-in 0s;
 }
@@ -5898,7 +5899,7 @@ input[type=date] {
   .header__logo img,
   .header__logo picture {
     width: 12.5rem;
-    height: 2.9375rem;
+    height: 3.375rem;
     -o-object-fit: contain;
        object-fit: contain;
   }
@@ -5906,10 +5907,15 @@ input[type=date] {
   .header__info {
     gap: 3.3125rem;
     padding-right: 0rem;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   .header__content {
     gap: 3.75rem;
+    width: 100%;
   }
 
   .header__link {
@@ -6413,9 +6419,11 @@ input[type=date] {
 
   .header__logo img,
   .header__logo picture {
-    width: 8.75rem;
-    height: 2.375rem;
+    width: 12.5rem;
+    height: 3.375rem;
     margin-top: -0.3125rem;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 
   .header__info {

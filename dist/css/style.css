@@ -5897,8 +5897,10 @@ input[type=date] {
 
   .header__logo img,
   .header__logo picture {
-    width: 12.5625rem;
-    height: 3rem;
+    width: 12.5rem;
+    height: 2.9375rem;
+    -o-object-fit: contain;
+       object-fit: contain;
   }
 
   .header__info {

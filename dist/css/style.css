@@ -5875,11 +5875,11 @@ input[type=date] {
   }
 
   .catalog {
-    top: 6.625rem;
+    top: 5.875rem;
   }
 
   .search-catalog {
-    top: 6.625rem;
+    top: 5.875rem;
   }
 
   .breadcrumb {
@@ -5887,7 +5887,7 @@ input[type=date] {
   }
 
   .header {
-    padding: 1.25rem 0rem 2.6875rem;
+    padding: 1.25rem 0rem 1.25rem;
   }
 
   .header::before {
@@ -5908,9 +5908,9 @@ input[type=date] {
     gap: 3.3125rem;
     padding-right: 0rem;
     width: 100%;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
   }
 
   .header__content {
@@ -6075,6 +6075,10 @@ input[type=date] {
 }
 
 @media (max-width: 112.5em) {
+  .header__container {
+    gap: 3.375rem;
+  }
+
   .record.record--two .record__img {
     left: 100%;
   }
@@ -6096,6 +6100,14 @@ input[type=date] {
 @media (max-width: 93.75em) {
   [class*=__container] {
     --pad: 41px;
+  }
+
+  .catalog {
+    top: 6.75rem;
+  }
+
+  .search-catalog {
+    top: 6.75rem;
   }
 
   .header__row--two {
@@ -6333,7 +6345,7 @@ input[type=date] {
   }
 
   .catalog {
-    top: 7.6875rem;
+    top: 7.375rem;
     overflow: auto;
     height: calc(100% - 7.6875rem);
   }
@@ -6402,7 +6414,7 @@ input[type=date] {
   }
 
   .search-catalog {
-    top: 7.6875rem;
+    top: 7.375rem;
   }
 
   .breadcrumb {
@@ -6410,7 +6422,7 @@ input[type=date] {
   }
 
   .header {
-    padding: 2.125rem 0rem 1.8125rem;
+    padding: 1.8125rem 0rem 1.8125rem;
   }
 
   .header__container {
@@ -6780,10 +6792,6 @@ input[type=date] {
 
   .header {
     padding: 1rem 0rem;
-  }
-
-  .header__container {
-    gap: 6.25rem;
   }
 
   .header__logo img,

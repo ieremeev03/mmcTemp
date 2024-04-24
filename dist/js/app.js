@@ -10274,9 +10274,13 @@
             }));
         }
         document.addEventListener("click", (function(event) {
-            const searchCatalog = document.querySelector(".js-search");
+            const searchCatalogs = document.querySelectorAll(".js-search");
             const menuSearch = document.documentElement.classList.contains("menu-search");
-            if (searchCatalog && !searchCatalog.contains(event.target) && !event.target.closest(".search-catalog") && menuSearch) document.documentElement.classList.remove("menu-search");
+            let isInsideSearchCatalog = false;
+            searchCatalogs.forEach((searchCatalog => {
+                if (searchCatalog && searchCatalog.contains(event.target) && !event.target.closest(".search-catalog")) isInsideSearchCatalog = true;
+            }));
+            if (!isInsideSearchCatalog && menuSearch) document.documentElement.classList.remove("menu-search");
         }));
         const animateItems = document.querySelectorAll(".animate-block");
         if (animateItems[0]) animateItems.forEach((element => {

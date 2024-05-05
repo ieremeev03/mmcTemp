@@ -10595,7 +10595,7 @@
         document.addEventListener("DOMContentLoaded", (function() {
             var iconMenu = document.querySelector(".icon-menu");
             var scrolledToTop = true;
-            if (iconMenu && window.innerWidth >= 1500) {
+            if (iconMenu && window.innerWidth >= 1430) {
                 iconMenu.click();
                 window.addEventListener("scroll", (function() {
                     if (window.scrollY === 0) {
